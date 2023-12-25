@@ -7,6 +7,15 @@ package id.ac.unpas.techIn.pelanggan;
 import java.util.List;
 import javax.swing.JTextField;
 import id.ac.unpas.techIn.dao.PelangganDao;
+import id.ac.unpas.techIn.frame.PermintaanFrame;
+import java.awt.Dimension;
+import java.awt.FlowLayout;
+import java.awt.GridLayout;
+import javax.swing.Box;
+import javax.swing.BoxLayout;
+import javax.swing.JPanel;
+import javax.swing.JScrollPane;
+import javax.swing.plaf.basic.BasicScrollBarUI;
 
 /**
  *
@@ -32,7 +41,18 @@ public class PelangganFrame2
         // this.jenisMemberList diberikan nilai dari data jenis member yang didapat dari database
         this.pelangganList = this.pelangganDao.findAll();
         this.PelangganModelTable = new PelangganModelTable(pelangganList);
+        
         initComponents();
+        
+        jPanel3.setLayout(new BoxLayout(jPanel3,
+                BoxLayout.Y_AXIS));
+        for (Pelanggan pelanggan : pelangganList) {
+            PermintaanFrame permintaan = new PermintaanFrame();
+            permintaan.setPanelData(pelanggan);
+            jPanel3.add(permintaan.getFrame());
+        }
+        jScrollPane1.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
+        jScrollPane1.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_AS_NEEDED);  
     }
 
     /**
@@ -56,8 +76,12 @@ public class PelangganFrame2
         buttonSimpan = new javax.swing.JButton();
         textFieldNama = new javax.swing.JTextField();
         textFieldAlamat = new javax.swing.JTextField();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jPanel3 = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        jTabbedPane1.setTabLayoutPolicy(javax.swing.JTabbedPane.SCROLL_TAB_LAYOUT);
 
         jTable1.setModel(PelangganModelTable);
         jScrollPane2.setViewportView(jTable1);
@@ -71,8 +95,8 @@ public class PelangganFrame2
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel1)
-                .addContainerGap(735, Short.MAX_VALUE))
-            .addComponent(jScrollPane2)
+                .addContainerGap(583, Short.MAX_VALUE))
+            .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 644, Short.MAX_VALUE)
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -81,7 +105,7 @@ public class PelangganFrame2
                 .addComponent(jLabel1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(44, Short.MAX_VALUE))
+                .addContainerGap(290, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("Show", jPanel1);
@@ -105,21 +129,22 @@ public class PelangganFrame2
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(buttonSimpan)
-                    .addComponent(labelAlamat)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addComponent(buttonSimpan)
+                        .addComponent(labelAlamat)
+                        .addComponent(textFieldNama)
+                        .addComponent(textFieldAlamat, javax.swing.GroupLayout.DEFAULT_SIZE, 177, Short.MAX_VALUE))
                     .addComponent(jLabel2)
-                    .addComponent(labelNama)
-                    .addComponent(textFieldNama)
-                    .addComponent(textFieldAlamat, javax.swing.GroupLayout.DEFAULT_SIZE, 177, Short.MAX_VALUE))
-                .addContainerGap(613, Short.MAX_VALUE))
+                    .addComponent(labelNama))
+                .addContainerGap(461, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addContainerGap()
+                .addGap(44, 44, 44)
                 .addComponent(jLabel2)
-                .addGap(30, 30, 30)
+                .addGap(98, 98, 98)
                 .addComponent(labelNama)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(textFieldNama, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -129,10 +154,25 @@ public class PelangganFrame2
                 .addComponent(textFieldAlamat, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(15, 15, 15)
                 .addComponent(buttonSimpan)
-                .addContainerGap(278, Short.MAX_VALUE))
+                .addContainerGap(418, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("Add", jPanel2);
+
+        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
+        jPanel3.setLayout(jPanel3Layout);
+        jPanel3Layout.setHorizontalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 642, Short.MAX_VALUE)
+        );
+        jPanel3Layout.setVerticalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 718, Short.MAX_VALUE)
+        );
+
+        jScrollPane1.setViewportView(jPanel3);
+
+        jTabbedPane1.addTab("Permintaan", jScrollPane1);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -145,8 +185,8 @@ public class PelangganFrame2
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jTabbedPane1)
                 .addContainerGap())
         );
@@ -154,22 +194,13 @@ public class PelangganFrame2
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    // Method untuk menambahkan biodata ke tableModel
-    public void addBiodata(Pelanggan pelanggan) {
-        // Tambahkan biodata ke tableModel
-        PelangganModelTable.add(pelanggan);
-        // Kembalikan isi textFieldNama ke kondisi kosong
-        textFieldNama.setText("");
-        textFieldAlamat.setText("");
-    }
-    
     private void buttonSimpanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonSimpanActionPerformed
         // TODO add your handling code here:
         // Variable nama untuk menyimpan nilai dari objek textFieldNama (nama)
         String nama = this.textFieldNama.getText();
         // Variable alamat untuk menyimpan nilai dari objek txtOutput (alamat)
         String alamat = this.textFieldAlamat.getText();
-        
+
         // Instansiasi objek biodata dengan nama biodata
         Pelanggan pelanggan = new Pelanggan();
 
@@ -182,6 +213,15 @@ public class PelangganFrame2
         this.addBiodata(pelanggan);
     }//GEN-LAST:event_buttonSimpanActionPerformed
 
+    // Method untuk menambahkan biodata ke tableModel
+    public void addBiodata(Pelanggan pelanggan) {
+        // Tambahkan biodata ke tableModel
+        PelangganModelTable.add(pelanggan);
+        // Kembalikan isi textFieldNama ke kondisi kosong
+        textFieldNama.setText("");
+        textFieldAlamat.setText("");
+    }
+    
     /**
      * @param args the command line arguments
      */
@@ -192,6 +232,8 @@ public class PelangganFrame2
     private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel3;
+    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JTable jTable1;

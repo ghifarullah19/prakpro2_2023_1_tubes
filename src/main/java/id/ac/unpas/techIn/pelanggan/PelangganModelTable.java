@@ -2,11 +2,12 @@ package id.ac.unpas.techIn.pelanggan;
 
 import javax.swing.table.*;
 import java.util.List;
+import javax.swing.JButton;
 
 // Membuat class ModelTable yang mewarisi class AbstractTableModel untuk membuat model tabel
 public class PelangganModelTable extends AbstractTableModel {
     // Array columnNames untuk menyimpan nama-nama kolom
-    private String[] columnNames = { "Nama", "Alamat" };
+    private String[] columnNames = { "Nama", "Alamat", "Aksi" };
     // Membuat List dengan nama data yang berisi Biodata untuk menyimpan data dari input
     private List<Pelanggan> data;
 
