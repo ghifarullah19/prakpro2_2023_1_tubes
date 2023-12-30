@@ -2,57 +2,59 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
-package id.ac.unpas.techIn.pelanggan;
+package id.ac.unpas.techIn.permintaan;
 
+import id.ac.unpas.techIn.permintaan.*;
 import java.util.List;
 import javax.swing.JTextField;
-import id.ac.unpas.techIn.dao.PelangganDao;
+import id.ac.unpas.techIn.dao.PermintaanDao;
 import id.ac.unpas.techIn.frame.PermintaanFrame;
+import java.awt.BorderLayout;
 import java.awt.Dimension;
 import java.awt.FlowLayout;
+import java.awt.GridBagConstraints;
+import java.awt.GridBagLayout;
 import java.awt.GridLayout;
 import javax.swing.Box;
 import javax.swing.BoxLayout;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.plaf.basic.BasicScrollBarUI;
+import org.netbeans.lib.awtextra.AbsoluteLayout;
 
 /**
  *
  * @author ghifarullah19
  */
-public class PelangganFrame2
+public class CardPermintaan
         extends javax.swing.JFrame {
     
     // jenisMemberList adalah variabel yang digunakan untuk menyimpan data jenis member
-    private List<Pelanggan> pelangganList;
+    private List<Permintaan> permintaanList;
     
     // jenisMemberDao adalah variabel yang digunakan untuk menyimpan data jenis member yang didapat dari database
-    private PelangganDao pelangganDao;
-    
-    private PelangganModelTable PelangganModelTable;
+    private PermintaanDao permintaanDao;
 
     /**
-     * Creates new form PelangganFrame2
+     * Creates new form PermintaanFrame2
      */
-    public PelangganFrame2(PelangganDao pelangganDao) {
+    public CardPermintaan(PermintaanDao permintaanDao) {
         // this.jenisMemberDao diberikan nilai dari parameter jenisMemberDao
-        this.pelangganDao = pelangganDao;
+        this.permintaanDao = permintaanDao;
         // this.jenisMemberList diberikan nilai dari data jenis member yang didapat dari database
-        this.pelangganList = this.pelangganDao.findAll();
-        this.PelangganModelTable = new PelangganModelTable(pelangganList);
+        this.permintaanList = this.permintaanDao.findAll();
         
         initComponents();
         
-        jPanel3.setLayout(new BoxLayout(jPanel3,
-                BoxLayout.Y_AXIS));
-        for (Pelanggan pelanggan : pelangganList) {
+        showPermintaanPane.setLayout(new BoxLayout(showPermintaanPane, BoxLayout.PAGE_AXIS));
+        
+        for (int i = 0; i < permintaanList.size(); i++) {
             PermintaanFrame permintaan = new PermintaanFrame();
-            permintaan.setPanelData(pelanggan);
-            jPanel3.add(permintaan.getFrame());
+            permintaan.setPanelData(permintaanList.get(i));
+            showPermintaanPane.add(permintaan.getFrame());
         }
-        jScrollPane1.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
-        jScrollPane1.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_AS_NEEDED);  
+        
+        showPermintaanScrollPane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED);
     }
 
     /**
@@ -65,10 +67,6 @@ public class PelangganFrame2
     private void initComponents() {
 
         jTabbedPane1 = new javax.swing.JTabbedPane();
-        jPanel1 = new javax.swing.JPanel();
-        jScrollPane2 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
-        jLabel1 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         labelNama = new javax.swing.JLabel();
@@ -76,41 +74,16 @@ public class PelangganFrame2
         buttonSimpan = new javax.swing.JButton();
         textFieldNama = new javax.swing.JTextField();
         textFieldAlamat = new javax.swing.JTextField();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        jPanel3 = new javax.swing.JPanel();
+        labelStatus = new javax.swing.JLabel();
+        textFieldStatus = new javax.swing.JTextField();
+        showPermintaanScrollPane = new javax.swing.JScrollPane();
+        showPermintaanPane = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jTabbedPane1.setTabLayoutPolicy(javax.swing.JTabbedPane.SCROLL_TAB_LAYOUT);
 
-        jTable1.setModel(PelangganModelTable);
-        jScrollPane2.setViewportView(jTable1);
-
-        jLabel1.setText("Pelanggan");
-
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel1)
-                .addContainerGap(583, Short.MAX_VALUE))
-            .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 644, Short.MAX_VALUE)
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(290, Short.MAX_VALUE))
-        );
-
-        jTabbedPane1.addTab("Show", jPanel1);
-
-        jLabel2.setText("Pelanggan Add");
+        jLabel2.setText("Permintaan Add");
 
         labelNama.setText("Nama");
 
@@ -123,56 +96,77 @@ public class PelangganFrame2
             }
         });
 
+        textFieldNama.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                textFieldNamaActionPerformed(evt);
+            }
+        });
+
+        textFieldAlamat.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                textFieldAlamatActionPerformed(evt);
+            }
+        });
+
+        labelStatus.setText("Status");
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
+                .addComponent(jLabel2)
+                .addGap(0, 458, Short.MAX_VALUE))
+            .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(buttonSimpan)
-                        .addComponent(labelAlamat)
-                        .addComponent(textFieldNama)
-                        .addComponent(textFieldAlamat, javax.swing.GroupLayout.DEFAULT_SIZE, 177, Short.MAX_VALUE))
-                    .addComponent(jLabel2)
-                    .addComponent(labelNama))
-                .addContainerGap(461, Short.MAX_VALUE))
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(buttonSimpan)
+                    .addComponent(labelAlamat)
+                    .addComponent(textFieldNama)
+                    .addComponent(textFieldAlamat, javax.swing.GroupLayout.DEFAULT_SIZE, 177, Short.MAX_VALUE)
+                    .addComponent(labelNama)
+                    .addComponent(labelStatus)
+                    .addComponent(textFieldStatus))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(44, 44, 44)
+                .addGap(14, 14, 14)
                 .addComponent(jLabel2)
-                .addGap(98, 98, 98)
+                .addGap(18, 18, 18)
                 .addComponent(labelNama)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(textFieldNama, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(12, 12, 12)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(labelAlamat)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(textFieldAlamat, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(15, 15, 15)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(labelStatus)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(textFieldStatus, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(buttonSimpan)
-                .addContainerGap(418, Short.MAX_VALUE))
+                .addContainerGap(222, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("Add", jPanel2);
 
-        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
-        jPanel3.setLayout(jPanel3Layout);
-        jPanel3Layout.setHorizontalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 642, Short.MAX_VALUE)
+        javax.swing.GroupLayout showPermintaanPaneLayout = new javax.swing.GroupLayout(showPermintaanPane);
+        showPermintaanPane.setLayout(showPermintaanPaneLayout);
+        showPermintaanPaneLayout.setHorizontalGroup(
+            showPermintaanPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 688, Short.MAX_VALUE)
         );
-        jPanel3Layout.setVerticalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 718, Short.MAX_VALUE)
+        showPermintaanPaneLayout.setVerticalGroup(
+            showPermintaanPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 730, Short.MAX_VALUE)
         );
 
-        jScrollPane1.setViewportView(jPanel3);
+        showPermintaanScrollPane.setViewportView(showPermintaanPane);
 
-        jTabbedPane1.addTab("Permintaan", jScrollPane1);
+        jTabbedPane1.addTab("Show", showPermintaanScrollPane);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -180,47 +174,51 @@ public class PelangganFrame2
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jTabbedPane1)
+                .addComponent(jTabbedPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 543, Short.MAX_VALUE)
                 .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jTabbedPane1)
-                .addContainerGap())
+            .addComponent(jTabbedPane1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 490, Short.MAX_VALUE)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void textFieldNamaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textFieldNamaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_textFieldNamaActionPerformed
 
     private void buttonSimpanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonSimpanActionPerformed
         // TODO add your handling code here:
         // Variable nama untuk menyimpan nilai dari objek textFieldNama (nama)
         String nama = this.textFieldNama.getText();
         // Variable alamat untuk menyimpan nilai dari objek txtOutput (alamat)
-        String alamat = this.textFieldAlamat.getText();
+        String alamat = this.textFieldAlamat.getText();// Variable alamat untuk menyimpan nilai dari objek txtOutput (alamat)
+        String tempStatus = this.textFieldStatus.getText();
 
+        boolean status = false;
+        
+        if (tempStatus.equalsIgnoreCase("1")) {
+            status = true;
+        }
+        
         // Instansiasi objek biodata dengan nama biodata
-        Pelanggan pelanggan = new Pelanggan();
+        Permintaan permintaan = new Permintaan();
 
         // Set nama biodata dengan nilai dari variable nama
-        pelanggan.setNama(nama);
+        permintaan.setNama(nama);
         // Set alamat biodata dengan nilai dari variable alamat
-        pelanggan.setAlamat(alamat);
+        permintaan.setAlamat(alamat);
+        permintaan.setStatus(status);
 
-        this.pelangganDao.insert(pelanggan);
-        this.addBiodata(pelanggan);
+        this.permintaanDao.insert(permintaan);
     }//GEN-LAST:event_buttonSimpanActionPerformed
 
-    // Method untuk menambahkan biodata ke tableModel
-    public void addBiodata(Pelanggan pelanggan) {
-        // Tambahkan biodata ke tableModel
-        PelangganModelTable.add(pelanggan);
-        // Kembalikan isi textFieldNama ke kondisi kosong
-        textFieldNama.setText("");
-        textFieldAlamat.setText("");
-    }
+    private void textFieldAlamatActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textFieldAlamatActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_textFieldAlamatActionPerformed
+
     
     /**
      * @param args the command line arguments
@@ -228,18 +226,16 @@ public class PelangganFrame2
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton buttonSimpan;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
-    private javax.swing.JPanel jPanel3;
-    private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTabbedPane jTabbedPane1;
-    private javax.swing.JTable jTable1;
     private javax.swing.JLabel labelAlamat;
     private javax.swing.JLabel labelNama;
+    private javax.swing.JLabel labelStatus;
+    private javax.swing.JPanel showPermintaanPane;
+    private javax.swing.JScrollPane showPermintaanScrollPane;
     private javax.swing.JTextField textFieldAlamat;
     private javax.swing.JTextField textFieldNama;
+    private javax.swing.JTextField textFieldStatus;
     // End of variables declaration//GEN-END:variables
 }
