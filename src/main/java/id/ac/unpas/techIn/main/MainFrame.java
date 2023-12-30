@@ -5,7 +5,9 @@
 package id.ac.unpas.techIn.main;
 
 import id.ac.unpas.techIn.dao.PelangganDao;
-import id.ac.unpas.techIn.pelanggan.PelangganFrame2;
+import id.ac.unpas.techIn.dao.PermintaanDao;
+import id.ac.unpas.techIn.pelanggan.PelangganFrame;
+import id.ac.unpas.techIn.permintaan.CardPermintaan;
 
 /**
  *
@@ -14,8 +16,10 @@ import id.ac.unpas.techIn.pelanggan.PelangganFrame2;
 public class MainFrame
         extends javax.swing.JFrame {
 
-    private PelangganFrame2 pelangganFrame;
+    private PelangganFrame pelangganFrame;
+    private CardPermintaan permintaanFrame;
     private PelangganDao pelangganDao;
+    private PermintaanDao permintaanDao;
     
     /**
      * Creates new form MainFrame
@@ -37,7 +41,7 @@ public class MainFrame
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        cobaShowPelanggan.setText("Pelanggan");
+        cobaShowPelanggan.setText("Permintaan");
         cobaShowPelanggan.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cobaShowPelangganActionPerformed(evt);
@@ -51,7 +55,7 @@ public class MainFrame
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(cobaShowPelanggan)
-                .addContainerGap(309, Short.MAX_VALUE))
+                .addContainerGap(305, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -67,11 +71,13 @@ public class MainFrame
     private void cobaShowPelangganActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cobaShowPelangganActionPerformed
         // TODO add your handling code here:
         pelangganDao = new PelangganDao();
+        permintaanDao = new PermintaanDao();
         // menampilkan frame jenis member dengan parameter jenisMemberDao
-        pelangganFrame = new PelangganFrame2(pelangganDao);
+        pelangganFrame = new PelangganFrame(pelangganDao);
+        permintaanFrame = new CardPermintaan(permintaanDao);
         
         // frame jenis member akan ditampilkan
-        pelangganFrame.setVisible(true);
+        permintaanFrame.setVisible(true);
     }//GEN-LAST:event_cobaShowPelangganActionPerformed
 
     /**

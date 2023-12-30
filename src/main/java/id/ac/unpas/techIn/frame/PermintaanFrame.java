@@ -5,6 +5,8 @@
 package id.ac.unpas.techIn.frame;
 
 import id.ac.unpas.techIn.pelanggan.Pelanggan;
+import id.ac.unpas.techIn.permintaan.Permintaan;
+import java.awt.Color;
 import java.awt.Image;
 import javax.swing.ImageIcon;
 import javax.swing.JPanel;
@@ -22,26 +24,35 @@ public class PermintaanFrame
     public PermintaanFrame() {
         
         initComponents();
-        iconMaps.setText("");
-        iconMaps.setIcon(imageIcon("\\C:\\Users\\ghifarullah19\\Downloads\\tugas_web_psbo\\img\\maps.png",
-                70,
-                70));
         
-        iconStatus.setText("");
-        iconStatus.setIcon(imageIcon("C:\\Users\\ghifarullah19\\Downloads\\my-svg.png",
-                26,
-                26));
     }
-    
-    
     
     public JPanel getFrame() {
         return this.permintaanPanel;
     }
     
-    public void setPanelData(Pelanggan pelanggan) {
+    public void setPanelData(Permintaan pelanggan) {
         namaKurir.setText(pelanggan.getNama());
         alamatPenjemputan.setText(pelanggan.getAlamat());
+        
+        iconMaps.setText("");
+        iconMaps.setIcon(imageIcon("\\C:\\Users\\ghifarullah19\\Downloads\\tugas_web_psbo\\img\\maps.png",
+                70,
+                70));
+        
+        if (pelanggan.getStatus()) {
+            iconStatus.setText("");
+            iconStatus.setIcon(imageIcon("C:\\Users\\ghifarullah19\\Downloads\\my-svg.png",
+                    26,
+                    26));
+        } else {
+            buttonDetail.setText("Menunggu");
+            buttonDetail.setBackground(Color.red);
+            iconStatus.setText("");
+            iconStatus.setIcon(imageIcon("C:\\Users\\ghifarullah19\\Downloads\\my-svg-red.png",
+                    26,
+                    26));
+        }
     }
     
     public ImageIcon imageIcon(String imageURL, int height, int width) {
@@ -92,6 +103,7 @@ public class PermintaanFrame
         permintaanPanel.setBackground(new java.awt.Color(255, 255, 255));
         permintaanPanel.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true));
         permintaanPanel.setForeground(new java.awt.Color(0, 102, 204));
+        permintaanPanel.setMaximumSize(new java.awt.Dimension(556, 131));
 
         buttonDetail.setBackground(new java.awt.Color(0, 204, 0));
         buttonDetail.setForeground(new java.awt.Color(255, 255, 255));
@@ -156,7 +168,7 @@ public class PermintaanFrame
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(permintaanPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(permintaanPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)

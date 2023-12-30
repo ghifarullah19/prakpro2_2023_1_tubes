@@ -26,7 +26,7 @@
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace max="-2" attributes="0"/>
               <Component id="cobaShowPelanggan" min="-2" max="-2" attributes="0"/>
-              <EmptySpace pref="309" max="32767" attributes="0"/>
+              <EmptySpace pref="305" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -43,7 +43,7 @@
   <SubComponents>
     <Component class="javax.swing.JButton" name="cobaShowPelanggan">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Pelanggan"/>
+        <Property name="text" type="java.lang.String" value="Permintaan"/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="cobaShowPelangganActionPerformed"/>
