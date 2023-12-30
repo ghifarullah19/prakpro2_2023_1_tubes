@@ -2,9 +2,8 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
-package id.ac.unpas.techIn.frame;
+package id.ac.unpas.techIn.permintaan;
 
-import id.ac.unpas.techIn.pelanggan.Pelanggan;
 import id.ac.unpas.techIn.permintaan.Permintaan;
 import java.awt.Color;
 import java.awt.Image;
@@ -15,14 +14,13 @@ import javax.swing.JPanel;
  *
  * @author ghifarullah19
  */
-public class PermintaanFrame
+public class PermintaanCard
         extends javax.swing.JFrame {
 
     /**
      * Creates new form PermintaanFrame
      */
-    public PermintaanFrame() {
-        
+    public PermintaanCard() {
         initComponents();
         
     }
@@ -138,7 +136,7 @@ public class PermintaanFrame
                         .addComponent(iconMaps, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(28, 28, 28)
                         .addComponent(alamatPenjemputan)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 238, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 145, Short.MAX_VALUE)
                         .addComponent(buttonDetail))
                     .addGroup(permintaanPanelLayout.createSequentialGroup()
                         .addGap(14, 14, 14)
@@ -202,32 +200,35 @@ public class PermintaanFrame
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(PermintaanFrame.class.getName()).
+            java.util.logging.Logger.getLogger(PermintaanCard.class.getName()).
                     log(java.util.logging.Level.SEVERE,
                             null,
                             ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(PermintaanFrame.class.getName()).
+            java.util.logging.Logger.getLogger(PermintaanCard.class.getName()).
                     log(java.util.logging.Level.SEVERE,
                             null,
                             ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(PermintaanFrame.class.getName()).
+            java.util.logging.Logger.getLogger(PermintaanCard.class.getName()).
                     log(java.util.logging.Level.SEVERE,
                             null,
                             ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(PermintaanFrame.class.getName()).
+            java.util.logging.Logger.getLogger(PermintaanCard.class.getName()).
                     log(java.util.logging.Level.SEVERE,
                             null,
                             ex);
         }
         //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
         
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new PermintaanFrame().setVisible(true);
+                new PermintaanCard().setVisible(true);
             }
         });
     }

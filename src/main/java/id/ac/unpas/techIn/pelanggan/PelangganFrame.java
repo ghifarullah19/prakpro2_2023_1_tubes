@@ -7,7 +7,7 @@ package id.ac.unpas.techIn.pelanggan;
 import java.util.List;
 import javax.swing.JTextField;
 import id.ac.unpas.techIn.dao.PelangganDao;
-import id.ac.unpas.techIn.frame.PermintaanFrame;
+import id.ac.unpas.techIn.permintaan.PermintaanCard;
 import java.awt.Dimension;
 import java.awt.FlowLayout;
 import java.awt.GridLayout;
