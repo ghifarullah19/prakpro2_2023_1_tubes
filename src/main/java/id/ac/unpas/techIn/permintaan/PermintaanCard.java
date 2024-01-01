@@ -114,7 +114,7 @@ public class PermintaanCard
 
         namaKurir.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         namaKurir.setForeground(new java.awt.Color(0, 102, 204));
-        namaKurir.setText("namaKurir");
+        namaKurir.setText("namaPelanggan");
 
         alamatPenjemputan.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         alamatPenjemputan.setForeground(new java.awt.Color(0, 102, 204));
@@ -130,18 +130,18 @@ public class PermintaanCard
             permintaanPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jSeparator1, javax.swing.GroupLayout.Alignment.TRAILING)
             .addGroup(permintaanPanelLayout.createSequentialGroup()
-                .addGroup(permintaanPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(permintaanPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(permintaanPanelLayout.createSequentialGroup()
-                        .addContainerGap()
                         .addComponent(iconMaps, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(28, 28, 28)
-                        .addComponent(alamatPenjemputan)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 385, Short.MAX_VALUE)
-                        .addComponent(buttonDetail))
+                        .addComponent(alamatPenjemputan, javax.swing.GroupLayout.PREFERRED_SIZE, 382, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(122, 122, 122)
+                        .addComponent(buttonDetail)
+                        .addGap(12, 12, 12))
                     .addGroup(permintaanPanelLayout.createSequentialGroup()
-                        .addGap(14, 14, 14)
-                        .addComponent(namaKurir)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(namaKurir, javax.swing.GroupLayout.PREFERRED_SIZE, 303, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(349, 349, 349)
                         .addComponent(iconStatus, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap())
         );

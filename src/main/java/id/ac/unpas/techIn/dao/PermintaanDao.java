@@ -47,11 +47,13 @@ public class PermintaanDao {
         // try with resources digunakan untuk mengambil koneksi dari database
         try (Connection connection = MySqlConnection.getInstance().getConnection()) {
             // PreparedStatement digunakan untuk menyiapkan query yang akan dijalankan
-            PreparedStatement statement = connection.prepareStatement("update permintaan set namaPelanggan = ? where id = ?");
+            PreparedStatement statement = connection.prepareStatement("update permintaan set namaPelanggan = ?, alamatPenjemputan = ?, status = ? where id = ?");
 
             // statement.setString digunakan untuk mengisi parameter query dengan nilai dari parameter jenisMember
             statement.setString(1, permintaan.getNama());
-            statement.setInt(2, permintaan.getId());
+            statement.setString(2, permintaan.getAlamat());
+            statement.setBoolean(3, permintaan.getStatus());
+            statement.setInt(4, permintaan.getId());
 
             // result diberikan nilai dari eksekusi query (Berisi jumlah row dari statement berarti berhasil, Berisi 0 berarti gagal)
             result = statement.executeUpdate();
@@ -128,5 +130,39 @@ public class PermintaanDao {
 
         // mengembalikan nilai list
         return list;
+    }
+    
+        public Permintaan select(String column, String value) {
+        // Membuat object permintaan untuk menyimpan data
+        Permintaan permintaan = new Permintaan();
+
+        // Try with resources untuk membuat koneksi ke database
+        try (
+                // Membuat koneksi ke database
+                Connection connection = MySqlConnection.getInstance().getConnection();
+                // Statement untuk mengirim query ke database
+                Statement statement = connection.createStatement();
+            ) {
+            // Membuat ResultSet untuk menyimpan hasil dari eksekusi query
+            try (ResultSet resultSet = statement.executeQuery("select * from permintaan where " + column+ " = '" + value + "'");) {
+                // Looping untuk mengambil semua data dari database
+                while (resultSet.next()) {
+                    // Set nilai dari object permintaan
+                    permintaan.setId(resultSet.getInt("id")); // id
+                    permintaan.setNama(resultSet.getString("namaPelanggan")); // nama
+                    permintaan.setAlamat(resultSet.getString("alamatPenjemputan")); // alamat
+                    permintaan.setStatus(resultSet.getBoolean("status")); // no_telepon
+                }
+            } catch (SQLException e) {
+                // Print error jika terjadi error
+                e.printStackTrace();
+            }
+        } catch (SQLException e) {
+            // Print error jika terjadi error
+            e.printStackTrace();
+        }
+
+        // Kembalikan nilai permintaan
+        return permintaan;
     }
 }
