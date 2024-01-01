@@ -2,33 +2,32 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
-package id.ac.unpas.techIn.permintaan;
+package id.ac.unpas.techIn.lacak;
 
-import id.ac.unpas.techIn.dao.PermintaanDao;
-import id.ac.unpas.techIn.pelanggan.Pelanggan;
-import id.ac.unpas.techIn.penjemputan.Penjemputan;
-import id.ac.unpas.techIn.permintaan.PermintaanModelTable;
+import id.ac.unpas.techIn.lacak.*;
+import id.ac.unpas.techIn.dao.LacakDao;
+import id.ac.unpas.techIn.lacak.LacakModelTable;
 import java.util.List;
 
 /**
  *
  * @author ghifarullah19
  */
-public class PermintaanCRUD
+public class LacakCRUD
         extends javax.swing.JFrame {
     
-    private List<Permintaan> permintaanList;
-    private Permintaan permintaanUbah;
-    private PermintaanDao permintaanDao;
-    private PermintaanModelTable permintaanModelTable;
+    private List<Lacak> lacakList;
+    private Lacak lacakUbah;
+    private LacakDao lacakDao;
+    private LacakModelTable lacakModelTable;
 
     /**
-     * Creates new form PermintaanCRUD
+     * Creates new form LacakCRUD
      */
-    public PermintaanCRUD(PermintaanDao permintaanDao) {
-        this.permintaanDao = permintaanDao;
-        this.permintaanList = this.permintaanDao.findAll();
-        this.permintaanModelTable = new PermintaanModelTable(permintaanList);
+    public LacakCRUD(LacakDao lacakDao) {
+        this.lacakDao = lacakDao;
+        this.lacakList = this.lacakDao.findAll();
+        this.lacakModelTable = new LacakModelTable(lacakList);
         
         initComponents();
         
@@ -77,7 +76,7 @@ public class PermintaanCRUD
         textfieldAlamatTujuan = new javax.swing.JTextField();
         scrollableTable = new javax.swing.JScrollPane();
         jScrollPane1 = new javax.swing.JScrollPane();
-        tablePermintaan = new javax.swing.JTable();
+        tableLacak = new javax.swing.JTable();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -91,9 +90,9 @@ public class PermintaanCRUD
 
         labelStatus.setText("Status");
 
-        radioTrue.setText("Sudah");
+        radioTrue.setText("Sudah Diantar");
 
-        radioFalse.setText("Menunggu");
+        radioFalse.setText("Sedang Diantar");
 
         titleCRUDPermintaan.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         titleCRUDPermintaan.setText("Form Permintaan");
@@ -130,61 +129,55 @@ public class PermintaanCRUD
 
         labelNamaKurir.setText("Nama Kurir");
 
-        textfieldNamaKurir.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                textfieldNamaKurirActionPerformed(evt);
-            }
-        });
-
         labelAlamatTujuan.setText("Alamat Tujuan");
 
         javax.swing.GroupLayout panelCRUDPermintaanLayout = new javax.swing.GroupLayout(panelCRUDPermintaan);
         panelCRUDPermintaan.setLayout(panelCRUDPermintaanLayout);
         panelCRUDPermintaanLayout.setHorizontalGroup(
             panelCRUDPermintaanLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelCRUDPermintaanLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(titleCRUDPermintaan)
-                .addGap(164, 164, 164))
             .addGroup(panelCRUDPermintaanLayout.createSequentialGroup()
-                .addContainerGap()
                 .addGroup(panelCRUDPermintaanLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(panelCRUDPermintaanLayout.createSequentialGroup()
+                        .addContainerGap()
                         .addGroup(panelCRUDPermintaanLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(labelStatus)
+                            .addGroup(panelCRUDPermintaanLayout.createSequentialGroup()
+                                .addGroup(panelCRUDPermintaanLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(labelNamaPelanggan)
+                                    .addComponent(labelAlamatPelanggan)
+                                    .addComponent(textfieldAlamatPelanggan, javax.swing.GroupLayout.DEFAULT_SIZE, 204, Short.MAX_VALUE)
+                                    .addComponent(textfieldNamaPelanggan))
+                                .addGap(42, 42, 42)
+                                .addGroup(panelCRUDPermintaanLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(labelNamaKurir)
+                                    .addComponent(labelAlamatTujuan)
+                                    .addComponent(textfieldNamaKurir, javax.swing.GroupLayout.DEFAULT_SIZE, 214, Short.MAX_VALUE)
+                                    .addComponent(textfieldAlamatTujuan)))
+                            .addGroup(panelCRUDPermintaanLayout.createSequentialGroup()
+                                .addComponent(radioTrue)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(radioFalse))
                             .addGroup(panelCRUDPermintaanLayout.createSequentialGroup()
                                 .addComponent(buttonKembali)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(buttonUbah)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(buttonSimpanUbah))
-                            .addGroup(panelCRUDPermintaanLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(labelNamaPelanggan)
-                                .addComponent(labelAlamatPelanggan)
-                                .addComponent(textfieldAlamatPelanggan, javax.swing.GroupLayout.DEFAULT_SIZE, 204, Short.MAX_VALUE)
-                                .addComponent(textfieldNamaPelanggan)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(panelCRUDPermintaanLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(labelNamaKurir)
-                            .addGroup(panelCRUDPermintaanLayout.createSequentialGroup()
+                                .addComponent(buttonSimpanUbah)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(buttonHapus)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(buttonKirim))
-                            .addComponent(textfieldNamaKurir)
-                            .addComponent(labelAlamatTujuan)
-                            .addComponent(textfieldAlamatTujuan, javax.swing.GroupLayout.DEFAULT_SIZE, 193, Short.MAX_VALUE)))
-                    .addComponent(labelStatus)
+                                .addComponent(buttonKirim))))
                     .addGroup(panelCRUDPermintaanLayout.createSequentialGroup()
-                        .addComponent(radioTrue)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(radioFalse)))
+                        .addGap(210, 210, 210)
+                        .addComponent(titleCRUDPermintaan)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         panelCRUDPermintaanLayout.setVerticalGroup(
             panelCRUDPermintaanLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelCRUDPermintaanLayout.createSequentialGroup()
-                .addContainerGap()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(titleCRUDPermintaan)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(panelCRUDPermintaanLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(labelNamaPelanggan)
                     .addComponent(labelNamaKurir))
@@ -216,8 +209,8 @@ public class PermintaanCRUD
                 .addGap(52, 52, 52))
         );
 
-        tablePermintaan.setModel(permintaanModelTable);
-        jScrollPane1.setViewportView(tablePermintaan);
+        tableLacak.setModel(lacakModelTable);
+        jScrollPane1.setViewportView(tableLacak);
 
         scrollableTable.setViewportView(jScrollPane1);
 
@@ -229,8 +222,8 @@ public class PermintaanCRUD
                 .addGap(75, 75, 75)
                 .addGroup(frameCRUDPermintaanLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(panelCRUDPermintaan, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(scrollableTable, javax.swing.GroupLayout.DEFAULT_SIZE, 487, Short.MAX_VALUE))
-                .addContainerGap(62, Short.MAX_VALUE))
+                    .addComponent(scrollableTable, javax.swing.GroupLayout.DEFAULT_SIZE, 530, Short.MAX_VALUE))
+                .addContainerGap(19, Short.MAX_VALUE))
         );
         frameCRUDPermintaanLayout.setVerticalGroup(
             frameCRUDPermintaanLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -273,31 +266,27 @@ public class PermintaanCRUD
         String alamatPenjemputan = this.textfieldAlamatPelanggan.getText();
         String alamatTujuan = this.textfieldAlamatTujuan.getText();
 
-        Permintaan permintaan = new Permintaan();
-        Penjemputan penjemputan = new Penjemputan();
-        
-        permintaan.setNama(namaPelanggan);
-        permintaan.setAlamat(alamatPenjemputan);
-        permintaan.setStatus(status);
-        
-        penjemputan.setNama(namaKurir);
-        penjemputan.setAlamat(alamatTujuan);
-        penjemputan.setStatus(status);
+        Lacak lacak = new Lacak();
+        lacak.setNamaPelanggan(namaPelanggan);
+        lacak.setNamaKurir(namaKurir);
+        lacak.setAlamatPenjemputan(alamatPenjemputan);
+        lacak.setAlamatTujuan(alamatTujuan);
+        lacak.setStatus(status);
 
-        this.permintaanDao.insert(permintaan);
-        this.addData(permintaan);
+        this.lacakDao.insert(lacak);
+        this.addData(lacak);
     }//GEN-LAST:event_buttonKirimActionPerformed
 
     private void buttonUbahActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonUbahActionPerformed
         // TODO add your handling code here:
-        int row = tablePermintaan.getSelectedRow();
-        int column = tablePermintaan.getSelectedColumn();
+        int row = tableLacak.getSelectedRow();
+        int column = tableLacak.getSelectedColumn();
 
         if (row == -1 || column == -1) {
             return;
         }
 
-        String dataUbah = (String) tablePermintaan.getModel().getValueAt(row, column);
+        String dataUbah = (String) tableLacak.getModel().getValueAt(row, column);
 
         int id = -1;
         String col = "";
@@ -307,28 +296,36 @@ public class PermintaanCRUD
                 col = "namaPelanggan";
                 break;
             case 1:
-                col = "alamatPenjemputan";
+                col = "namaKurir";
                 break;
             case 2:
+                col = "alamatPenjemputan";
+                break;
+            case 3:
+                col = "alamatTujuan";
+                break;
+            case 4:
                 col = "status";
                 break;
             default:
                 System.out.println("Kolom tidak ditemukan");
                 break;
         }
-        id = this.permintaanDao.select(col, dataUbah).getId();
+        id = this.lacakDao.select(col, dataUbah).getId();
        
-        this.textfieldNamaPelanggan.setText(this.permintaanDao.select(col, dataUbah).getNama());
-        this.textfieldAlamatPelanggan.setText(this.permintaanDao.select(col, dataUbah).getAlamat());
+        this.textfieldNamaPelanggan.setText(this.lacakDao.select(col, dataUbah).getNamaPelanggan());
+        this.textfieldNamaKurir.setText(this.lacakDao.select(col, dataUbah).getNamaKurir());
+        this.textfieldAlamatPelanggan.setText(this.lacakDao.select(col, dataUbah).getAlamatPenjemputan());
+        this.textfieldAlamatTujuan.setText(this.lacakDao.select(col, dataUbah).getAlamatTujuan());
 
-        if (this.permintaanDao.select(col, dataUbah).getStatus() == true) {
+        if (this.lacakDao.select(col, dataUbah).getStatus() == true) {
             this.radioTrue.setSelected(true);
         } else {
             this.radioFalse.setSelected(true);
         }
         
-        permintaanUbah = new Permintaan();
-        permintaanUbah.setId(id);
+        lacakUbah = new Lacak();
+        lacakUbah.setId(id);
     }//GEN-LAST:event_buttonUbahActionPerformed
 
     private void buttonSimpanUbahActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonSimpanUbahActionPerformed
@@ -343,30 +340,34 @@ public class PermintaanCRUD
             status = false;
         }
         
-        String nama = this.textfieldNamaPelanggan.getText();
-        String alamat = this.textfieldAlamatPelanggan.getText();
+        String namaPelanggan = this.textfieldNamaPelanggan.getText();
+        String namaKurir = this.textfieldNamaKurir.getText();
+        String alamatPenjemputan = this.textfieldAlamatPelanggan.getText();
+        String alamatTujuan = this.textfieldAlamatTujuan.getText();
 
-        Permintaan permintaan = new Permintaan();
-        permintaan.setId(permintaanUbah.getId());
-        permintaan.setNama(nama);
-        permintaan.setAlamat(alamat);
-        permintaan.setStatus(status);
+        Lacak lacak = new Lacak();
+        lacak.setId(lacakUbah.getId());
+        lacak.setNamaPelanggan(namaPelanggan);
+        lacak.setNamaKurir(namaKurir);
+        lacak.setAlamatPenjemputan(alamatPenjemputan);
+        lacak.setAlamatTujuan(alamatTujuan);
+        lacak.setStatus(status);
 
-        this.permintaanDao.update(permintaan);
-        this.update(permintaan);
+        this.lacakDao.update(lacak);
+        this.update(lacak);
     }//GEN-LAST:event_buttonSimpanUbahActionPerformed
 
     private void buttonHapusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonHapusActionPerformed
         // TODO add your handling code here:
-        int row = this.tablePermintaan.getSelectedRow();
-        int column = this.tablePermintaan.getSelectedColumn();
+        int row = this.tableLacak.getSelectedRow();
+        int column = this.tableLacak.getSelectedColumn();
 
         if (row == -1 || column == -1) {
           return;
         } else {
-          String newValue = (String) this.tablePermintaan.getModel().getValueAt(row, column);
+          String newValue = (String) this.tableLacak.getModel().getValueAt(row, column);
      
-          Permintaan id = new Permintaan();
+          Lacak id = new Lacak();
 
           String col = "";
 
@@ -375,45 +376,51 @@ public class PermintaanCRUD
                     col = "namaPelanggan";
                     break;
                 case 1:
-                    col = "alamatPenjemputan";
+                    col = "namaKurir";
                     break;
                 case 2:
+                    col = "alamatPenjemputan";
+                    break;
+                case 3:
+                    col = "alamatTujuan";
+                    break;
+                case 4:
                     col = "status";
                     break;
                 default:
                     System.out.println("Kolom tidak ditemukan");
                     break;
             }
-            id = this.permintaanDao.select(col, newValue);
+            id = this.lacakDao.select(col, newValue);
 
             this.delete(id);
-            this.permintaanDao.delete(id);
+            this.lacakDao.delete(id);
         }
     }//GEN-LAST:event_buttonHapusActionPerformed
 
-    private void textfieldNamaKurirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textfieldNamaKurirActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_textfieldNamaKurirActionPerformed
-
-    // Method untuk menambahkan permintaan ke tableModel
-    public void addData(Permintaan permintaan) {
-        permintaanModelTable.add(permintaan);
+    // Method untuk menambahkan lacak ke tableModel
+    public void addData(Lacak lacak) {
+        lacakModelTable.add(lacak);
         textfieldNamaPelanggan.setText("");
+        textfieldNamaKurir.setText("");
         textfieldAlamatPelanggan.setText("");
+        textfieldAlamatTujuan.setText("");
         radioFalse.setSelected(true);
     }
     
-    // Method untuk mengubah permintaan ke tableModel
-    public void update(Permintaan permintaan) {
-        permintaanModelTable.update(permintaan);
+    // Method untuk mengubah lacak ke tableModel
+    public void update(Lacak lacak) {
+        lacakModelTable.update(lacak);
         textfieldNamaPelanggan.setText("");
+        textfieldNamaKurir.setText("");
         textfieldAlamatPelanggan.setText("");
+        textfieldAlamatTujuan.setText("");
     }
     
-    // Method untuk menghapus permintaan ke tableModel
-    public void delete(Permintaan permintaan) {
-        // Tambahkan permintaan ke tableModel
-        permintaanModelTable.delete(permintaan);
+    // Method untuk menghapus lacak ke tableModel
+    public void delete(Lacak lacak) {
+        // Tambahkan lacak ke tableModel
+        lacakModelTable.delete(lacak);
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -442,7 +449,7 @@ public class PermintaanCRUD
     private javax.swing.JRadioButton radioFalse;
     private javax.swing.JRadioButton radioTrue;
     private javax.swing.JScrollPane scrollableTable;
-    private javax.swing.JTable tablePermintaan;
+    private javax.swing.JTable tableLacak;
     private javax.swing.JTextField textfieldAlamatPelanggan;
     private javax.swing.JTextField textfieldAlamatTujuan;
     private javax.swing.JTextField textfieldNamaKurir;

@@ -1,6 +1,8 @@
 package id.ac.unpas.techIn.dao;
 
 import id.ac.unpas.techIn.db.MySqlConnection;
+import id.ac.unpas.techIn.lacak.Lacak;
+import id.ac.unpas.techIn.penjemputan.Penjemputan;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
@@ -21,14 +23,13 @@ public class PermintaanDao {
         try (Connection connection = MySqlConnection.getInstance().getConnection()) {
             // PreparedStatement digunakan untuk menyiapkan query yang akan dijalankan
             PreparedStatement statement = connection.prepareStatement("Insert into permintaan(id, namaPelanggan, alamatPenjemputan, status) values (?, ?, ?, ?)");
-
+            
             // statement.setString digunakan untuk mengisi parameter query dengan nilai dari parameter jenisMember
             statement.setInt(1, 0);
             statement.setString(2, permintaan.getNama());
             statement.setString(3, permintaan.getAlamat());
             statement.setBoolean(4, permintaan.getStatus());
-
-            // result diberikan nilai dari eksekusi query (Berisi jumlah row dari statement berarti berhasil, Berisi 0 berarti gagal)
+            
             result = statement.executeUpdate();
         } catch (SQLException e) {
             // jika terjadi error, maka akan ditampilkan errornya
@@ -132,7 +133,7 @@ public class PermintaanDao {
         return list;
     }
     
-        public Permintaan select(String column, String value) {
+    public Permintaan select(String column, String value) {
         // Membuat object permintaan untuk menyimpan data
         Permintaan permintaan = new Permintaan();
 

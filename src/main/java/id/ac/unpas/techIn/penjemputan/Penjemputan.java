@@ -1,14 +1,15 @@
-package id.ac.unpas.techIn.permintaan;
+package id.ac.unpas.techIn.penjemputan;
 
 // JenisMember adalah class yang digunakan untuk menyimpan data jenis member
 
+import id.ac.unpas.techIn.permintaan.*;
 import id.ac.unpas.techIn.pelanggan.*;
 // JenisMember adalah class yang digunakan untuk menyimpan data jenis member
-public class Permintaan {
+public class Penjemputan {
     // id adalah variabel yang digunakan untuk menyimpan id dari jenis member
     private int id;
-    // namaPelanggan adalah variabel yang digunakan untuk menyimpan namaPelanggan dari jenis member
-    private String namaPelanggan;
+    // namaKurir adalah variabel yang digunakan untuk menyimpan namaKurir dari jenis member
+    private String namaKurir;
     private String alamatPenjemputan;
     private boolean status;
     
@@ -24,16 +25,16 @@ public class Permintaan {
         return this.id;
     } 
     
-    // setter namaPelangganPelanggan digunakan untuk mengubah nilai dari variabel namaPelanggan
-    public void setNama(String namaPelanggan) {
-        // this.namaPelanggan diberikan nilai dari parameter namaPelanggan
-        this.namaPelanggan = namaPelanggan;
+    // setter namaKurirKurir digunakan untuk mengubah nilai dari variabel namaKurir
+    public void setNama(String namaKurir) {
+        // this.namaKurir diberikan nilai dari parameter namaKurir
+        this.namaKurir = namaKurir;
     }
 
-    // getter namaPelanggan digunakan untuk mengambil nilai dari variabel namaPelanggan
+    // getter namaKurir digunakan untuk mengambil nilai dari variabel namaKurir
     public String getNama() {
-        // mengembalikan nilai dari variabel namaPelanggan
-        return this.namaPelanggan;
+        // mengembalikan nilai dari variabel namaKurir
+        return this.namaKurir;
     } 
     
     // setter alamatPenjemputan digunakan untuk mengubah nilai dari variabel alamatPenjemputan
@@ -41,7 +42,7 @@ public class Permintaan {
         // this.alamatPenjemputan diberikan nilai dari parameter alamatPenjemputan
         this.alamatPenjemputan = alamatPenjemputan;
     }
-    
+
     // getter alamatPenjemputan digunakan untuk mengambil nilai dari variabel alamatPenjemputan
     public String getAlamat() {
         // mengembalikan nilai dari variabel alamatPenjemputan
@@ -58,5 +59,5 @@ public class Permintaan {
     public boolean getStatus() {
         // mengembalikan nilai dari variabel alamatPenjemputan
         return this.status;
-    }
+    } 
 }

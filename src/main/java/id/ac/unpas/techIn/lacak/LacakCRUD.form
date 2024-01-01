@@ -67,9 +67,9 @@
                   <EmptySpace min="-2" pref="75" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" max="-2" attributes="0">
                       <Component id="panelCRUDPermintaan" max="32767" attributes="0"/>
-                      <Component id="scrollableTable" pref="487" max="32767" attributes="0"/>
+                      <Component id="scrollableTable" pref="530" max="32767" attributes="0"/>
                   </Group>
-                  <EmptySpace pref="62" max="32767" attributes="0"/>
+                  <EmptySpace pref="19" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -96,48 +96,48 @@
           <Layout>
             <DimensionLayout dim="0">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" alignment="1" attributes="0">
-                      <EmptySpace max="32767" attributes="0"/>
-                      <Component id="titleCRUDPermintaan" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="164" max="-2" attributes="0"/>
-                  </Group>
                   <Group type="102" attributes="0">
-                      <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="102" alignment="0" attributes="0">
+                          <Group type="102" attributes="0">
+                              <EmptySpace max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="labelStatus" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                          <Component id="labelNamaPelanggan" min="-2" max="-2" attributes="0"/>
+                                          <Component id="labelAlamatPelanggan" alignment="0" min="-2" max="-2" attributes="0"/>
+                                          <Component id="textfieldAlamatPelanggan" alignment="0" pref="204" max="32767" attributes="0"/>
+                                          <Component id="textfieldNamaPelanggan" alignment="0" max="32767" attributes="0"/>
+                                      </Group>
+                                      <EmptySpace min="-2" pref="42" max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                          <Component id="labelNamaKurir" min="-2" max="-2" attributes="0"/>
+                                          <Component id="labelAlamatTujuan" min="-2" max="-2" attributes="0"/>
+                                          <Component id="textfieldNamaKurir" alignment="0" pref="214" max="32767" attributes="0"/>
+                                          <Component id="textfieldAlamatTujuan" alignment="0" max="32767" attributes="0"/>
+                                      </Group>
+                                  </Group>
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <Component id="radioTrue" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace max="-2" attributes="0"/>
+                                      <Component id="radioFalse" min="-2" max="-2" attributes="0"/>
+                                  </Group>
                                   <Group type="102" alignment="0" attributes="0">
                                       <Component id="buttonKembali" min="-2" max="-2" attributes="0"/>
                                       <EmptySpace max="-2" attributes="0"/>
                                       <Component id="buttonUbah" min="-2" max="-2" attributes="0"/>
                                       <EmptySpace max="-2" attributes="0"/>
                                       <Component id="buttonSimpanUbah" min="-2" max="-2" attributes="0"/>
-                                  </Group>
-                                  <Group type="103" alignment="0" groupAlignment="0" max="-2" attributes="0">
-                                      <Component id="labelNamaPelanggan" min="-2" max="-2" attributes="0"/>
-                                      <Component id="labelAlamatPelanggan" alignment="0" min="-2" max="-2" attributes="0"/>
-                                      <Component id="textfieldAlamatPelanggan" alignment="0" pref="204" max="32767" attributes="0"/>
-                                      <Component id="textfieldNamaPelanggan" alignment="0" max="32767" attributes="0"/>
-                                  </Group>
-                              </Group>
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                  <Component id="labelNamaKurir" min="-2" max="-2" attributes="0"/>
-                                  <Group type="102" attributes="0">
+                                      <EmptySpace max="-2" attributes="0"/>
                                       <Component id="buttonHapus" min="-2" max="-2" attributes="0"/>
                                       <EmptySpace max="-2" attributes="0"/>
                                       <Component id="buttonKirim" min="-2" max="-2" attributes="0"/>
                                   </Group>
-                                  <Component id="textfieldNamaKurir" alignment="0" max="32767" attributes="0"/>
-                                  <Component id="labelAlamatTujuan" min="-2" max="-2" attributes="0"/>
-                                  <Component id="textfieldAlamatTujuan" alignment="0" pref="193" max="32767" attributes="0"/>
                               </Group>
                           </Group>
-                          <Component id="labelStatus" alignment="0" min="-2" max="-2" attributes="0"/>
                           <Group type="102" alignment="0" attributes="0">
-                              <Component id="radioTrue" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Component id="radioFalse" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="210" max="-2" attributes="0"/>
+                              <Component id="titleCRUDPermintaan" min="-2" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                       <EmptySpace max="32767" attributes="0"/>
@@ -147,9 +147,9 @@
             <DimensionLayout dim="1">
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Component id="titleCRUDPermintaan" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="32767" attributes="0"/>
+                      <Component id="titleCRUDPermintaan" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="labelNamaPelanggan" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="labelNamaKurir" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -211,12 +211,12 @@
             </Component>
             <Component class="javax.swing.JRadioButton" name="radioTrue">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Sudah"/>
+                <Property name="text" type="java.lang.String" value="Sudah Diantar"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JRadioButton" name="radioFalse">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Menunggu"/>
+                <Property name="text" type="java.lang.String" value="Sedang Diantar"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JLabel" name="titleCRUDPermintaan">
@@ -268,9 +268,6 @@
               </Properties>
             </Component>
             <Component class="javax.swing.JTextField" name="textfieldNamaKurir">
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="textfieldNamaKurirActionPerformed"/>
-              </Events>
             </Component>
             <Component class="javax.swing.JLabel" name="labelAlamatTujuan">
               <Properties>
@@ -292,10 +289,10 @@
 
               <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
               <SubComponents>
-                <Component class="javax.swing.JTable" name="tablePermintaan">
+                <Component class="javax.swing.JTable" name="tableLacak">
                   <Properties>
                     <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
-                      <Connection code="permintaanModelTable" type="code"/>
+                      <Connection code="lacakModelTable" type="code"/>
                     </Property>
                     <Property name="columnModel" type="javax.swing.table.TableColumnModel" editor="org.netbeans.modules.form.editors2.TableColumnModelEditor">
                       <TableColumnModel selectionModel="0"/>
