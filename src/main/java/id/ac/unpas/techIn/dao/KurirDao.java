@@ -8,24 +8,24 @@ import java.sql.Statement;
 import java.sql.ResultSet;
 import java.util.List;
 import java.util.ArrayList;
-import id.ac.unpas.techIn.pelanggan.Pelanggan;
+import id.ac.unpas.techIn.kurir.Kurir;
 
 // JenisMemberDao adalah class yang digunakan untuk mengakses data jenis member dari database
 public class KurirDao {
     // insert digunakan untuk menyimpan data jenis member ke database
-    public int insert(Pelanggan pelanggan) {
+    public int insert(Kurir kurir) {
         // result adalah variabel yang digunakan untuk menyimpan nilai apakah eksekusi query berhasil dilakukan atau tidak
         int result = -1;
 
         // try with resources digunakan untuk mengambil koneksi dari database
         try (Connection connection = MySqlConnection.getInstance().getConnection()) {
             // PreparedStatement digunakan untuk menyiapkan query yang akan dijalankan
-            PreparedStatement statement = connection.prepareStatement("Insert into pelanggan(idPelanggan, namaPelanggan, alamatPelanggan) values (?, ?, ?)");
+            PreparedStatement statement = connection.prepareStatement("Insert into kurir(idKurir, namaKurir, noKendaraan) values (?, ?, ?)");
 
             // statement.setString digunakan untuk mengisi parameter query dengan nilai dari parameter jenisMember
             statement.setInt(1, 0);
-            statement.setString(2, pelanggan.getNama());
-            statement.setString(3, pelanggan.getAlamat());
+            statement.setString(2, kurir.getNama());
+            statement.setString(3, kurir.getAlamat());
 
             // result diberikan nilai dari eksekusi query (Berisi jumlah row dari statement berarti berhasil, Berisi 0 berarti gagal)
             result = statement.executeUpdate();
@@ -39,18 +39,18 @@ public class KurirDao {
     }
     
     // update digunakan untuk mengubah data jenis member di database
-    public int update(Pelanggan pelanggan) {
+    public int update(Kurir kurir) {
         // result adalah variabel yang digunakan untuk menyimpan nilai apakah eksekusi query berhasil dilakukan atau tidak
         int result = -1;
 
         // try with resources digunakan untuk mengambil koneksi dari database
         try (Connection connection = MySqlConnection.getInstance().getConnection()) {
             // PreparedStatement digunakan untuk menyiapkan query yang akan dijalankan
-            PreparedStatement statement = connection.prepareStatement("update pelanggan set nama = ? where id = ?");
+            PreparedStatement statement = connection.prepareStatement("update kurir set nama = ? where id = ?");
 
             // statement.setString digunakan untuk mengisi parameter query dengan nilai dari parameter jenisMember
-            statement.setString(1, pelanggan.getNama());
-            statement.setInt(2, pelanggan.getId());
+            statement.setString(1, kurir.getNama());
+            statement.setInt(2, kurir.getId());
 
             // result diberikan nilai dari eksekusi query (Berisi jumlah row dari statement berarti berhasil, Berisi 0 berarti gagal)
             result = statement.executeUpdate();
@@ -64,17 +64,17 @@ public class KurirDao {
     }
     
     // delete digunakan untuk menghapus data jenis member di database
-    public int delete(Pelanggan pelanggan) {
+    public int delete(Kurir kurir) {
         // result adalah variabel yang digunakan untuk menyimpan nilai apakah eksekusi query berhasil dilakukan atau tidak
         int result = -1;
 
         // try with resources digunakan untuk mengambil koneksi dari database
         try (Connection connection = MySqlConnection.getInstance().getConnection()) {
             // PreparedStatement digunakan untuk menyiapkan query yang akan dijalankan
-            PreparedStatement statement = connection.prepareStatement("delete from pelanggan where id = ?");
+            PreparedStatement statement = connection.prepareStatement("delete from kurir where id = ?");
 
             // statement.setString digunakan untuk mengisi parameter query dengan nilai dari parameter jenisMember
-            statement.setInt(1, pelanggan.getId());
+            statement.setInt(1, kurir.getId());
 
             // result diberikan nilai dari eksekusi query (Berisi jumlah row dari statement berarti berhasil, Berisi 0 berarti gagal)
             result = statement.executeUpdate();
@@ -88,9 +88,9 @@ public class KurirDao {
     }
     
     // findAll digunakan untuk mengambil semua data jenis member di database
-    public List<Pelanggan> findAll() {
+    public List<Kurir> findAll() {
         // list adalah variabel yang digunakan untuk menyimpan semua data jenis member
-        List<Pelanggan> list = new ArrayList<>();
+        List<Kurir> list = new ArrayList<>();
 
         // try with resources digunakan untuk mengambil koneksi dari database dan membuat statement untuk mengeksekusi query
         try (
@@ -99,21 +99,21 @@ public class KurirDao {
             ) {
 
             // ResultSet digunakan untuk menyimpan hasil dari eksekusi query
-            try (ResultSet resultSet = statement.executeQuery("select * from pelanggan");) {
+            try (ResultSet resultSet = statement.executeQuery("select * from kurir");) {
                 
                 // while digunakan untuk mengambil semua data jenis member dari ResultSet
                 while(resultSet.next()) {
                     // Instansiasi JenisMember dengan nama jenisMember
-                    Pelanggan pelanggan = new Pelanggan();
+                    Kurir kurir = new Kurir();
 
                     // jenisMember.setId digunakan untuk mengubah nilai dari variabel id dengan nilai dari ResultSet berdasarkan kolom id
-                    pelanggan.setId(resultSet.getInt("idPelanggan"));
+                    kurir.setId(resultSet.getInt("idKurir"));
                     // jenisMember.setNama digunakan untuk mengubah nilai dari variabel nama dengan nilai dari ResultSet berdasarkan kolom nama
-                    pelanggan.setNama(resultSet.getString("namaPelanggan"));
-                    pelanggan.setAlamat(resultSet.getString("alamatPelanggan"));
+                    kurir.setNama(resultSet.getString("namaKurir"));
+                    kurir.setAlamat(resultSet.getString("noKendaraan"));
 
                     // list.add digunakan untuk menambahkan data jenis member ke list
-                    list.add(pelanggan);
+                    list.add(kurir);
                 }
             } catch (SQLException e) {
                 // jika terjadi error, maka akan ditampilkan errornya

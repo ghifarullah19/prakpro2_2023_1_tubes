@@ -6,8 +6,10 @@ package id.ac.unpas.techIn.main;
 
 import id.ac.unpas.techIn.dao.PelangganDao;
 import id.ac.unpas.techIn.dao.PermintaanDao;
+import id.ac.unpas.techIn.dao.LacakDao;
 import id.ac.unpas.techIn.pelanggan.PelangganFrame;
 import id.ac.unpas.techIn.permintaan.PermintaanFrame;
+import id.ac.unpas.techIn.lacak.LacakFrame;
 
 /**
  *
@@ -18,8 +20,10 @@ public class MainFrame
 
     private PelangganFrame pelangganFrame;
     private PermintaanFrame permintaanFrame;
+    private LacakFrame lacakFrame;
     private PelangganDao pelangganDao;
     private PermintaanDao permintaanDao;
+    private LacakDao lacakDao;
     
     /**
      * Creates new form MainFrame
@@ -83,6 +87,11 @@ public class MainFrame
         buttonPenjemputan.setText("Penjemputan");
 
         buttonLacak.setText("Lacak");
+        buttonLacak.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonLacakActionPerformed(evt);
+            }
+        });
 
         iconTitle.setText("Recycle Bin");
 
@@ -215,7 +224,7 @@ public class MainFrame
         panelGrafik.setLayout(panelGrafikLayout);
         panelGrafikLayout.setHorizontalGroup(
             panelGrafikLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
+            .addGap(0, 617, Short.MAX_VALUE)
         );
         panelGrafikLayout.setVerticalGroup(
             panelGrafikLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -239,11 +248,11 @@ public class MainFrame
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelHomeLayout.createSequentialGroup()
                         .addGroup(panelHomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(panelGrafik, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(panelGrafik, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(panelHomeLayout.createSequentialGroup()
                                 .addComponent(panelTotalSampah, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(panelTotalPermintaan, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                                .addGap(18, 18, Short.MAX_VALUE)
+                                .addComponent(panelTotalPermintaan, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addGap(64, 64, 64))))
         );
         panelHomeLayout.setVerticalGroup(
@@ -305,6 +314,14 @@ public class MainFrame
     private void buttonHomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonHomeActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_buttonHomeActionPerformed
+
+    private void buttonLacakActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonLacakActionPerformed
+        // TODO add your handling code here:
+        lacakDao = new LacakDao();
+        // menampilkan frame jenis member dengan parameter jenisMemberDao
+        lacakFrame = new LacakFrame(lacakDao);
+        lacakFrame.setVisible(true);
+    }//GEN-LAST:event_buttonLacakActionPerformed
 
     /**
      * @param args the command line arguments
