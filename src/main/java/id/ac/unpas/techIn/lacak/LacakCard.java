@@ -5,7 +5,6 @@
 package id.ac.unpas.techIn.lacak;
 
 import id.ac.unpas.techIn.lacak.*;
-import java.awt.Color;
 import java.awt.Image;
 import javax.swing.ImageIcon;
 import javax.swing.JPanel;
@@ -40,7 +39,7 @@ public class LacakCard
         }
         
         iconMobil.setText("");
-        iconMobil.setIcon(imageIcon("\\C:\\Users\\ghifarullah19\\Downloads\\mobil-free.png",
+        iconMobil.setIcon(imageIcon("C:\\Users\\ghifarullah19\\Documents\\NetBeansProjects\\tech-in\\src\\main\\java\\id\\ac\\unpas\\techIn\\img\\mobil-free.png",
                 70,
                 70));
     }

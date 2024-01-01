@@ -34,20 +34,20 @@ public class PermintaanCard
         alamatPenjemputan.setText(pelanggan.getAlamat());
         
         iconMaps.setText("");
-        iconMaps.setIcon(imageIcon("\\C:\\Users\\ghifarullah19\\Downloads\\tugas_web_psbo\\img\\maps.png",
+        iconMaps.setIcon(imageIcon("C:\\Users\\ghifarullah19\\Documents\\NetBeansProjects\\tech-in\\src\\main\\java\\id\\ac\\unpas\\techIn\\img\\maps.png",
                 70,
                 70));
         
         if (pelanggan.getStatus()) {
             iconStatus.setText("");
-            iconStatus.setIcon(imageIcon("C:\\Users\\ghifarullah19\\Downloads\\my-svg.png",
+            iconStatus.setIcon(imageIcon("C:\\Users\\ghifarullah19\\Documents\\NetBeansProjects\\tech-in\\src\\main\\java\\id\\ac\\unpas\\techIn\\img\\my-svg.png",
                     26,
                     26));
         } else {
             buttonDetail.setText("Menunggu");
             buttonDetail.setBackground(Color.red);
             iconStatus.setText("");
-            iconStatus.setIcon(imageIcon("C:\\Users\\ghifarullah19\\Downloads\\my-svg-red.png",
+            iconStatus.setIcon(imageIcon("C:\\Users\\ghifarullah19\\Documents\\NetBeansProjects\\tech-in\\src\\main\\java\\id\\ac\\unpas\\techIn\\img\\my-svg-red.png",
                     26,
                     26));
         }
