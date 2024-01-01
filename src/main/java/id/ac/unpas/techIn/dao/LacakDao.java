@@ -8,24 +8,26 @@ import java.sql.Statement;
 import java.sql.ResultSet;
 import java.util.List;
 import java.util.ArrayList;
-import id.ac.unpas.techIn.pelanggan.Pelanggan;
+import id.ac.unpas.techIn.lacak.Lacak;
 
 // JenisMemberDao adalah class yang digunakan untuk mengakses data jenis member dari database
 public class LacakDao {
     // insert digunakan untuk menyimpan data jenis member ke database
-    public int insert(Pelanggan pelanggan) {
+    public int insert(Lacak lacak) {
         // result adalah variabel yang digunakan untuk menyimpan nilai apakah eksekusi query berhasil dilakukan atau tidak
         int result = -1;
 
         // try with resources digunakan untuk mengambil koneksi dari database
         try (Connection connection = MySqlConnection.getInstance().getConnection()) {
             // PreparedStatement digunakan untuk menyiapkan query yang akan dijalankan
-            PreparedStatement statement = connection.prepareStatement("Insert into pelanggan(idPelanggan, namaPelanggan, alamatPelanggan) values (?, ?, ?)");
+            PreparedStatement statement = connection.prepareStatement("Insert into lacak(idLacak, namaPelanggan, namaKurir, alamatPenjemputan, alamatTujuan) values (?, ?, ?, ?, ?)");
 
             // statement.setString digunakan untuk mengisi parameter query dengan nilai dari parameter jenisMember
             statement.setInt(1, 0);
-            statement.setString(2, pelanggan.getNama());
-            statement.setString(3, pelanggan.getAlamat());
+            statement.setString(2, lacak.getNamaPelanggan());
+            statement.setString(3, lacak.getNamaKurir());
+            statement.setString(4, lacak.getAlamatPenjemputan());
+            statement.setString(5, lacak.getAlamatTujuan());
 
             // result diberikan nilai dari eksekusi query (Berisi jumlah row dari statement berarti berhasil, Berisi 0 berarti gagal)
             result = statement.executeUpdate();
@@ -39,18 +41,18 @@ public class LacakDao {
     }
     
     // update digunakan untuk mengubah data jenis member di database
-    public int update(Pelanggan pelanggan) {
+    public int update(Lacak lacak) {
         // result adalah variabel yang digunakan untuk menyimpan nilai apakah eksekusi query berhasil dilakukan atau tidak
         int result = -1;
 
         // try with resources digunakan untuk mengambil koneksi dari database
         try (Connection connection = MySqlConnection.getInstance().getConnection()) {
             // PreparedStatement digunakan untuk menyiapkan query yang akan dijalankan
-            PreparedStatement statement = connection.prepareStatement("update pelanggan set nama = ? where id = ?");
+            PreparedStatement statement = connection.prepareStatement("update lacak set namaKurir = ? where id = ?");
 
             // statement.setString digunakan untuk mengisi parameter query dengan nilai dari parameter jenisMember
-            statement.setString(1, pelanggan.getNama());
-            statement.setInt(2, pelanggan.getId());
+            statement.setString(1, lacak.getNamaKurir());
+            statement.setInt(2, lacak.getId());
 
             // result diberikan nilai dari eksekusi query (Berisi jumlah row dari statement berarti berhasil, Berisi 0 berarti gagal)
             result = statement.executeUpdate();
@@ -64,17 +66,17 @@ public class LacakDao {
     }
     
     // delete digunakan untuk menghapus data jenis member di database
-    public int delete(Pelanggan pelanggan) {
+    public int delete(Lacak lacak) {
         // result adalah variabel yang digunakan untuk menyimpan nilai apakah eksekusi query berhasil dilakukan atau tidak
         int result = -1;
 
         // try with resources digunakan untuk mengambil koneksi dari database
         try (Connection connection = MySqlConnection.getInstance().getConnection()) {
             // PreparedStatement digunakan untuk menyiapkan query yang akan dijalankan
-            PreparedStatement statement = connection.prepareStatement("delete from pelanggan where id = ?");
+            PreparedStatement statement = connection.prepareStatement("delete from lacak where id = ?");
 
             // statement.setString digunakan untuk mengisi parameter query dengan nilai dari parameter jenisMember
-            statement.setInt(1, pelanggan.getId());
+            statement.setInt(1, lacak.getId());
 
             // result diberikan nilai dari eksekusi query (Berisi jumlah row dari statement berarti berhasil, Berisi 0 berarti gagal)
             result = statement.executeUpdate();
@@ -88,9 +90,9 @@ public class LacakDao {
     }
     
     // findAll digunakan untuk mengambil semua data jenis member di database
-    public List<Pelanggan> findAll() {
+    public List<Lacak> findAll() {
         // list adalah variabel yang digunakan untuk menyimpan semua data jenis member
-        List<Pelanggan> list = new ArrayList<>();
+        List<Lacak> list = new ArrayList<>();
 
         // try with resources digunakan untuk mengambil koneksi dari database dan membuat statement untuk mengeksekusi query
         try (
@@ -99,21 +101,23 @@ public class LacakDao {
             ) {
 
             // ResultSet digunakan untuk menyimpan hasil dari eksekusi query
-            try (ResultSet resultSet = statement.executeQuery("select * from pelanggan");) {
+            try (ResultSet resultSet = statement.executeQuery("select * from lacak");) {
                 
                 // while digunakan untuk mengambil semua data jenis member dari ResultSet
                 while(resultSet.next()) {
                     // Instansiasi JenisMember dengan nama jenisMember
-                    Pelanggan pelanggan = new Pelanggan();
+                    Lacak lacak = new Lacak();
 
                     // jenisMember.setId digunakan untuk mengubah nilai dari variabel id dengan nilai dari ResultSet berdasarkan kolom id
-                    pelanggan.setId(resultSet.getInt("idPelanggan"));
+                    lacak.setId(resultSet.getInt("id"));
                     // jenisMember.setNama digunakan untuk mengubah nilai dari variabel nama dengan nilai dari ResultSet berdasarkan kolom nama
-                    pelanggan.setNama(resultSet.getString("namaPelanggan"));
-                    pelanggan.setAlamat(resultSet.getString("alamatPelanggan"));
+                    lacak.setNamaPelanggan(resultSet.getString("namaPelanggan"));
+                    lacak.setNamaKurir(resultSet.getString("namaKurir"));
+                    lacak.setAlamatPenjemputan(resultSet.getString("alamatPenjemputan"));
+                    lacak.setAlamatTujuan(resultSet.getString("alamatTujuan"));
 
                     // list.add digunakan untuk menambahkan data jenis member ke list
-                    list.add(pelanggan);
+                    list.add(lacak);
                 }
             } catch (SQLException e) {
                 // jika terjadi error, maka akan ditampilkan errornya

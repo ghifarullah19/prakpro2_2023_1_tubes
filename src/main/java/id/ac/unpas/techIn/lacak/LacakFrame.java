@@ -2,14 +2,13 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
-package id.ac.unpas.techIn.permintaan;
+package id.ac.unpas.techIn.lacak;
 
-import id.ac.unpas.techIn.permintaan.*;
+import id.ac.unpas.techIn.lacak.*;
 import java.util.List;
-import id.ac.unpas.techIn.dao.PermintaanDao;
+import id.ac.unpas.techIn.dao.LacakDao;
 import java.awt.Color;
 import java.awt.GridLayout;
-import javax.swing.BoxLayout;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 
@@ -17,38 +16,38 @@ import javax.swing.JScrollPane;
  *
  * @author ghifarullah19
  */
-public class PermintaanFrame
+public class LacakFrame
         extends javax.swing.JFrame {
     
     // jenisMemberList adalah variabel yang digunakan untuk menyimpan data jenis member
-    private List<Permintaan> permintaanList;
+    private List<Lacak> lacakList;
     
     // jenisMemberDao adalah variabel yang digunakan untuk menyimpan data jenis member yang didapat dari database
-    private PermintaanDao permintaanDao;
+    private LacakDao lacakDao;
 
     /**
-     * Creates new form PermintaanFrame2
+     * Creates new form LacakFrame2
      */
-    public PermintaanFrame(PermintaanDao permintaanDao) {
+    public LacakFrame(LacakDao lacakDao) {
         // this.jenisMemberDao diberikan nilai dari parameter jenisMemberDao
-        this.permintaanDao = permintaanDao;
+        this.lacakDao = lacakDao;
         // this.jenisMemberList diberikan nilai dari data jenis member yang didapat dari database
-        this.permintaanList = this.permintaanDao.findAll();
+        this.lacakList = this.lacakDao.findAll();
         
         initComponents();
         
-//        showPermintaanPane.setLayout(new BoxLayout(showPermintaanPane, BoxLayout.PAGE_AXIS));
-        showPermintaanPane.setLayout(new GridLayout(permintaanList.size(), 1, 0, 10));
+//        showLacakPane.setLayout(new BoxLayout(showLacakPane, BoxLayout.PAGE_AXIS));
+        showLacakPane.setLayout(new GridLayout(lacakList.size(), 1, 0, 10));
         
-        for (int i = 0; i < permintaanList.size(); i++) {
+        for (int i = 0; i < lacakList.size(); i++) {
             JPanel panel = new JPanel();
-            PermintaanCard permintaan = new PermintaanCard();
-            permintaan.setPanelData(permintaanList.get(i));
+            LacakCard lacak = new LacakCard();
+            lacak.setPanelData(lacakList.get(i));
             panel.setBackground(new Color(0,0,0,0));
-            panel.add(permintaan.getFrame());
-            showPermintaanPane.add(panel);
+            panel.add(lacak.getFrame());
+            showLacakPane.add(panel);
         }
-        showPermintaanScrollPane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED);
+        showLacakScrollPane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED);
     }
 
     /**
@@ -60,16 +59,15 @@ public class PermintaanFrame
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        panelPermintaan = new javax.swing.JPanel();
+        panelLacak = new javax.swing.JPanel();
         panelTitlePermintaan = new javax.swing.JPanel();
         labelTitlePermintaan = new javax.swing.JLabel();
-        showPermintaanScrollPane = new javax.swing.JScrollPane();
-        showPermintaanPane = new javax.swing.JPanel();
+        showLacakScrollPane = new javax.swing.JScrollPane();
+        showLacakPane = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        setPreferredSize(new java.awt.Dimension(728, 470));
 
-        panelPermintaan.setBackground(new java.awt.Color(102, 204, 255));
+        panelLacak.setBackground(new java.awt.Color(102, 204, 255));
 
         panelTitlePermintaan.setBackground(new java.awt.Color(51, 153, 255));
 
@@ -92,46 +90,46 @@ public class PermintaanFrame
                 .addContainerGap(10, Short.MAX_VALUE))
         );
 
-        showPermintaanPane.setBackground(new java.awt.Color(102, 204, 255));
+        showLacakPane.setBackground(new java.awt.Color(102, 204, 255));
 
-        javax.swing.GroupLayout showPermintaanPaneLayout = new javax.swing.GroupLayout(showPermintaanPane);
-        showPermintaanPane.setLayout(showPermintaanPaneLayout);
-        showPermintaanPaneLayout.setHorizontalGroup(
-            showPermintaanPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        javax.swing.GroupLayout showLacakPaneLayout = new javax.swing.GroupLayout(showLacakPane);
+        showLacakPane.setLayout(showLacakPaneLayout);
+        showLacakPaneLayout.setHorizontalGroup(
+            showLacakPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 821, Short.MAX_VALUE)
         );
-        showPermintaanPaneLayout.setVerticalGroup(
-            showPermintaanPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        showLacakPaneLayout.setVerticalGroup(
+            showLacakPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 404, Short.MAX_VALUE)
         );
 
-        showPermintaanScrollPane.setViewportView(showPermintaanPane);
+        showLacakScrollPane.setViewportView(showLacakPane);
 
-        javax.swing.GroupLayout panelPermintaanLayout = new javax.swing.GroupLayout(panelPermintaan);
-        panelPermintaan.setLayout(panelPermintaanLayout);
-        panelPermintaanLayout.setHorizontalGroup(
-            panelPermintaanLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        javax.swing.GroupLayout panelLacakLayout = new javax.swing.GroupLayout(panelLacak);
+        panelLacak.setLayout(panelLacakLayout);
+        panelLacakLayout.setHorizontalGroup(
+            panelLacakLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(panelTitlePermintaan, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(showPermintaanScrollPane)
+            .addComponent(showLacakScrollPane)
         );
-        panelPermintaanLayout.setVerticalGroup(
-            panelPermintaanLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panelPermintaanLayout.createSequentialGroup()
+        panelLacakLayout.setVerticalGroup(
+            panelLacakLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelLacakLayout.createSequentialGroup()
                 .addGap(15, 15, 15)
                 .addComponent(panelTitlePermintaan, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(showPermintaanScrollPane))
+                .addComponent(showLacakScrollPane))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(panelPermintaan, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(panelLacak, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(panelPermintaan, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(panelLacak, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
@@ -144,9 +142,9 @@ public class PermintaanFrame
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel labelTitlePermintaan;
-    private javax.swing.JPanel panelPermintaan;
+    private javax.swing.JPanel panelLacak;
     private javax.swing.JPanel panelTitlePermintaan;
-    private javax.swing.JPanel showPermintaanPane;
-    private javax.swing.JScrollPane showPermintaanScrollPane;
+    private javax.swing.JPanel showLacakPane;
+    private javax.swing.JScrollPane showLacakScrollPane;
     // End of variables declaration//GEN-END:variables
 }
