@@ -20,7 +20,7 @@ public class LacakDao {
         // try with resources digunakan untuk mengambil koneksi dari database
         try (Connection connection = MySqlConnection.getInstance().getConnection()) {
             // PreparedStatement digunakan untuk menyiapkan query yang akan dijalankan
-            PreparedStatement statement = connection.prepareStatement("Insert into lacak(idLacak, namaPelanggan, namaKurir, alamatPenjemputan, alamatTujuan) values (?, ?, ?, ?, ?)");
+            PreparedStatement statement = connection.prepareStatement("Insert into lacak(id, namaPelanggan, namaKurir, alamatPenjemputan, alamatTujuan, status) values (?, ?, ?, ?, ?, ?)");
 
             // statement.setString digunakan untuk mengisi parameter query dengan nilai dari parameter jenisMember
             statement.setInt(1, 0);
@@ -28,6 +28,7 @@ public class LacakDao {
             statement.setString(3, lacak.getNamaKurir());
             statement.setString(4, lacak.getAlamatPenjemputan());
             statement.setString(5, lacak.getAlamatTujuan());
+            statement.setBoolean(6, lacak.getStatus());
 
             // result diberikan nilai dari eksekusi query (Berisi jumlah row dari statement berarti berhasil, Berisi 0 berarti gagal)
             result = statement.executeUpdate();
@@ -48,11 +49,15 @@ public class LacakDao {
         // try with resources digunakan untuk mengambil koneksi dari database
         try (Connection connection = MySqlConnection.getInstance().getConnection()) {
             // PreparedStatement digunakan untuk menyiapkan query yang akan dijalankan
-            PreparedStatement statement = connection.prepareStatement("update lacak set namaKurir = ? where id = ?");
+            PreparedStatement statement = connection.prepareStatement("update lacak set namaPelanggan = ?, namaKurir = ?, alamatPenjemputan = ?, alamatTujuan = ?, status = ? where id = ?");
 
             // statement.setString digunakan untuk mengisi parameter query dengan nilai dari parameter jenisMember
-            statement.setString(1, lacak.getNamaKurir());
-            statement.setInt(2, lacak.getId());
+            statement.setString(1, lacak.getNamaPelanggan());
+            statement.setString(2, lacak.getNamaKurir());
+            statement.setString(3, lacak.getAlamatPenjemputan());
+            statement.setString(4, lacak.getAlamatTujuan());
+            statement.setBoolean(5, lacak.getStatus());
+            statement.setInt(6, lacak.getId());
 
             // result diberikan nilai dari eksekusi query (Berisi jumlah row dari statement berarti berhasil, Berisi 0 berarti gagal)
             result = statement.executeUpdate();
@@ -115,6 +120,7 @@ public class LacakDao {
                     lacak.setNamaKurir(resultSet.getString("namaKurir"));
                     lacak.setAlamatPenjemputan(resultSet.getString("alamatPenjemputan"));
                     lacak.setAlamatTujuan(resultSet.getString("alamatTujuan"));
+                    lacak.setStatus(resultSet.getBoolean("status"));
 
                     // list.add digunakan untuk menambahkan data jenis member ke list
                     list.add(lacak);
@@ -130,5 +136,41 @@ public class LacakDao {
 
         // mengembalikan nilai list
         return list;
+    }
+    
+    public Lacak select(String column, String value) {
+        // Membuat object lacak untuk menyimpan data
+        Lacak lacak = new Lacak();
+
+        // Try with resources untuk membuat koneksi ke database
+        try (
+                // Membuat koneksi ke database
+                Connection connection = MySqlConnection.getInstance().getConnection();
+                // Statement untuk mengirim query ke database
+                Statement statement = connection.createStatement();
+            ) {
+            // Membuat ResultSet untuk menyimpan hasil dari eksekusi query
+            try (ResultSet resultSet = statement.executeQuery("select * from lacak where " + column+ " = '" + value + "'");) {
+                // Looping untuk mengambil semua data dari database
+                while (resultSet.next()) {
+                    // Set nilai dari object lacak
+                    lacak.setId(resultSet.getInt("id")); // id
+                    lacak.setNamaPelanggan(resultSet.getString("namaPelanggan")); // nama
+                    lacak.setNamaKurir(resultSet.getString("namaKurir")); // nama
+                    lacak.setAlamatPenjemputan(resultSet.getString("alamatPenjemputan")); // alamat
+                    lacak.setAlamatTujuan(resultSet.getString("alamatTujuan")); // alamat
+                    lacak.setStatus(resultSet.getBoolean("status")); // no_telepon
+                }
+            } catch (SQLException e) {
+                // Print error jika terjadi error
+                e.printStackTrace();
+            }
+        } catch (SQLException e) {
+            // Print error jika terjadi error
+            e.printStackTrace();
+        }
+
+        // Kembalikan nilai lacak
+        return lacak;
     }
 }

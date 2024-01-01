@@ -337,8 +337,8 @@ public class MainFrame
 
     private void buttonCRUDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonCRUDActionPerformed
         // TODO add your handling code here:
-        PermintaanCRUD permintaanCRUD = new PermintaanCRUD(new PermintaanDao());
-        permintaanCRUD.setVisible(true);
+        MenuCRUD menuCRUD = new MenuCRUD();
+        menuCRUD.setVisible(true);
     }//GEN-LAST:event_buttonCRUDActionPerformed
 
     /**
