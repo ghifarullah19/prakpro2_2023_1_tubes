@@ -7,9 +7,11 @@ package id.ac.unpas.techIn.main;
 import id.ac.unpas.techIn.dao.PelangganDao;
 import id.ac.unpas.techIn.dao.PermintaanDao;
 import id.ac.unpas.techIn.dao.LacakDao;
+import id.ac.unpas.techIn.dao.PenjemputanDao;
 import id.ac.unpas.techIn.pelanggan.PelangganFrame;
 import id.ac.unpas.techIn.permintaan.PermintaanFrame;
 import id.ac.unpas.techIn.lacak.LacakFrame;
+import id.ac.unpas.techIn.penjemputan.PenjemputanFrame;
 import id.ac.unpas.techIn.permintaan.PermintaanCRUD;
 
 /**
@@ -22,9 +24,11 @@ public class MainFrame
     private PelangganFrame pelangganFrame;
     private PermintaanFrame permintaanFrame;
     private LacakFrame lacakFrame;
+    private PenjemputanFrame penjemputanFrame;
     private PelangganDao pelangganDao;
     private PermintaanDao permintaanDao;
     private LacakDao lacakDao;
+    private PenjemputanDao penjemputanDao;
     
     /**
      * Creates new form MainFrame
@@ -87,6 +91,11 @@ public class MainFrame
         });
 
         buttonPenjemputan.setText("Penjemputan");
+        buttonPenjemputan.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonPenjemputanActionPerformed(evt);
+            }
+        });
 
         buttonLacak.setText("Lacak");
         buttonLacak.addActionListener(new java.awt.event.ActionListener() {
@@ -340,6 +349,13 @@ public class MainFrame
         MenuCRUD menuCRUD = new MenuCRUD();
         menuCRUD.setVisible(true);
     }//GEN-LAST:event_buttonCRUDActionPerformed
+
+    private void buttonPenjemputanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonPenjemputanActionPerformed
+        // TODO add your handling code here:
+        penjemputanDao = new PenjemputanDao();
+        penjemputanFrame = new PenjemputanFrame(penjemputanDao);
+        penjemputanFrame.setVisible(true);
+    }//GEN-LAST:event_buttonPenjemputanActionPerformed
 
     /**
      * @param args the command line arguments
