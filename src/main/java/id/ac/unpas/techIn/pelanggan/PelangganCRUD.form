@@ -43,17 +43,17 @@
   <Layout>
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Component id="frameCRUDKurir" alignment="0" max="32767" attributes="0"/>
+          <Component id="frameCRUDPelanggan" alignment="0" max="32767" attributes="0"/>
       </Group>
     </DimensionLayout>
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Component id="frameCRUDKurir" alignment="0" max="32767" attributes="0"/>
+          <Component id="frameCRUDPelanggan" alignment="0" max="32767" attributes="0"/>
       </Group>
     </DimensionLayout>
   </Layout>
   <SubComponents>
-    <Container class="javax.swing.JPanel" name="frameCRUDKurir">
+    <Container class="javax.swing.JPanel" name="frameCRUDPelanggan">
       <Properties>
         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
           <Color blue="ff" green="99" red="66" type="rgb"/>
@@ -66,7 +66,7 @@
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace min="-2" pref="75" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                      <Component id="panelCRUDKurir" max="32767" attributes="0"/>
+                      <Component id="panelCRUDPelanggan" max="32767" attributes="0"/>
                       <Component id="scrollableTable" pref="487" max="32767" attributes="0"/>
                   </Group>
                   <EmptySpace pref="62" max="32767" attributes="0"/>
@@ -77,7 +77,7 @@
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" attributes="0">
                   <EmptySpace min="-2" pref="19" max="-2" attributes="0"/>
-                  <Component id="panelCRUDKurir" min="-2" pref="221" max="-2" attributes="0"/>
+                  <Component id="panelCRUDPelanggan" min="-2" pref="221" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
                   <Component id="scrollableTable" min="-2" pref="238" max="-2" attributes="0"/>
                   <EmptySpace pref="38" max="32767" attributes="0"/>
@@ -86,7 +86,7 @@
         </DimensionLayout>
       </Layout>
       <SubComponents>
-        <Container class="javax.swing.JPanel" name="panelCRUDKurir">
+        <Container class="javax.swing.JPanel" name="panelCRUDPelanggan">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="ff" green="ff" red="ff" type="rgb"/>
@@ -98,34 +98,31 @@
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="1" attributes="0">
                       <EmptySpace max="32767" attributes="0"/>
-                      <Component id="titleCRUDPermintaan" min="-2" max="-2" attributes="0"/>
+                      <Component id="titleCRUDPelanggan" min="-2" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="164" max="-2" attributes="0"/>
                   </Group>
                   <Group type="102" attributes="0">
+                      <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="102" attributes="0">
-                              <EmptySpace max="-2" attributes="0"/>
+                          <Group type="102" alignment="0" attributes="0">
                               <Component id="buttonKembali" min="-2" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
                               <Component id="buttonUbah" min="-2" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
                               <Component id="buttonSimpanUbah" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Component id="buttonHapus" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Component id="buttonKirim" min="-2" max="-2" attributes="0"/>
                           </Group>
-                          <Group type="102" alignment="0" attributes="0">
-                              <EmptySpace min="-2" pref="16" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="labelNamaKurir" min="-2" max="-2" attributes="0"/>
-                                  <Component id="textfieldNamaKurir" min="-2" pref="193" max="-2" attributes="0"/>
-                                  <Component id="labeNoKendaraanKurir" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Component id="textfieldNoKendaraan" alignment="0" min="-2" pref="193" max="-2" attributes="0"/>
-                              </Group>
+                          <Group type="103" alignment="0" groupAlignment="0" max="-2" attributes="0">
+                              <Component id="labelNamaPelanggan" min="-2" max="-2" attributes="0"/>
+                              <Component id="labelAlamatPelanggan" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="textfieldAlamatPelanggan" alignment="0" pref="204" max="32767" attributes="0"/>
+                              <Component id="textfieldNamaPelanggan" alignment="0" max="32767" attributes="0"/>
                           </Group>
                       </Group>
-                      <EmptySpace max="32767" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="buttonHapus" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="buttonKirim" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace pref="67" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -133,16 +130,16 @@
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="titleCRUDPermintaan" min="-2" max="-2" attributes="0"/>
+                      <Component id="titleCRUDPelanggan" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="32767" attributes="0"/>
-                      <Component id="labelNamaKurir" min="-2" max="-2" attributes="0"/>
+                      <Component id="labelNamaPelanggan" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="textfieldNamaKurir" min="-2" max="-2" attributes="0"/>
+                      <Component id="textfieldNamaPelanggan" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="labeNoKendaraanKurir" min="-2" max="-2" attributes="0"/>
+                      <Component id="labelAlamatPelanggan" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="textfieldNoKendaraan" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="50" max="-2" attributes="0"/>
+                      <Component id="textfieldAlamatPelanggan" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="51" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="buttonKembali" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="buttonUbah" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -150,16 +147,30 @@
                           <Component id="buttonKirim" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="buttonSimpanUbah" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace min="-2" pref="36" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="62" max="-2" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
           </Layout>
           <SubComponents>
-            <Component class="javax.swing.JLabel" name="titleCRUDPermintaan">
+            <Component class="javax.swing.JLabel" name="labelNamaPelanggan">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Nama Pelanggan"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JTextField" name="textfieldNamaPelanggan">
+            </Component>
+            <Component class="javax.swing.JLabel" name="labelAlamatPelanggan">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Alamat"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JTextField" name="textfieldAlamatPelanggan">
+            </Component>
+            <Component class="javax.swing.JLabel" name="titleCRUDPelanggan">
               <Properties>
                 <Property name="horizontalAlignment" type="int" value="0"/>
-                <Property name="text" type="java.lang.String" value="Form Kurir"/>
+                <Property name="text" type="java.lang.String" value="Form Pelanggan"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JButton" name="buttonKembali">
@@ -199,26 +210,6 @@
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buttonSimpanUbahActionPerformed"/>
               </Events>
             </Component>
-            <Component class="javax.swing.JLabel" name="labelNamaKurir">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="Nama Kurir"/>
-              </Properties>
-            </Component>
-            <Component class="javax.swing.JTextField" name="textfieldNamaKurir">
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="textfieldNamaKurirActionPerformed"/>
-              </Events>
-            </Component>
-            <Component class="javax.swing.JLabel" name="labeNoKendaraanKurir">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="No Kendaraan"/>
-              </Properties>
-            </Component>
-            <Component class="javax.swing.JTextField" name="textfieldNoKendaraan">
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="textfieldNoKendaraanActionPerformed"/>
-              </Events>
-            </Component>
           </SubComponents>
         </Container>
         <Container class="javax.swing.JScrollPane" name="scrollableTable">
@@ -232,10 +223,10 @@
 
               <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
               <SubComponents>
-                <Component class="javax.swing.JTable" name="tableKurir">
+                <Component class="javax.swing.JTable" name="tablePelanggan">
                   <Properties>
                     <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
-                      <Connection code="kurirModelTable" type="code"/>
+                      <Connection code="pelangganModelTable" type="code"/>
                     </Property>
                     <Property name="columnModel" type="javax.swing.table.TableColumnModel" editor="org.netbeans.modules.form.editors2.TableColumnModelEditor">
                       <TableColumnModel selectionModel="0"/>

@@ -168,14 +168,14 @@ public class KurirCRUD
                 .addComponent(labeNoKendaraanKurir)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(textfieldNoKendaraan, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(34, 34, 34)
+                .addGap(50, 50, 50)
                 .addGroup(panelCRUDKurirLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(buttonKembali)
                     .addComponent(buttonUbah)
                     .addComponent(buttonHapus)
                     .addComponent(buttonKirim)
                     .addComponent(buttonSimpanUbah))
-                .addGap(52, 52, 52))
+                .addGap(36, 36, 36))
         );
 
         tableKurir.setModel(kurirModelTable);
