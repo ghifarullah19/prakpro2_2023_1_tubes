@@ -36,13 +36,13 @@ public class Kurir {
     } 
     
     // setter noKendaraan digunakan untuk mengubah nilai dari variabel noKendaraan
-    public void setAlamat(String noKendaraan) {
+    public void setNoKendaraan(String noKendaraan) {
         // this.noKendaraan diberikan nilai dari parameter noKendaraan
         this.noKendaraan = noKendaraan;
     }
 
     // getter noKendaraan digunakan untuk mengambil nilai dari variabel noKendaraan
-    public String getAlamat() {
+    public String getNoKendaraan() {
         // mengembalikan nilai dari variabel noKendaraan
         return this.noKendaraan;
     } 

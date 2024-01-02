@@ -4,6 +4,7 @@
  */
 package id.ac.unpas.techIn.main;
 
+import id.ac.unpas.techIn.dao.KurirDao;
 import id.ac.unpas.techIn.dao.LacakDao;
 import id.ac.unpas.techIn.dao.PelangganDao;
 import id.ac.unpas.techIn.dao.PermintaanDao;
@@ -12,6 +13,7 @@ import id.ac.unpas.techIn.lacak.LacakFrame;
 import id.ac.unpas.techIn.pelanggan.PelangganFrame;
 import id.ac.unpas.techIn.permintaan.PermintaanCRUD;
 import id.ac.unpas.techIn.permintaan.PermintaanFrame;
+import id.ac.unpas.techIn.kurir.KurirCRUD;
 
 /**
  *
@@ -49,6 +51,7 @@ public class MenuCRUD
         buttonPagePenjemputan = new javax.swing.JButton();
         buttonPageLacak = new javax.swing.JButton();
         buttonPageRiwayat = new javax.swing.JButton();
+        buttonPageKurir = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -74,6 +77,13 @@ public class MenuCRUD
 
         buttonPageRiwayat.setText("Riwayat");
 
+        buttonPageKurir.setText("Kurir");
+        buttonPageKurir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonPageKurirActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout panelCRUDLayout = new javax.swing.GroupLayout(panelCRUD);
         panelCRUD.setLayout(panelCRUDLayout);
         panelCRUDLayout.setHorizontalGroup(
@@ -88,11 +98,13 @@ public class MenuCRUD
                         .addGap(18, 18, 18)
                         .addComponent(buttonPageLacak)
                         .addGap(18, 18, 18)
-                        .addComponent(buttonPageRiwayat))
+                        .addComponent(buttonPageRiwayat)
+                        .addGap(18, 18, 18)
+                        .addComponent(buttonPageKurir, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(panelCRUDLayout.createSequentialGroup()
                         .addGap(142, 142, 142)
                         .addComponent(jLabel1)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(41, Short.MAX_VALUE))
         );
         panelCRUDLayout.setVerticalGroup(
             panelCRUDLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -104,7 +116,8 @@ public class MenuCRUD
                     .addComponent(buttonPagePermintaan)
                     .addComponent(buttonPagePenjemputan)
                     .addComponent(buttonPageLacak)
-                    .addComponent(buttonPageRiwayat))
+                    .addComponent(buttonPageRiwayat)
+                    .addComponent(buttonPageKurir))
                 .addGap(40, 40, 40))
         );
 
@@ -134,7 +147,14 @@ public class MenuCRUD
         lacakCRUD.setVisible(true);
     }//GEN-LAST:event_buttonPageLacakActionPerformed
 
+    private void buttonPageKurirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonPageKurirActionPerformed
+        // TODO add your handling code here:
+        KurirCRUD kurirCRUD = new KurirCRUD(new KurirDao());
+        kurirCRUD.setVisible(true);
+    }//GEN-LAST:event_buttonPageKurirActionPerformed
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton buttonPageKurir;
     private javax.swing.JButton buttonPageLacak;
     private javax.swing.JButton buttonPagePenjemputan;
     private javax.swing.JButton buttonPagePermintaan;

@@ -9,6 +9,7 @@ import java.sql.ResultSet;
 import java.util.List;
 import java.util.ArrayList;
 import id.ac.unpas.techIn.kurir.Kurir;
+import id.ac.unpas.techIn.kurir.Kurir;
 
 // JenisMemberDao adalah class yang digunakan untuk mengakses data jenis member dari database
 public class KurirDao {
@@ -25,7 +26,7 @@ public class KurirDao {
             // statement.setString digunakan untuk mengisi parameter query dengan nilai dari parameter jenisMember
             statement.setInt(1, 0);
             statement.setString(2, kurir.getNama());
-            statement.setString(3, kurir.getAlamat());
+            statement.setString(3, kurir.getNoKendaraan());
 
             // result diberikan nilai dari eksekusi query (Berisi jumlah row dari statement berarti berhasil, Berisi 0 berarti gagal)
             result = statement.executeUpdate();
@@ -110,7 +111,7 @@ public class KurirDao {
                     kurir.setId(resultSet.getInt("idKurir"));
                     // jenisMember.setNama digunakan untuk mengubah nilai dari variabel nama dengan nilai dari ResultSet berdasarkan kolom nama
                     kurir.setNama(resultSet.getString("namaKurir"));
-                    kurir.setAlamat(resultSet.getString("noKendaraan"));
+                    kurir.setNoKendaraan(resultSet.getString("noKendaraan"));
 
                     // list.add digunakan untuk menambahkan data jenis member ke list
                     list.add(kurir);
@@ -126,5 +127,38 @@ public class KurirDao {
 
         // mengembalikan nilai list
         return list;
+    }
+    
+    public Kurir select(String column, String value) {
+        // Membuat object kurir untuk menyimpan data
+        Kurir kurir = new Kurir();
+
+        // Try with resources untuk membuat koneksi ke database
+        try (
+                // Membuat koneksi ke database
+                Connection connection = MySqlConnection.getInstance().getConnection();
+                // Statement untuk mengirim query ke database
+                Statement statement = connection.createStatement();
+            ) {
+            // Membuat ResultSet untuk menyimpan hasil dari eksekusi query
+            try (ResultSet resultSet = statement.executeQuery("select * from kurir where " + column+ " = '" + value + "'");) {
+                // Looping untuk mengambil semua data dari database
+                while (resultSet.next()) {
+                    // Set nilai dari object kurir
+                    kurir.setId(resultSet.getInt("id")); // id
+                    kurir.setNama(resultSet.getString("namaPelanggan")); // nama
+                    kurir.setNoKendaraan(resultSet.getString("alamatPenjemputan")); // alamat
+                }
+            } catch (SQLException e) {
+                // Print error jika terjadi error
+                e.printStackTrace();
+            }
+        } catch (SQLException e) {
+            // Print error jika terjadi error
+            e.printStackTrace();
+        }
+
+        // Kembalikan nilai kurir
+        return kurir;
     }
 }
