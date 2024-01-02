@@ -1,15 +1,17 @@
-package id.ac.unpas.techIn.penjemputan;
+package id.ac.unpas.techIn.riwayat;
 
 // JenisMember adalah class yang digunakan untuk menyimpan data jenis member
 
+import id.ac.unpas.techIn.penjemputan.*;
+import id.ac.unpas.techIn.riwayat.*;
 import id.ac.unpas.techIn.pelanggan.*;
 // JenisMember adalah class yang digunakan untuk menyimpan data jenis member
-public class Penjemputan {
+public class Riwayat {
     // id adalah variabel yang digunakan untuk menyimpan id dari jenis member
     private int id;
     // namaKurir adalah variabel yang digunakan untuk menyimpan namaKurir dari jenis member
     private String namaKurir;
-    private String alamatPenjemputan;
+    private String alamatRiwayat;
     private boolean status;
     
     // setter id digunakan untuk mengubah nilai dari variabel id
@@ -37,15 +39,15 @@ public class Penjemputan {
     } 
     
     // setter alamatPenjemputan digunakan untuk mengubah nilai dari variabel alamatPenjemputan
-    public void setAlamat(String alamatPenjemputan) {
+    public void setAlamat(String alamatRiwayat) {
         // this.alamatPenjemputan diberikan nilai dari parameter alamatPenjemputan
-        this.alamatPenjemputan = alamatPenjemputan;
+        this.alamatRiwayat = alamatRiwayat;
     }
 
     // getter alamatPenjemputan digunakan untuk mengambil nilai dari variabel alamatPenjemputan
     public String getAlamat() {
         // mengembalikan nilai dari variabel alamatPenjemputan
-        return this.alamatPenjemputan;
+        return this.alamatRiwayat;
     } 
     
     // setter alamatPenjemputan digunakan untuk mengubah nilai dari variabel alamatPenjemputan

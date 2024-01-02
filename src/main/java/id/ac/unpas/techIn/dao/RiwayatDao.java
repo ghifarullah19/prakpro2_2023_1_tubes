@@ -8,24 +8,27 @@ import java.sql.Statement;
 import java.sql.ResultSet;
 import java.util.List;
 import java.util.ArrayList;
-import id.ac.unpas.techIn.penjemputan.Penjemputan;
+import id.ac.unpas.techIn.riwayat.Riwayat;
 
 // JenisMemberDao adalah class yang digunakan untuk mengakses data jenis member dari database
-public class PenjemputanDao {
+public class RiwayatDao {
+
+    public RiwayatDao() {
+    }
     // insert digunakan untuk menyimpan data jenis member ke database
-    public int insert(Penjemputan penjemputan) {
+    public int insert(Riwayat riwayat) {
         // result adalah variabel yang digunakan untuk menyimpan nilai apakah eksekusi query berhasil dilakukan atau tidak
         int result = -1;
 
         // try with resources digunakan untuk mengambil koneksi dari database
         try (Connection connection = MySqlConnection.getInstance().getConnection()) {
             // PreparedStatement digunakan untuk menyiapkan query yang akan dijalankan
-            PreparedStatement statement = connection.prepareStatement("Insert into penjemputan(id, namaKurir, alamatPenjemputan) values (?, ?, ?)");
+            PreparedStatement statement = connection.prepareStatement("Insert into pelanggan(id, namaRiwayat, alamatRiwayat) values (?, ?, ?)");
 
             // statement.setString digunakan untuk mengisi parameter query dengan nilai dari parameter jenisMember
             statement.setInt(1, 0);
-            statement.setString(2, penjemputan.getNama());
-            statement.setString(3, penjemputan.getAlamat());
+            statement.setString(2, riwayat.getNama());
+            statement.setString(3, riwayat.getAlamat());
 
             // result diberikan nilai dari eksekusi query (Berisi jumlah row dari statement berarti berhasil, Berisi 0 berarti gagal)
             result = statement.executeUpdate();
@@ -39,18 +42,18 @@ public class PenjemputanDao {
     }
     
     // update digunakan untuk mengubah data jenis member di database
-    public int update(Penjemputan penjemputan) {
+    public int update(Riwayat riwayat) {
         // result adalah variabel yang digunakan untuk menyimpan nilai apakah eksekusi query berhasil dilakukan atau tidak
         int result = -1;
 
         // try with resources digunakan untuk mengambil koneksi dari database
         try (Connection connection = MySqlConnection.getInstance().getConnection()) {
             // PreparedStatement digunakan untuk menyiapkan query yang akan dijalankan
-            PreparedStatement statement = connection.prepareStatement("update penjemputan set nama = ? where id = ?");
+            PreparedStatement statement = connection.prepareStatement("update pelanggan set nama = ? where id = ?");
 
             // statement.setString digunakan untuk mengisi parameter query dengan nilai dari parameter jenisMember
-            statement.setString(1, penjemputan.getNama());
-            statement.setInt(2, penjemputan.getId());
+            statement.setString(1, riwayat.getNama());
+            statement.setInt(2, riwayat.getId());
 
             // result diberikan nilai dari eksekusi query (Berisi jumlah row dari statement berarti berhasil, Berisi 0 berarti gagal)
             result = statement.executeUpdate();
@@ -64,17 +67,17 @@ public class PenjemputanDao {
     }
     
     // delete digunakan untuk menghapus data jenis member di database
-    public int delete(Penjemputan penjemputan) {
+    public int delete(Riwayat riwayat) {
         // result adalah variabel yang digunakan untuk menyimpan nilai apakah eksekusi query berhasil dilakukan atau tidak
         int result = -1;
 
         // try with resources digunakan untuk mengambil koneksi dari database
         try (Connection connection = MySqlConnection.getInstance().getConnection()) {
             // PreparedStatement digunakan untuk menyiapkan query yang akan dijalankan
-            PreparedStatement statement = connection.prepareStatement("delete from penjemputan where id = ?");
+            PreparedStatement statement = connection.prepareStatement("delete from pelanggan where id = ?");
 
             // statement.setString digunakan untuk mengisi parameter query dengan nilai dari parameter jenisMember
-            statement.setInt(1, penjemputan.getId());
+            statement.setInt(1, riwayat.getId());
 
             // result diberikan nilai dari eksekusi query (Berisi jumlah row dari statement berarti berhasil, Berisi 0 berarti gagal)
             result = statement.executeUpdate();
@@ -88,9 +91,9 @@ public class PenjemputanDao {
     }
     
     // findAll digunakan untuk mengambil semua data jenis member di database
-    public List<Penjemputan> findAll() {
+    public List<Riwayat> findAll() {
         // list adalah variabel yang digunakan untuk menyimpan semua data jenis member
-        List<Penjemputan> list = new ArrayList<>();
+        List<Riwayat> list = new ArrayList<>();
 
         // try with resources digunakan untuk mengambil koneksi dari database dan membuat statement untuk mengeksekusi query
         try (
@@ -99,22 +102,21 @@ public class PenjemputanDao {
             ) {
 
             // ResultSet digunakan untuk menyimpan hasil dari eksekusi query
-            try (ResultSet resultSet = statement.executeQuery("select * from penjemputan");) {
+            try (ResultSet resultSet = statement.executeQuery("select * from pelanggan");) {
                 
                 // while digunakan untuk mengambil semua data jenis member dari ResultSet
                 while(resultSet.next()) {
                     // Instansiasi JenisMember dengan nama jenisMember
-                    Penjemputan penjemputan = new Penjemputan();
+                    Riwayat pelanggan = new Riwayat();
 
                     // jenisMember.setId digunakan untuk mengubah nilai dari variabel id dengan nilai dari ResultSet berdasarkan kolom id
-                    penjemputan.setId(resultSet.getInt("id"));
+                    pelanggan.setId(resultSet.getInt("id"));
                     // jenisMember.setNama digunakan untuk mengubah nilai dari variabel nama dengan nilai dari ResultSet berdasarkan kolom nama
-                    penjemputan.setNama(resultSet.getString("namaKurir"));
-                    penjemputan.setAlamat(resultSet.getString("alamatPenjemputan"));
-                    penjemputan.setStatus(resultSet.getBoolean("status"));
+                    pelanggan.setNama(resultSet.getString("namaRiwayat"));
+                    pelanggan.setAlamat(resultSet.getString("alamatRiwayat"));
 
                     // list.add digunakan untuk menambahkan data jenis member ke list
-                    list.add(penjemputan);
+                    list.add(pelanggan);
                 }
             } catch (SQLException e) {
                 // jika terjadi error, maka akan ditampilkan errornya
