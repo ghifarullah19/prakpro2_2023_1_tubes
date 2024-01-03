@@ -34,7 +34,7 @@ public class PenjemputanCard
         alamatPenjemputan.setText(pelanggan.getAlamat());
         
         iconBox.setText("");
-        iconBox.setIcon(imageIcon("C:\\Users\\malwi\\OneDrive\\Documents\\NetBeansProjects\\tech-in\\src\\main\\java\\id\\ac\\unpas\\techIn\\img\\box.png",
+        iconBox.setIcon(imageIcon("C:\\Users\\malwi\\OneDrive\\Documents\\NetBeansProjects\\techin\\src\\main\\java\\id\\ac\\unpas\\techIn\\img\\box.png",
                 65,
                 65));
         

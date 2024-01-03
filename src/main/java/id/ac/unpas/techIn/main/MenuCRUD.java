@@ -8,12 +8,15 @@ import id.ac.unpas.techIn.dao.KurirDao;
 import id.ac.unpas.techIn.dao.LacakDao;
 import id.ac.unpas.techIn.dao.PelangganDao;
 import id.ac.unpas.techIn.dao.PermintaanDao;
+import id.ac.unpas.techIn.dao.PenjemputanDao;
 import id.ac.unpas.techIn.lacak.LacakCRUD;
 import id.ac.unpas.techIn.lacak.LacakFrame;
 import id.ac.unpas.techIn.pelanggan.PelangganFrame;
+import id.ac.unpas.techIn.penjemputan.PenjemputanFrame;
 import id.ac.unpas.techIn.permintaan.PermintaanCRUD;
 import id.ac.unpas.techIn.permintaan.PermintaanFrame;
 import id.ac.unpas.techIn.kurir.KurirCRUD;
+import id.ac.unpas.techIn.penjemputan.PenjemputanCRUD;
 
 /**
  *
@@ -24,9 +27,11 @@ public class MenuCRUD
     
     private PelangganFrame pelangganFrame;
     private PermintaanFrame permintaanFrame;
+    private PermintaanFrame penjemputanFrame;
     private LacakFrame lacakFrame;
     private PelangganDao pelangganDao;
     private PermintaanDao permintaanDao;
+    private PermintaanDao penjemputanDao;
     private LacakDao lacakDao;
 
     /**
@@ -67,6 +72,11 @@ public class MenuCRUD
         });
 
         buttonPagePenjemputan.setText("Penjemputan");
+        buttonPagePenjemputan.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonPagePenjemputanActionPerformed(evt);
+            }
+        });
 
         buttonPageLacak.setText("Lacak");
         buttonPageLacak.addActionListener(new java.awt.event.ActionListener() {
@@ -152,6 +162,12 @@ public class MenuCRUD
         KurirCRUD kurirCRUD = new KurirCRUD(new KurirDao());
         kurirCRUD.setVisible(true);
     }//GEN-LAST:event_buttonPageKurirActionPerformed
+
+    private void buttonPagePenjemputanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonPagePenjemputanActionPerformed
+        // TODO add your handling code here:
+        PenjemputanCRUD penjemputanCRUD = new PenjemputanCRUD(new PenjemputanDao());
+        penjemputanCRUD.setVisible(true);
+    }//GEN-LAST:event_buttonPagePenjemputanActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton buttonPageKurir;

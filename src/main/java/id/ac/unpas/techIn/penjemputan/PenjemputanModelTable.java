@@ -1,6 +1,7 @@
 package id.ac.unpas.techIn.penjemputan;
 
 import id.ac.unpas.techIn.permintaan.*;
+import id.ac.unpas.techIn.penjemputan.*;
 import id.ac.unpas.techIn.pelanggan.*;
 import javax.swing.table.*;
 import java.util.List;
@@ -11,10 +12,10 @@ public class PenjemputanModelTable extends AbstractTableModel {
     // Array columnNames untuk menyimpan nama-nama kolom
     private String[] columnNames = { "Nama", "Alamat", "Status" };
     // Membuat List dengan nama data yang berisi Biodata untuk menyimpan data dari input
-    private List<Permintaan> data;
+    private List<Penjemputan> data;
 
     // Constructor ModelTable dengan parameter List<Biodata> data
-    public PenjemputanModelTable(List<Permintaan> data) {
+    public PenjemputanModelTable(List<Penjemputan> data) {
         // Set this.data dengan parameter data
         this.data = data;
     }
@@ -40,7 +41,7 @@ public class PenjemputanModelTable extends AbstractTableModel {
     // Fungsi untuk mendapatkan nilai dari baris dan kolom tertentu
     public Object getValueAt(int row, int col) {
         // Menyimpan elemen dari List data dari baris yang dipilih ke Biodata rowItem
-        Permintaan rowItem = data.get(row);
+        Penjemputan rowItem = data.get(row);
         // Membuat variable value untuk menyimpan nilai dari kolom yang dipilih
         String value = "";
 
@@ -59,9 +60,9 @@ public class PenjemputanModelTable extends AbstractTableModel {
             case 2:
                 // Set value dengan alamat dari rowItem
                 if (rowItem.getStatus() == true) {
-                    value = "Dijemput";
+                    value = "Tidak Menjemput";
                 } else {
-                    value = "Menunggu";
+                    value = "Menjemput";
                 }
                 break;
         }
@@ -77,7 +78,7 @@ public class PenjemputanModelTable extends AbstractTableModel {
     }
 
     // Method untuk menambah nilai ke table
-    public void add(Permintaan value) {
+    public void add(Penjemputan value) {
         // Menambahkan input user ke List data
         data.add(value);
         // Menambahkan elemen-elemen List data ke table
@@ -85,12 +86,12 @@ public class PenjemputanModelTable extends AbstractTableModel {
     }
 
     // Method untuk mengubah nilai di table
-    public void update(Permintaan value) {
+    public void update(Penjemputan value) {
         // Membuat variable i untuk menyimpan index dari data
         int i = 0;
 
         // Looping untuk mencari index dari data yang ingin diubah
-        for (Permintaan b : data) {
+        for (Penjemputan b : data) {
             // Jika id dari data sama dengan id dari value
             if (b.getId() == value.getId()) {
                 // Biodata tersebut menjadi value
@@ -107,12 +108,12 @@ public class PenjemputanModelTable extends AbstractTableModel {
     }
 
     // Method untuk menghapus nilai di table
-    public void delete(Permintaan value) {
+    public void delete(Penjemputan value) {
         // Membuat variable i untuk menyimpan index dari data
         int i = 0;
 
         // Looping untuk mencari index dari data yang ingin dihapus
-        for (Permintaan b : data) {
+        for (Penjemputan b : data) {
             // Jika id dari data sama dengan id dari value
             if (b.getId() == value.getId()) {
                 // Hapus data dari List data

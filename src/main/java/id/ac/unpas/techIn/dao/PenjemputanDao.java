@@ -9,6 +9,7 @@ import java.sql.ResultSet;
 import java.util.List;
 import java.util.ArrayList;
 import id.ac.unpas.techIn.penjemputan.Penjemputan;
+import id.ac.unpas.techIn.permintaan.Permintaan;
 
 // JenisMemberDao adalah class yang digunakan untuk mengakses data jenis member dari database
 public class PenjemputanDao {
@@ -127,5 +128,39 @@ public class PenjemputanDao {
 
         // mengembalikan nilai list
         return list;
+    }
+    
+    public Penjemputan select(String column, String value) {
+        // Membuat object permintaan untuk menyimpan data
+        Penjemputan penjemputan = new Penjemputan();
+
+        // Try with resources untuk membuat koneksi ke database
+        try (
+                // Membuat koneksi ke database
+                Connection connection = MySqlConnection.getInstance().getConnection();
+                // Statement untuk mengirim query ke database
+                Statement statement = connection.createStatement();
+            ) {
+            // Membuat ResultSet untuk menyimpan hasil dari eksekusi query
+            try (ResultSet resultSet = statement.executeQuery("select * from penjemputan where " + column+ " = '" + value + "'");) {
+                // Looping untuk mengambil semua data dari database
+                while (resultSet.next()) {
+                    // Set nilai dari object permintaan
+                    penjemputan.setId(resultSet.getInt("id")); // id
+                    penjemputan.setNama(resultSet.getString("namaKurir")); // nama
+                    penjemputan.setAlamat(resultSet.getString("alamatPenjemputan")); // alamat
+                    penjemputan.setStatus(resultSet.getBoolean("status")); // no_telepon
+                }
+            } catch (SQLException e) {
+                // Print error jika terjadi error
+                e.printStackTrace();
+            }
+        } catch (SQLException e) {
+            // Print error jika terjadi error
+            e.printStackTrace();
+        }
+
+        // Kembalikan nilai permintaan
+        return penjemputan;
     }
 }
