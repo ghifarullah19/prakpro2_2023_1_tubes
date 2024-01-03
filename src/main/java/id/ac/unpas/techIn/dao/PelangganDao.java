@@ -9,6 +9,7 @@ import java.sql.ResultSet;
 import java.util.List;
 import java.util.ArrayList;
 import id.ac.unpas.techIn.pelanggan.Pelanggan;
+import id.ac.unpas.techIn.pelanggan.Pelanggan;
 
 // JenisMemberDao adalah class yang digunakan untuk mengakses data jenis member dari database
 public class PelangganDao {
@@ -126,5 +127,38 @@ public class PelangganDao {
 
         // mengembalikan nilai list
         return list;
+    }
+    
+    public Pelanggan select(String column, String value) {
+        // Membuat object pelanggan untuk menyimpan data
+        Pelanggan pelanggan = new Pelanggan();
+
+        // Try with resources untuk membuat koneksi ke database
+        try (
+                // Membuat koneksi ke database
+                Connection connection = MySqlConnection.getInstance().getConnection();
+                // Statement untuk mengirim query ke database
+                Statement statement = connection.createStatement();
+            ) {
+            // Membuat ResultSet untuk menyimpan hasil dari eksekusi query
+            try (ResultSet resultSet = statement.executeQuery("select * from pelanggan where " + column+ " = '" + value + "'");) {
+                // Looping untuk mengambil semua data dari database
+                while (resultSet.next()) {
+                    // Set nilai dari object pelanggan
+                    pelanggan.setId(resultSet.getInt("id")); // id
+                    pelanggan.setNama(resultSet.getString("namaPelanggan")); // nama
+                    pelanggan.setAlamat(resultSet.getString("alamatPenjemputan")); // alamat
+                }
+            } catch (SQLException e) {
+                // Print error jika terjadi error
+                e.printStackTrace();
+            }
+        } catch (SQLException e) {
+            // Print error jika terjadi error
+            e.printStackTrace();
+        }
+
+        // Kembalikan nilai pelanggan
+        return pelanggan;
     }
 }

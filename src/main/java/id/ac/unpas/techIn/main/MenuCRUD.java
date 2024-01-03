@@ -17,6 +17,7 @@ import id.ac.unpas.techIn.permintaan.PermintaanCRUD;
 import id.ac.unpas.techIn.permintaan.PermintaanFrame;
 import id.ac.unpas.techIn.kurir.KurirCRUD;
 import id.ac.unpas.techIn.penjemputan.PenjemputanCRUD;
+import id.ac.unpas.techIn.pelanggan.PelangganCRUD;
 
 /**
  *
@@ -57,6 +58,7 @@ public class MenuCRUD
         buttonPageLacak = new javax.swing.JButton();
         buttonPageRiwayat = new javax.swing.JButton();
         buttonPageKurir = new javax.swing.JButton();
+        buttonPagePelanggan = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -94,14 +96,21 @@ public class MenuCRUD
             }
         });
 
+        buttonPagePelanggan.setText("Pelanggan");
+        buttonPagePelanggan.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonPagePelangganActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout panelCRUDLayout = new javax.swing.GroupLayout(panelCRUD);
         panelCRUD.setLayout(panelCRUDLayout);
         panelCRUDLayout.setHorizontalGroup(
             panelCRUDLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelCRUDLayout.createSequentialGroup()
-                .addGap(23, 23, 23)
                 .addGroup(panelCRUDLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(panelCRUDLayout.createSequentialGroup()
+                        .addGap(23, 23, 23)
                         .addComponent(buttonPagePermintaan)
                         .addGap(18, 18, 18)
                         .addComponent(buttonPagePenjemputan)
@@ -110,11 +119,13 @@ public class MenuCRUD
                         .addGap(18, 18, 18)
                         .addComponent(buttonPageRiwayat)
                         .addGap(18, 18, 18)
-                        .addComponent(buttonPageKurir, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(buttonPageKurir, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(buttonPagePelanggan))
                     .addGroup(panelCRUDLayout.createSequentialGroup()
-                        .addGap(142, 142, 142)
+                        .addGap(275, 275, 275)
                         .addComponent(jLabel1)))
-                .addContainerGap(41, Short.MAX_VALUE))
+                .addContainerGap(12, Short.MAX_VALUE))
         );
         panelCRUDLayout.setVerticalGroup(
             panelCRUDLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -127,7 +138,8 @@ public class MenuCRUD
                     .addComponent(buttonPagePenjemputan)
                     .addComponent(buttonPageLacak)
                     .addComponent(buttonPageRiwayat)
-                    .addComponent(buttonPageKurir))
+                    .addComponent(buttonPageKurir)
+                    .addComponent(buttonPagePelanggan))
                 .addGap(40, 40, 40))
         );
 
@@ -162,16 +174,23 @@ public class MenuCRUD
         KurirCRUD kurirCRUD = new KurirCRUD(new KurirDao());
         kurirCRUD.setVisible(true);
     }//GEN-LAST:event_buttonPageKurirActionPerformed
-
+  
     private void buttonPagePenjemputanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonPagePenjemputanActionPerformed
         // TODO add your handling code here:
         PenjemputanCRUD penjemputanCRUD = new PenjemputanCRUD(new PenjemputanDao());
         penjemputanCRUD.setVisible(true);
     }//GEN-LAST:event_buttonPagePenjemputanActionPerformed
+  
+    private void buttonPagePelangganActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonPagePelangganActionPerformed
+        // TODO add your handling code here:
+        PelangganCRUD pelangganCRUD = new PelangganCRUD(new PelangganDao());
+        pelangganCRUD.setVisible(true);
+    }//GEN-LAST:event_buttonPagePelangganActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton buttonPageKurir;
     private javax.swing.JButton buttonPageLacak;
+    private javax.swing.JButton buttonPagePelanggan;
     private javax.swing.JButton buttonPagePenjemputan;
     private javax.swing.JButton buttonPagePermintaan;
     private javax.swing.JButton buttonPageRiwayat;
