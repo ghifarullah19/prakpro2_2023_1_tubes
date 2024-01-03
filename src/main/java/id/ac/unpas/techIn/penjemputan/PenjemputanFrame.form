@@ -89,7 +89,7 @@
           <SubComponents>
             <Component class="javax.swing.JLabel" name="labelTitlePenjemputan">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Recylce Bin"/>
+                <Property name="text" type="java.lang.String" value="Penerimaan Penjemputan"/>
               </Properties>
             </Component>
           </SubComponents>

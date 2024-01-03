@@ -72,7 +72,7 @@ public class PenjemputanFrame
 
         panelTitlePenjemputan.setBackground(new java.awt.Color(51, 153, 255));
 
-        labelTitlePenjemputan.setText("Recylce Bin");
+        labelTitlePenjemputan.setText("Penerimaan Penjemputan");
 
         javax.swing.GroupLayout panelTitlePenjemputanLayout = new javax.swing.GroupLayout(panelTitlePenjemputan);
         panelTitlePenjemputan.setLayout(panelTitlePenjemputanLayout);
