@@ -302,10 +302,10 @@ public class KurirCRUD
 
           switch (column) {
                 case 0:
-                    col = "namaPelanggan";
+                    col = "namaKurir";
                     break;
                 case 1:
-                    col = "alamatPenjemputan";
+                    col = "noKendaraan";
                     break;
                 case 2:
                     col = "status";
