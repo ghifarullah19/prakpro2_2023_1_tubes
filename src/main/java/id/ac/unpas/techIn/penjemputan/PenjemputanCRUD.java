@@ -4,9 +4,11 @@
  */
 package id.ac.unpas.techIn.penjemputan;
 
+import id.ac.unpas.techIn.dao.KurirDao;
 import id.ac.unpas.techIn.permintaan.*;
 import id.ac.unpas.techIn.dao.PermintaanDao;
 import id.ac.unpas.techIn.dao.PenjemputanDao;
+import id.ac.unpas.techIn.kurir.Kurir;
 import id.ac.unpas.techIn.pelanggan.Pelanggan;
 import id.ac.unpas.techIn.penjemputan.Penjemputan;
 import id.ac.unpas.techIn.permintaan.Permintaan;
@@ -49,6 +51,7 @@ public class PenjemputanCRUD
      */
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated
+    // <editor-fold defaultstate="collapsed" desc="Generated
     // Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
@@ -74,12 +77,12 @@ public class PenjemputanCRUD
         buttonKembali = new javax.swing.JButton();
         buttonUbah = new javax.swing.JButton();
         buttonHapus = new javax.swing.JButton();
-        buttonKirim = new javax.swing.JButton();
         buttonSimpanUbah = new javax.swing.JButton();
         labelNamaKurir = new javax.swing.JLabel();
         textfieldNamaKurir = new javax.swing.JTextField();
         labelAlamatTujuan = new javax.swing.JLabel();
         textfieldAlamatTujuan = new javax.swing.JTextField();
+        buttonRefresh = new javax.swing.JButton();
         scrollableTable = new javax.swing.JScrollPane();
         jScrollPane1 = new javax.swing.JScrollPane();
         tablePenjemputan = new javax.swing.JTable();
@@ -131,13 +134,6 @@ public class PenjemputanCRUD
             }
         });
 
-        buttonKirim.setText("Kirim");
-        buttonKirim.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                buttonKirimActionPerformed(evt);
-            }
-        });
-
         buttonSimpanUbah.setText("Simpan Ubah");
         buttonSimpanUbah.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -154,6 +150,13 @@ public class PenjemputanCRUD
         });
 
         labelAlamatTujuan.setText("Alamat Tujuan");
+
+        buttonRefresh.setText("Refresh");
+        buttonRefresh.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonRefreshActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout panelCRUDPenjemputanLayout = new javax.swing.GroupLayout(panelCRUDPenjemputan);
         panelCRUDPenjemputan.setLayout(panelCRUDPenjemputanLayout);
@@ -201,7 +204,7 @@ public class PenjemputanCRUD
                                                                                 .addComponent(buttonHapus)
                                                                                 .addPreferredGap(
                                                                                         javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                                                .addComponent(buttonKirim))
+                                                                                .addComponent(buttonRefresh))
                                                                         .addComponent(textfieldNamaKurir)
                                                                         .addComponent(labelAlamatTujuan)
                                                                         .addComponent(textfieldAlamatTujuan,
@@ -216,7 +219,7 @@ public class PenjemputanCRUD
                                         .addGroup(panelCRUDPenjemputanLayout.createSequentialGroup()
                                                 .addGap(190, 190, 190)
                                                 .addComponent(titleCRUDPermintaan)))
-                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)));
+                                .addContainerGap(25, Short.MAX_VALUE)));
         panelCRUDPenjemputanLayout.setVerticalGroup(
                 panelCRUDPenjemputanLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addGroup(panelCRUDPenjemputanLayout.createSequentialGroup()
@@ -263,8 +266,8 @@ public class PenjemputanCRUD
                                         .addComponent(buttonKembali)
                                         .addComponent(buttonUbah)
                                         .addComponent(buttonHapus)
-                                        .addComponent(buttonKirim)
-                                        .addComponent(buttonSimpanUbah))
+                                        .addComponent(buttonSimpanUbah)
+                                        .addComponent(buttonRefresh))
                                 .addGap(52, 52, 52)));
 
         tablePenjemputan.setModel(penjemputanModelTable);
@@ -310,37 +313,30 @@ public class PenjemputanCRUD
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void buttonKirimActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_buttonKirimActionPerformed
+    private void buttonRefreshActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_buttonRefreshActionPerformed
         // TODO add your handling code here:
-        boolean status = false;
+        KurirDao kurirDao = new KurirDao();
+        List<Kurir> kurirList = kurirDao.findAll();
 
-        if (radioTrue.isSelected()) {
-            status = true;
+        for (int i = 0; i < kurirList.size(); i++) {
+            Kurir kurir = new Kurir();
+            kurir = kurirList.get(i);
+
+            if (penjemputanDao.select("namaKurir", kurir.getNama()).getNama() != null) {
+                continue;
+            } else {
+                Penjemputan penjemputan = new Penjemputan();
+                penjemputan.setNama(kurir.getNama());
+                penjemputan.setAlamat("");
+                penjemputan.setAlamatTujuan("");
+                penjemputan.setStatus(true);
+                penjemputan.setIdKurir(kurir.getId());
+                penjemputan.setIdPermintaan(0);
+                this.addData(penjemputan);
+                penjemputanDao.insert(kurir);
+            }
         }
-
-        if (radioFalse.isSelected()) {
-            status = false;
-        }
-
-        String namaPelanggan = this.textfieldNamaPelanggan.getText();
-        String namaKurir = this.textfieldNamaKurir.getText();
-        String alamatPenjemputan = this.textfieldAlamatPelanggan.getText();
-        String alamatTujuan = this.textfieldAlamatTujuan.getText();
-
-        Permintaan permintaan = new Permintaan();
-        Penjemputan penjemputan = new Penjemputan();
-
-        permintaan.setNama(namaPelanggan);
-        permintaan.setAlamat(alamatPenjemputan);
-        permintaan.setStatus(status);
-
-        penjemputan.setNama(namaKurir);
-        penjemputan.setAlamat(alamatTujuan);
-        penjemputan.setStatus(status);
-
-        // this.penjemputanDao.insert(penjemputan);
-        this.addData(penjemputan);
-    }// GEN-LAST:event_buttonKirimActionPerformed
+    }// GEN-LAST:event_buttonRefreshActionPerformed
 
     private void buttonUbahActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_buttonUbahActionPerformed
         // TODO add your handling code here:
@@ -370,15 +366,20 @@ public class PenjemputanCRUD
                 System.out.println("Kolom tidak ditemukan");
                 break;
         }
+        PermintaanDao permintaanDao = new PermintaanDao();
+
         id = this.penjemputanDao.select(col, dataUbah).getId();
+        int idPermintaan = this.penjemputanDao.select(col, dataUbah).getIdPermintaan();
 
         this.textfieldNamaKurir.setText(this.penjemputanDao.select(col, dataUbah).getNama());
-        this.textfieldAlamatTujuan.setText(this.penjemputanDao.select(col, dataUbah).getAlamat());
+        this.textfieldNamaPelanggan.setText(permintaanDao.select("id", String.valueOf(idPermintaan)).getNama());
+        this.textfieldAlamatPelanggan.setText(this.penjemputanDao.select(col, dataUbah).getAlamat());
+        this.textfieldAlamatTujuan.setText(this.penjemputanDao.select(col, dataUbah).getAlamatTujuan());
 
         if (this.penjemputanDao.select(col, dataUbah).getStatus() == true) {
-            this.radioTrue.setSelected(true);
-        } else {
             this.radioFalse.setSelected(true);
+        } else {
+            this.radioTrue.setSelected(true);
         }
 
         penjemputanUbah = new Penjemputan();
@@ -390,24 +391,25 @@ public class PenjemputanCRUD
         boolean status = false;
 
         if (radioTrue.isSelected()) {
-            status = true;
+            status = false;
         }
 
         if (radioFalse.isSelected()) {
-            status = false;
+            status = true;
         }
 
         String nama = this.textfieldNamaKurir.getText();
         String alamat = this.textfieldAlamatTujuan.getText();
 
-        Penjemputan penjemputan = new Penjemputan();
+        Permintaan penjemputan = new Permintaan();
         penjemputan.setId(penjemputanUbah.getId());
         penjemputan.setNama(nama);
         penjemputan.setAlamat(alamat);
         penjemputan.setStatus(status);
 
-        // this.penjemputanDao.update(penjemputan);
-        this.update(penjemputan);
+        PermintaanDao permintaanDao = new PermintaanDao();
+
+        permintaanDao.updateBasedPenjemputan(penjemputan);
     }// GEN-LAST:event_buttonSimpanUbahActionPerformed
 
     private void buttonHapusActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_buttonHapusActionPerformed
@@ -490,7 +492,7 @@ public class PenjemputanCRUD
     private javax.swing.ButtonGroup buttonGroup9;
     private javax.swing.JButton buttonHapus;
     private javax.swing.JButton buttonKembali;
-    private javax.swing.JButton buttonKirim;
+    private javax.swing.JButton buttonRefresh;
     private javax.swing.JButton buttonSimpanUbah;
     private javax.swing.JButton buttonUbah;
     private javax.swing.JPanel frameCRUDPenjemputan;

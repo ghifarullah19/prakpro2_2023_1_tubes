@@ -123,7 +123,7 @@
                                           <Group type="102" attributes="0">
                                               <Component id="buttonHapus" min="-2" max="-2" attributes="0"/>
                                               <EmptySpace max="-2" attributes="0"/>
-                                              <Component id="buttonKirim" min="-2" max="-2" attributes="0"/>
+                                              <Component id="buttonRefresh" min="-2" max="-2" attributes="0"/>
                                           </Group>
                                           <Component id="textfieldNamaKurir" alignment="0" max="32767" attributes="0"/>
                                           <Component id="labelAlamatTujuan" min="-2" max="-2" attributes="0"/>
@@ -143,7 +143,7 @@
                               <Component id="titleCRUDPermintaan" min="-2" max="-2" attributes="0"/>
                           </Group>
                       </Group>
-                      <EmptySpace max="32767" attributes="0"/>
+                      <EmptySpace pref="25" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -184,8 +184,8 @@
                           <Component id="buttonKembali" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="buttonUbah" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="buttonHapus" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="buttonKirim" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="buttonSimpanUbah" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="buttonRefresh" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace min="-2" pref="52" max="-2" attributes="0"/>
                   </Group>
@@ -255,14 +255,6 @@
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buttonHapusActionPerformed"/>
               </Events>
             </Component>
-            <Component class="javax.swing.JButton" name="buttonKirim">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="Kirim"/>
-              </Properties>
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buttonKirimActionPerformed"/>
-              </Events>
-            </Component>
             <Component class="javax.swing.JButton" name="buttonSimpanUbah">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Simpan Ubah"/>
@@ -287,6 +279,14 @@
               </Properties>
             </Component>
             <Component class="javax.swing.JTextField" name="textfieldAlamatTujuan">
+            </Component>
+            <Component class="javax.swing.JButton" name="buttonRefresh">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Refresh"/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buttonRefreshActionPerformed"/>
+              </Events>
             </Component>
           </SubComponents>
         </Container>

@@ -66,6 +66,53 @@ public class PermintaanDao {
         return result;
     }
 
+    public int updateBasedPenjemputan(Permintaan permintaan) {
+        int result = -1;
+        PenjemputanDao penjemputanDao = new PenjemputanDao();
+        Penjemputan penjemputan = new Penjemputan();
+
+        int id = penjemputanDao.select("namaKurir", permintaan.getNama()).getIdPermintaan();
+
+        try (Connection connection = MySqlConnection.getInstance().getConnection()) {
+            PreparedStatement statement = connection.prepareStatement(
+                    "update permintaan set namaPelanggan = ?, alamatPenjemputan = ?, status = ? where id = ?");
+
+            statement.setString(1, this.select("id", String.valueOf(id)).getNama());
+            statement.setString(2, this.select("id", String.valueOf(id)).getAlamat());
+            statement.setBoolean(3, permintaan.getStatus());
+            statement.setInt(4, id);
+
+            System.out.println(this.select("id", String.valueOf(id)).getNama());
+            System.out.println(this.select("id", String.valueOf(id)).getAlamat());
+            System.out.println(permintaan.getStatus());
+            System.out.println(id);
+
+            result = statement.executeUpdate();
+
+            System.out.println("==========================================");
+
+            penjemputan.setNama(penjemputanDao.select("idPermintaan", String.valueOf(id)).getNama());
+            penjemputan.setAlamat(penjemputanDao.select("idPermintaan", String.valueOf(id)).getAlamat());
+            penjemputan.setAlamatTujuan(penjemputanDao.select("idPermintaan", String.valueOf(id)).getAlamatTujuan());
+            penjemputan.setStatus(permintaan.getStatus());
+            penjemputan.setIdPermintaan(penjemputanDao.select("idPermintaan", String.valueOf(id)).getIdPermintaan());
+            penjemputan.setIdKurir(penjemputanDao.select("idPermintaan", String.valueOf(id)).getIdKurir());
+
+            System.out.println(penjemputanDao.select("idPermintaan", String.valueOf(id)).getId());
+            System.out.println(penjemputanDao.select("idPermintaan", String.valueOf(id)).getNama());
+            System.out.println(penjemputanDao.select("idPermintaan", String.valueOf(id)).getAlamat());
+            System.out.println(penjemputanDao.select("idPermintaan", String.valueOf(id)).getAlamatTujuan());
+            System.out.println(penjemputanDao.select("idPermintaan", String.valueOf(id)).getStatus());
+            System.out.println(penjemputanDao.select("idPermintaan", String.valueOf(id)).getIdPermintaan());
+            System.out.println(penjemputanDao.select("idPermintaan", String.valueOf(id)).getIdKurir());
+            penjemputanDao.updateToTrue(penjemputan);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return result;
+    }
+
     public int delete(Permintaan permintaan) {
         int result = -1;
 
@@ -126,6 +173,7 @@ public class PermintaanDao {
                     permintaan.setNama(resultSet.getString("namaPelanggan")); // nama
                     permintaan.setAlamat(resultSet.getString("alamatPenjemputan")); // alamat
                     permintaan.setStatus(resultSet.getBoolean("status")); // no_telepon
+                    permintaan.setIdPelanggan(resultSet.getInt("idPelanggan"));
                 }
             } catch (SQLException e) {
                 e.printStackTrace();
