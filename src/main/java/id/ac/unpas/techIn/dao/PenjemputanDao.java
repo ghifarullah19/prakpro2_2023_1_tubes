@@ -19,14 +19,15 @@ public class PenjemputanDao {
 
         try (Connection connection = MySqlConnection.getInstance().getConnection()) {
             PreparedStatement statement = connection.prepareStatement(
-                    "Insert into penjemputan(id, namaKurir, alamatPenjemputan, status, idPermintaan, idKurir) values (?, ?, ?, ?, ?, ?)");
+                    "Insert into penjemputan(id, namaKurir, alamatPenjemputan, alamatTujuan, status, idPermintaan, idKurir) values (?, ?, ?, ?, ?, ?, ?)");
 
             statement.setInt(1, 0);
             statement.setString(2, penjemputan.getNama());
             statement.setString(3, "");
-            statement.setBoolean(4, true);
-            statement.setNull(5, 0);
-            statement.setInt(6, this.selectKurir("namaKurir", penjemputan.getNama()).getId());
+            statement.setString(4, "");
+            statement.setBoolean(5, true);
+            statement.setNull(6, 0);
+            statement.setInt(7, this.selectKurir("namaKurir", penjemputan.getNama()).getId());
 
             result = statement.executeUpdate();
         } catch (SQLException e) {
@@ -103,13 +104,6 @@ public class PenjemputanDao {
             lacak.setStatus(penjemputan.getStatus());
             lacak.setIdPenjemputan(this.select("namaKurir", penjemputan.getNama()).getId());
             lacak.setIdKurir(this.selectKurir("namaKurir", penjemputan.getNama()).getId());
-
-            System.out.println(lacak.getNamaKurir());
-            System.out.println(lacak.getNamaPelanggan());
-            System.out.println(lacak.getAlamatPenjemputan());
-            System.out.println(lacak.getAlamatTujuan());
-            System.out.println(lacak.getIdKurir());
-            System.out.println(lacak.getIdPenjemputan());
             lacakDao.update(lacak);
         } catch (SQLException e) {
             e.printStackTrace();
@@ -118,175 +112,161 @@ public class PenjemputanDao {
         return result;
     }
 
-    // delete digunakan untuk menghapus data jenis member di database
-    public int delete(int id) {
-        // result adalah variabel yang digunakan untuk menyimpan nilai apakah eksekusi
-        // query berhasil dilakukan atau tidak
+    public int updateBasedDelete(Penjemputan penjemputan) {
         int result = -1;
 
-        // try with resources digunakan untuk mengambil koneksi dari database
         try (Connection connection = MySqlConnection.getInstance().getConnection()) {
-            // PreparedStatement digunakan untuk menyiapkan query yang akan dijalankan
-            PreparedStatement statement = connection.prepareStatement("delete from penjemputan where idPermintaan = ?");
-            // statement.setString digunakan untuk mengisi parameter query dengan nilai dari
-            // parameter jenisMember
-            statement.setInt(1, id);
+            PreparedStatement statement = connection.prepareStatement(
+                    "update penjemputan set namaKurir = ?, alamatPenjemputan = ?, alamatTujuan = ?, status = ?, idPermintaan = ?, idKurir = ? where id = ?");
 
-            // result diberikan nilai dari eksekusi query (Berisi jumlah row dari statement
-            // berarti berhasil, Berisi 0 berarti gagal)
+            System.out.println(penjemputan.getStatus());
+
+            statement.setString(1, penjemputan.getNama());
+            statement.setString(2, "");
+            statement.setString(3, "");
+            statement.setBoolean(4, true);
+            statement.setNull(5, 0);
+            statement.setInt(6, this.selectKurir("namaKurir", penjemputan.getNama()).getId());
+            statement.setInt(7, this.select("namaKurir", penjemputan.getNama()).getId());
+
             result = statement.executeUpdate();
         } catch (SQLException e) {
-            // jika terjadi error, maka akan ditampilkan errornya
             e.printStackTrace();
         }
 
-        // mengembalikan nilai result
         return result;
     }
 
-    // findAll digunakan untuk mengambil semua data jenis member di database
+    public int delete(int id) {
+        int result = -1;
+
+        try (Connection connection = MySqlConnection.getInstance().getConnection()) {
+            PreparedStatement statement = connection.prepareStatement("delete from penjemputan where idPermintaan = ?");
+            statement.setInt(1, id);
+
+            result = statement.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return result;
+    }
+
+    public int deleteBasedKurir(int id) {
+        int result = -1;
+
+        try (Connection connection = MySqlConnection.getInstance().getConnection()) {
+            PreparedStatement statement = connection.prepareStatement("delete from penjemputan where id = ?");
+            statement.setInt(1, id);
+
+            result = statement.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return result;
+    }
+
     public List<Penjemputan> findAll() {
-        // list adalah variabel yang digunakan untuk menyimpan semua data jenis member
         List<Penjemputan> list = new ArrayList<>();
 
-        // try with resources digunakan untuk mengambil koneksi dari database dan
-        // membuat statement untuk mengeksekusi query
         try (
                 Connection connection = MySqlConnection.getInstance().getConnection();
                 Statement statement = connection.createStatement();) {
 
-            // ResultSet digunakan untuk menyimpan hasil dari eksekusi query
             try (ResultSet resultSet = statement.executeQuery("select * from penjemputan");) {
 
-                // while digunakan untuk mengambil semua data jenis member dari ResultSet
                 while (resultSet.next()) {
-                    // Instansiasi JenisMember dengan nama jenisMember
                     Penjemputan penjemputan = new Penjemputan();
 
-                    // jenisMember.setId digunakan untuk mengubah nilai dari variabel id dengan
-                    // nilai dari ResultSet berdasarkan kolom id
                     penjemputan.setId(resultSet.getInt("id"));
-                    // jenisMember.setNama digunakan untuk mengubah nilai dari variabel nama dengan
-                    // nilai dari ResultSet berdasarkan kolom nama
                     penjemputan.setNama(resultSet.getString("namaKurir"));
                     penjemputan.setAlamat(resultSet.getString("alamatPenjemputan"));
                     penjemputan.setStatus(resultSet.getBoolean("status"));
 
-                    // list.add digunakan untuk menambahkan data jenis member ke list
                     list.add(penjemputan);
                 }
             } catch (SQLException e) {
-                // jika terjadi error, maka akan ditampilkan errornya
                 e.printStackTrace();
             }
         } catch (SQLException e) {
-            // jika terjadi error, maka akan ditampilkan errornya
             e.printStackTrace();
         }
 
-        // mengembalikan nilai list
         return list;
     }
 
     public Penjemputan select(String column, String value) {
-        // Membuat object permintaan untuk menyimpan data
         Penjemputan penjemputan = new Penjemputan();
 
-        // Try with resources untuk membuat koneksi ke database
         try (
-                // Membuat koneksi ke database
                 Connection connection = MySqlConnection.getInstance().getConnection();
-                // Statement untuk mengirim query ke database
                 Statement statement = connection.createStatement();) {
-            // Membuat ResultSet untuk menyimpan hasil dari eksekusi query
             try (ResultSet resultSet = statement
                     .executeQuery("select * from penjemputan where " + column + " = '" + value + "'");) {
-                // Looping untuk mengambil semua data dari database
                 while (resultSet.next()) {
-                    // Set nilai dari object permintaan
                     penjemputan.setId(resultSet.getInt("id")); // id
                     penjemputan.setNama(resultSet.getString("namaKurir")); // nama
                     penjemputan.setAlamat(resultSet.getString("alamatPenjemputan")); // alamat
                     penjemputan.setAlamatTujuan(resultSet.getString("alamatTujuan"));
                     penjemputan.setStatus(resultSet.getBoolean("status")); // no_telepon
+                    penjemputan.setIdKurir(resultSet.getInt("idKurir"));
+                    penjemputan.setIdPermintaan(resultSet.getInt("idPermintaan"));
                 }
             } catch (SQLException e) {
-                // Print error jika terjadi error
                 e.printStackTrace();
             }
         } catch (SQLException e) {
-            // Print error jika terjadi error
             e.printStackTrace();
         }
 
-        // Kembalikan nilai permintaan
         return penjemputan;
     }
 
     public Kurir selectKurir(String column, String value) {
-        // Membuat object permintaan untuk menyimpan data
         Kurir kurir = new Kurir();
 
-        // Try with resources untuk membuat koneksi ke database
         try (
-                // Membuat koneksi ke database
                 Connection connection = MySqlConnection.getInstance().getConnection();
-                // Statement untuk mengirim query ke database
                 Statement statement = connection.createStatement();) {
-            // Membuat ResultSet untuk menyimpan hasil dari eksekusi query
             try (ResultSet resultSet = statement
                     .executeQuery("select * from kurir where " + column + " = '" + value + "'");) {
-                // Looping untuk mengambil semua data dari database
                 while (resultSet.next()) {
-                    // Set nilai dari object permintaan
                     kurir.setId(resultSet.getInt("idKurir")); // id
                     kurir.setNama(resultSet.getString("namaKurir")); // nama
                     kurir.setNoKendaraan(resultSet.getString("noKendaraan")); // alamat
                 }
             } catch (SQLException e) {
-                // Print error jika terjadi error
                 e.printStackTrace();
             }
         } catch (SQLException e) {
-            // Print error jika terjadi error
             e.printStackTrace();
         }
 
-        // Kembalikan nilai permintaan
         return kurir;
     }
 
     public Permintaan selectPermintaan(String column, boolean value) {
-        // Membuat object permintaan untuk menyimpan data
         Permintaan permintaan = new Permintaan();
 
-        // Try with resources untuk membuat koneksi ke database
         try (
-                // Membuat koneksi ke database
                 Connection connection = MySqlConnection.getInstance().getConnection();
-                // Statement untuk mengirim query ke database
                 Statement statement = connection.createStatement();) {
-            // Membuat ResultSet untuk menyimpan hasil dari eksekusi query
             try (ResultSet resultSet = statement
                     .executeQuery("select * from permintaan where " + column + " = '" + value + "'");) {
-                // Looping untuk mengambil semua data dari database
                 while (resultSet.next()) {
-                    // Set nilai dari object permintaan
                     permintaan.setId(resultSet.getInt("id")); // id
                     permintaan.setNama(resultSet.getString("namaPelanggan")); // nama
                     permintaan.setAlamat(resultSet.getString("alamatPenjemputan")); // alamat
                     permintaan.setStatus(resultSet.getBoolean("status")); // no_telepon
                 }
             } catch (SQLException e) {
-                // Print error jika terjadi error
                 e.printStackTrace();
             }
         } catch (SQLException e) {
-            // Print error jika terjadi error
             e.printStackTrace();
         }
 
-        // Kembalikan nilai permintaan
         return permintaan;
     }
 }
