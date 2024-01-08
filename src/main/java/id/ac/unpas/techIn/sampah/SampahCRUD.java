@@ -4,10 +4,12 @@
  */
 package id.ac.unpas.techIn.sampah;
 
-import id.ac.unpas.techIn.sampah.*;
+import id.ac.unpas.techIn.dao.KurirDao;
+import id.ac.unpas.techIn.dao.PelangganDao;
+import id.ac.unpas.techIn.dao.PermintaanDao;
+import id.ac.unpas.techIn.dao.RiwayatDao;
 import id.ac.unpas.techIn.sampah.*;
 import id.ac.unpas.techIn.dao.SampahDao;
-import id.ac.unpas.techIn.pelanggan.Pelanggan;
 import id.ac.unpas.techIn.penjemputan.Penjemputan;
 import id.ac.unpas.techIn.sampah.SampahModelTable;
 import java.util.List;
@@ -77,9 +79,11 @@ public class SampahCRUD
         textfieldBeratSampah = new javax.swing.JTextField();
         labelJumlahSampah = new javax.swing.JLabel();
         textfieldJumlahSampah = new javax.swing.JTextField();
+        labelAlamatPenjemputan = new javax.swing.JLabel();
+        textfieldAlamatPenjemputan = new javax.swing.JTextField();
         scrollableTable = new javax.swing.JScrollPane();
         jScrollPane1 = new javax.swing.JScrollPane();
-        tableKurir = new javax.swing.JTable();
+        tableSampah = new javax.swing.JTable();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -176,6 +180,8 @@ public class SampahCRUD
             }
         });
 
+        labelAlamatPenjemputan.setText("Alamat Penjemputan");
+
         javax.swing.GroupLayout panelCRUDSampahLayout = new javax.swing.GroupLayout(panelCRUDSampah);
         panelCRUDSampah.setLayout(panelCRUDSampahLayout);
         panelCRUDSampahLayout.setHorizontalGroup(
@@ -184,16 +190,15 @@ public class SampahCRUD
                 .addGroup(panelCRUDSampahLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(panelCRUDSampahLayout.createSequentialGroup()
                         .addGap(16, 16, 16)
-                        .addGroup(panelCRUDSampahLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(panelCRUDSampahLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(textfieldNamaPelanggan, javax.swing.GroupLayout.PREFERRED_SIZE, 193, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(labelNamaPelanggan)
-                                .addComponent(textfieldPoin, javax.swing.GroupLayout.PREFERRED_SIZE, 193, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(labelJenisSampah)
-                                .addComponent(textfieldJenisSampah, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 193, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(labelJumlahSampah)
-                                .addComponent(textfieldJumlahSampah, javax.swing.GroupLayout.PREFERRED_SIZE, 193, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(labelNamaPelanggan1))
+                        .addGroup(panelCRUDSampahLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(textfieldNamaPelanggan)
+                            .addComponent(labelNamaPelanggan)
+                            .addComponent(labelJenisSampah)
+                            .addComponent(textfieldJenisSampah)
+                            .addComponent(labelJumlahSampah)
+                            .addComponent(textfieldJumlahSampah)
+                            .addComponent(labelAlamatPenjemputan)
+                            .addComponent(textfieldAlamatPenjemputan, javax.swing.GroupLayout.DEFAULT_SIZE, 193, Short.MAX_VALUE))
                         .addGap(18, 18, 18)
                         .addGroup(panelCRUDSampahLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(labelBeratSampah)
@@ -201,7 +206,9 @@ public class SampahCRUD
                             .addComponent(textfieldNamaKurir, javax.swing.GroupLayout.PREFERRED_SIZE, 193, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(labeNoKendaraanKurir)
                             .addComponent(textfieldNoKendaraan, javax.swing.GroupLayout.PREFERRED_SIZE, 193, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(textfieldBeratSampah, javax.swing.GroupLayout.PREFERRED_SIZE, 193, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(textfieldBeratSampah, javax.swing.GroupLayout.PREFERRED_SIZE, 193, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(textfieldPoin, javax.swing.GroupLayout.PREFERRED_SIZE, 193, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(labelNamaPelanggan1)))
                     .addGroup(panelCRUDSampahLayout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(buttonKembali)
@@ -223,7 +230,7 @@ public class SampahCRUD
             .addGroup(panelCRUDSampahLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(titleCRUDSampah)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 12, Short.MAX_VALUE)
                 .addGroup(panelCRUDSampahLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(labelNamaPelanggan, javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(labelNamaKurir, javax.swing.GroupLayout.Alignment.TRAILING))
@@ -234,11 +241,11 @@ public class SampahCRUD
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(panelCRUDSampahLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(labeNoKendaraanKurir)
-                    .addComponent(labelNamaPelanggan1))
+                    .addComponent(labelAlamatPenjemputan))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(panelCRUDSampahLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(textfieldPoin, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(textfieldNoKendaraan, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(textfieldNoKendaraan, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(textfieldAlamatPenjemputan, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(panelCRUDSampahLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(labelJenisSampah)
@@ -248,10 +255,16 @@ public class SampahCRUD
                     .addComponent(textfieldJenisSampah, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(textfieldBeratSampah, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(labelJumlahSampah)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(textfieldJumlahSampah, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 66, Short.MAX_VALUE)
+                .addGroup(panelCRUDSampahLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(panelCRUDSampahLayout.createSequentialGroup()
+                        .addComponent(labelJumlahSampah)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(textfieldJumlahSampah, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(panelCRUDSampahLayout.createSequentialGroup()
+                        .addComponent(labelNamaPelanggan1)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(textfieldPoin, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 60, Short.MAX_VALUE)
                 .addGroup(panelCRUDSampahLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(buttonKembali)
                     .addComponent(buttonUbah)
@@ -261,8 +274,8 @@ public class SampahCRUD
                 .addGap(14, 14, 14))
         );
 
-        tableKurir.setModel(kurirModelTable);
-        jScrollPane1.setViewportView(tableKurir);
+        tableSampah.setModel(sampahModelTable);
+        jScrollPane1.setViewportView(tableSampah);
 
         scrollableTable.setViewportView(jScrollPane1);
 
@@ -274,8 +287,8 @@ public class SampahCRUD
                 .addGap(75, 75, 75)
                 .addGroup(frameCRUDSampahLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(panelCRUDSampah, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(scrollableTable, javax.swing.GroupLayout.DEFAULT_SIZE, 487, Short.MAX_VALUE))
-                .addContainerGap(62, Short.MAX_VALUE))
+                    .addComponent(scrollableTable, javax.swing.GroupLayout.DEFAULT_SIZE, 457, Short.MAX_VALUE))
+                .addContainerGap(72, Short.MAX_VALUE))
         );
         frameCRUDSampahLayout.setVerticalGroup(
             frameCRUDSampahLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -303,15 +316,32 @@ public class SampahCRUD
 
     private void buttonKirimActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonKirimActionPerformed
         // TODO add your handling code here:
+        KurirDao kurirDao = new KurirDao();
+        PelangganDao pelangganDao = new PelangganDao();
+        RiwayatDao riwayatDao = new RiwayatDao();
         
-        String namaSampah = this.textfieldNamaPelanggan.getText();
+        String namaPelanggan = this.textfieldNamaPelanggan.getText();
         String noKendaraan = this.textfieldNoKendaraan.getText();
+        String namaKurir = this.textfieldNamaKurir.getText();
+        String alamatPenjemputan = this.textfieldAlamatPenjemputan.getText();
+        String jenisSampah = this.textfieldJenisSampah.getText();
+        float beratSampah = Float.valueOf(this.textfieldBeratSampah.getText());
+        int jumlahSampah = Integer.valueOf(textfieldJumlahSampah.getText());
+        int poinSampah = Integer.valueOf(textfieldPoin.getText());
 
         Sampah sampah = new Sampah();
-        Penjemputan penjemputan = new Penjemputan();
         
-        sampah.setNama(namaSampah);
+        sampah.setNamaPelanggan(namaPelanggan);
+        sampah.setAlamatPenjemputan(alamatPenjemputan);
         sampah.setNoKendaraan(noKendaraan);
+        sampah.setNamaKurir(namaKurir);
+        sampah.setJenisSampah(jenisSampah);
+        sampah.setBeratSampah(beratSampah);
+        sampah.setJumlahSampah(jumlahSampah);
+        sampah.setPoin(poinSampah);
+        sampah.setIdKurir(kurirDao.select("namaKurir",namaKurir).getId());
+        sampah.setIdPelanggan(pelangganDao.select("namaPelanggan",namaPelanggan).getId());
+        sampah.setIdDetail(riwayatDao.select("namaPelanggan",namaPelanggan).getId());
 
         this.sampahDao.insert(sampah);
         this.addData(sampah);
@@ -333,22 +363,27 @@ public class SampahCRUD
 
         switch (column) {
             case 0:
-                col = "namaPelanggan";
+                col = "jumlahSampah";
                 break;
             case 1:
-                col = "alamatPenjemputan";
+                col = "jenisSampah";
                 break;
             case 2:
-                col = "status";
+                col = "beratSampah";
+                break;
+            case 3:
+                col = "poin";
                 break;
             default:
                 System.out.println("Kolom tidak ditemukan");
                 break;
         }
         id = this.sampahDao.select(col, dataUbah).getId();
-       
-        this.textfieldNamaPelanggan.setText(this.sampahDao.select(col, dataUbah).getNama());
-        this.textfieldNoKendaraan.setText(this.sampahDao.select(col, dataUbah).getNoKendaraan());
+       System.out.println(col + " " + dataUbah);
+        this.textfieldJumlahSampah.setText(String.valueOf(this.sampahDao.select(col, dataUbah).getJumlahSampah()));
+        this.textfieldJenisSampah.setText(String.valueOf(this.sampahDao.select(col, dataUbah).getJenisSampah()));
+        this.textfieldBeratSampah.setText(String.valueOf(this.sampahDao.select(col, dataUbah).getBeratSampah()));
+        this.textfieldPoin.setText(String.valueOf(this.sampahDao.select(col, dataUbah).getPoin()));
         
         sampahUbah = new Sampah();
         sampahUbah.setId(id);
@@ -357,13 +392,16 @@ public class SampahCRUD
     private void buttonSimpanUbahActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonSimpanUbahActionPerformed
         // TODO add your handling code here:
         
-        String nama = this.textfieldNamaPelanggan.getText();
-        String alamat = this.textfieldNoKendaraan.getText();
+        String jenisSampah = this.textfieldJenisSampah.getText();
+        int jumlahSampah = Integer.valueOf(this.textfieldJumlahSampah.getText());
+        float beratSampah = Float.valueOf(this.textfieldBeratSampah.getText());
+        int poin = Integer.valueOf(this.textfieldPoin.getText());
 
         Sampah sampah = new Sampah();
-        sampah.setId(sampahUbah.getId());
-        sampah.setNama(nama);
-        sampah.setNoKendaraan(alamat);
+        sampah.setJenisSampah(jenisSampah);
+        sampah.setJumlahSampah(jumlahSampah);
+        sampah.setBeratSampah(beratSampah);
+        sampah.setPoin(poin);
 
         this.sampahDao.update(sampah);
         this.update(sampah);
@@ -377,21 +415,24 @@ public class SampahCRUD
         if (row == -1 || column == -1) {
           return;
         } else {
-          String newValue = (String) this.tableSampah.getModel().getValueAt(row, column);
+            String newValue = (String) this.tableSampah.getModel().getValueAt(row, column);
      
-          Sampah id = new Sampah();
+            Sampah id = new Sampah();
 
-          String col = "";
+            String col = "";
 
-          switch (column) {
+            switch (column) {
                 case 0:
-                    col = "namaSampah";
+                    col = "jumlahSampah";
                     break;
                 case 1:
-                    col = "noKendaraan";
+                    col = "jenisSampah";
                     break;
                 case 2:
-                    col = "status";
+                    col = "beratSampah";
+                    break;
+                case 3:
+                    col = "poin";
                     break;
                 default:
                     System.out.println("Kolom tidak ditemukan");
@@ -470,6 +511,7 @@ public class SampahCRUD
     private javax.swing.JPanel frameCRUDSampah;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel labeNoKendaraanKurir;
+    private javax.swing.JLabel labelAlamatPenjemputan;
     private javax.swing.JLabel labelBeratSampah;
     private javax.swing.JLabel labelJenisSampah;
     private javax.swing.JLabel labelJumlahSampah;
@@ -478,7 +520,8 @@ public class SampahCRUD
     private javax.swing.JLabel labelNamaPelanggan1;
     private javax.swing.JPanel panelCRUDSampah;
     private javax.swing.JScrollPane scrollableTable;
-    private javax.swing.JTable tableKurir;
+    private javax.swing.JTable tableSampah;
+    private javax.swing.JTextField textfieldAlamatPenjemputan;
     private javax.swing.JTextField textfieldBeratSampah;
     private javax.swing.JTextField textfieldJenisSampah;
     private javax.swing.JTextField textfieldJumlahSampah;

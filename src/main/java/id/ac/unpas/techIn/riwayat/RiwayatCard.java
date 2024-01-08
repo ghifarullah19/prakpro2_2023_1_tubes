@@ -4,6 +4,7 @@
  */
 package id.ac.unpas.techIn.riwayat;
 
+import id.ac.unpas.techIn.dao.RiwayatDao;
 import id.ac.unpas.techIn.riwayat.*;
 import id.ac.unpas.techIn.riwayat.Riwayat;
 import java.awt.Color;
@@ -30,21 +31,14 @@ public class RiwayatCard
         return this.riwayatPanel;
     }
     
-    public void setPanelData(Riwayat pelanggan) {
-        namaKurir.setText(pelanggan.getNama());
-        alamatRiwayat.setText(pelanggan.getAlamat());
+    public void setPanelData(Riwayat riwayat) {
+        namaPelanggan.setText(riwayat.getNamaPelanggan());
+        alamatRiwayat.setText(riwayat.getAlamatPenjemputan());
         
         iconBox.setText("");
         iconBox.setIcon(imageIcon("C:\\Users\\malwi\\OneDrive\\Documents\\NetBeansProjects\\tech-in\\src\\main\\java\\id\\ac\\unpas\\techIn\\img\\box.png",
                 65,
                 65));
-        
-        if (pelanggan.getStatus()) {
-            status.setText("Sampah sudah dijemput");
-        } else {
-            status.setText("Sampah belum dijemput");
-    
-        }
     }
     
     public ImageIcon imageIcon(String imageURL, int height, int width) {
@@ -71,7 +65,7 @@ public class RiwayatCard
         jOptionPane1 = new javax.swing.JOptionPane();
         riwayatPanel = new javax.swing.JPanel();
         buttonDetail = new javax.swing.JButton();
-        namaKurir = new javax.swing.JLabel();
+        namaPelanggan = new javax.swing.JLabel();
         alamatRiwayat = new javax.swing.JLabel();
         jSeparator1 = new javax.swing.JSeparator();
         iconBox = new javax.swing.JLabel();
@@ -98,7 +92,7 @@ public class RiwayatCard
         riwayatPanel.setMaximumSize(new java.awt.Dimension(556, 131));
 
         buttonDetail.setBackground(new java.awt.Color(204, 204, 204));
-        buttonDetail.setForeground(new java.awt.Color(255, 255, 255));
+        buttonDetail.setForeground(new java.awt.Color(0, 0, 0));
         buttonDetail.setText("Detail");
         buttonDetail.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -106,28 +100,30 @@ public class RiwayatCard
             }
         });
 
-        namaKurir.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        namaKurir.setForeground(new java.awt.Color(0, 102, 204));
-        namaKurir.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        namaKurir.setText("namaPelanggan");
+        namaPelanggan.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        namaPelanggan.setForeground(new java.awt.Color(0, 102, 204));
+        namaPelanggan.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        namaPelanggan.setText("namaPelanggan");
 
-        alamatRiwayat.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        alamatRiwayat.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         alamatRiwayat.setForeground(new java.awt.Color(0, 102, 204));
+        alamatRiwayat.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         alamatRiwayat.setText("alamatPenjemputan");
 
         iconBox.setText("iconBox");
 
-        status.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        status.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         status.setForeground(new java.awt.Color(0, 102, 204));
-        status.setText("status");
+        status.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        status.setText("Sampah Sudah Dijemput");
 
         javax.swing.GroupLayout riwayatPanelLayout = new javax.swing.GroupLayout(riwayatPanel);
         riwayatPanel.setLayout(riwayatPanelLayout);
         riwayatPanelLayout.setHorizontalGroup(
             riwayatPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jSeparator1, javax.swing.GroupLayout.Alignment.TRAILING)
-            .addGroup(riwayatPanelLayout.createSequentialGroup()
-                .addContainerGap(14, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, riwayatPanelLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(iconBox, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addGroup(riwayatPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
@@ -137,15 +133,15 @@ public class RiwayatCard
                 .addComponent(buttonDetail)
                 .addGap(18, 18, 18))
             .addGroup(riwayatPanelLayout.createSequentialGroup()
-                .addGap(281, 281, 281)
-                .addComponent(namaKurir, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(289, 289, 289)
+                .addComponent(namaPelanggan, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(292, Short.MAX_VALUE))
         );
         riwayatPanelLayout.setVerticalGroup(
             riwayatPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(riwayatPanelLayout.createSequentialGroup()
                 .addGap(12, 12, 12)
-                .addComponent(namaKurir)
+                .addComponent(namaPelanggan)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 3, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGroup(riwayatPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -154,11 +150,11 @@ public class RiwayatCard
                         .addComponent(buttonDetail))
                     .addGroup(riwayatPanelLayout.createSequentialGroup()
                         .addGap(18, 18, 18)
-                        .addGroup(riwayatPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(riwayatPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(iconBox, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(riwayatPanelLayout.createSequentialGroup()
                                 .addComponent(alamatRiwayat, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(status, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                 .addContainerGap(19, Short.MAX_VALUE))
         );
@@ -179,86 +175,12 @@ public class RiwayatCard
 
     private void buttonDetailActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonDetailActionPerformed
         // TODO add your handling code here:
+        Riwayat riwayat = new Riwayat();
+        RiwayatDao riwayatDao = new RiwayatDao();
+        riwayat = riwayatDao.select("namaPelanggan", namaPelanggan.getText());
+        RiwayatDetailFrame riwayatDetailFrame = new RiwayatDetailFrame(riwayat);
+        riwayatDetailFrame.setVisible(true);
     }//GEN-LAST:event_buttonDetailActionPerformed
-
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info
-                    : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(RiwayatCard.class.getName()).
-                    log(java.util.logging.Level.SEVERE,
-                            null,
-                            ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(RiwayatCard.class.getName()).
-                    log(java.util.logging.Level.SEVERE,
-                            null,
-                            ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(RiwayatCard.class.getName()).
-                    log(java.util.logging.Level.SEVERE,
-                            null,
-                            ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(RiwayatCard.class.getName()).
-                    log(java.util.logging.Level.SEVERE,
-                            null,
-                            ex);
-        }
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new RiwayatCard().setVisible(true);
-            }
-        });
-    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel alamatRiwayat;
@@ -268,7 +190,7 @@ public class RiwayatCard
     private javax.swing.JOptionPane jOptionPane1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JSeparator jSeparator1;
-    private javax.swing.JLabel namaKurir;
+    private javax.swing.JLabel namaPelanggan;
     private javax.swing.JPanel riwayatPanel;
     private javax.swing.JLabel status;
     // End of variables declaration//GEN-END:variables

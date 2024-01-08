@@ -10,7 +10,7 @@ import javax.swing.JButton;
 // Membuat class ModelTable yang mewarisi class AbstractTableModel untuk membuat model tabel
 public class SampahModelTable extends AbstractTableModel {
     // Array columnNames untuk menyimpan nama-nama kolom
-    private String[] columnNames = { "Nama", "No Kendaraan"};
+    private String[] columnNames = { "Jumlah", "Jenis", "Berat", "Poin"};
     // Membuat List dengan nama data yang berisi Biodata untuk menyimpan data dari input
     private List<Sampah> data;
 
@@ -50,12 +50,21 @@ public class SampahModelTable extends AbstractTableModel {
             // Jika col bernilai 0
             case 0:
                 // Set value dengan nama dari rowItem
-                value = rowItem.getNamaPelanggan(); //Baru mengambil data row dari Pelanggan saja
+                value = String.valueOf(rowItem.getJumlahSampah()); //Baru mengambil data row dari Pelanggan saja
                 break;
             // Jika col bernilai 1
             case 1:
                 // Set value dengan alamat dari rowItem
-                value = rowItem.getNoKendaraan();
+                value = rowItem.getJenisSampah();
+                break;
+            case 2:
+                // Set value dengan nama dari rowItem
+                value = String.valueOf(rowItem.getBeratSampah());  //Baru mengambil data row dari Pelanggan saja
+                break;
+            // Jika col bernilai 1
+            case 3:
+                // Set value dengan alamat dari rowItem
+                value = String.valueOf(rowItem.getPoin());
                 break;
         }
 

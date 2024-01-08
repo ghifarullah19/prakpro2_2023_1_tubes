@@ -16,17 +16,31 @@ public class SampahDao {
     public int insert(Sampah sampah) {
         // result adalah variabel yang digunakan untuk menyimpan nilai apakah eksekusi query berhasil dilakukan atau tidak
         int result = -1;
+        PelangganDao pelanggan = new PelangganDao();
+        KurirDao kurir = new KurirDao();
+        RiwayatDao detail = new RiwayatDao();
 
         // try with resources digunakan untuk mengambil koneksi dari database
         try (Connection connection = MySqlConnection.getInstance().getConnection()) {
             // PreparedStatement digunakan untuk menyiapkan query yang akan dijalankan
-            PreparedStatement statement = connection.prepareStatement("Insert into sampah(idSampah, namaSampah, alamatSampah) values (?, ?, ?)");
+            PreparedStatement statement = connection.prepareStatement("Insert into sampah(idSampah, namaPelanggan,namaKurir, alamatPenjemputan, noKendaraan, jumlahSampah, jenisSampah, beratSampah, poin, idPelanggan, idKurir, idDetail) values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
 
             // statement.setString digunakan untuk mengisi parameter query dengan nilai dari parameter jenisMember
             statement.setInt(1, 0);
             statement.setString(2, sampah.getNamaPelanggan());
             statement.setString(3, sampah.getNamaKurir());
-
+            statement.setString(4, sampah.getAlamatPenjemputan());
+            statement.setString(5, sampah.getNoKendaraan());
+            statement.setInt(6, sampah.getJumlahSampah());
+            statement.setString(7, sampah.getJenisSampah());
+            statement.setFloat(8, sampah.getBeratSampah());
+            statement.setInt(9, sampah.getPoin());
+            statement.setInt(10, pelanggan.select("namaPelanggan",
+                            sampah.getNamaPelanggan()).getId());
+            statement.setInt(11, kurir.select("namaKurir",
+                            sampah.getNamaKurir()).getId());
+            statement.setInt(12, detail.select("namaPelanggan",
+                            sampah.getNamaPelanggan()).getId());
             // result diberikan nilai dari eksekusi query (Berisi jumlah row dari statement berarti berhasil, Berisi 0 berarti gagal)
             result = statement.executeUpdate();
         } catch (SQLException e) {
@@ -46,12 +60,14 @@ public class SampahDao {
         // try with resources digunakan untuk mengambil koneksi dari database
         try (Connection connection = MySqlConnection.getInstance().getConnection()) {
             // PreparedStatement digunakan untuk menyiapkan query yang akan dijalankan
-            PreparedStatement statement = connection.prepareStatement("update sampah set nama = ? where id = ?");
+            PreparedStatement statement = connection.prepareStatement("update sampah set jumlahSampah = ?, jenisSampah = ?, beratSampah = ?, poin = ? where idSampah = ?");
 
             // statement.setString digunakan untuk mengisi parameter query dengan nilai dari parameter jenisMember
-            statement.setString(2, sampah.getNamaPelanggan());
-            statement.setString(3, sampah.getNamaKurir());
-            statement.setInt(2, sampah.getId());
+            statement.setInt(1, sampah.getJumlahSampah());
+            statement.setString(2, sampah.getJenisSampah());
+            statement.setFloat(3, sampah.getBeratSampah());
+            statement.setInt(4, sampah.getPoin());
+            statement.setInt(5, this.select("jumlahSampah", String.valueOf(sampah.getJumlahSampah())).getId());
 
             // result diberikan nilai dari eksekusi query (Berisi jumlah row dari statement berarti berhasil, Berisi 0 berarti gagal)
             result = statement.executeUpdate();
@@ -72,10 +88,10 @@ public class SampahDao {
         // try with resources digunakan untuk mengambil koneksi dari database
         try (Connection connection = MySqlConnection.getInstance().getConnection()) {
             // PreparedStatement digunakan untuk menyiapkan query yang akan dijalankan
-            PreparedStatement statement = connection.prepareStatement("delete from sampah where id = ?");
+            PreparedStatement statement = connection.prepareStatement("delete from sampah where idSampah = ?");
 
             // statement.setString digunakan untuk mengisi parameter query dengan nilai dari parameter jenisMember
-            statement.setInt(1, sampah.getId());
+            statement.setInt(1, this.select("jumlahSampah", String.valueOf(sampah.getJumlahSampah())).getId());
 
             // result diberikan nilai dari eksekusi query (Berisi jumlah row dari statement berarti berhasil, Berisi 0 berarti gagal)
             result = statement.executeUpdate();
@@ -106,12 +122,11 @@ public class SampahDao {
                 while(resultSet.next()) {
                     // Instansiasi JenisMember dengan nama jenisMember
                     Sampah sampah = new Sampah();
-
-                    // jenisMember.setId digunakan untuk mengubah nilai dari variabel id dengan nilai dari ResultSet berdasarkan kolom id
                     sampah.setId(resultSet.getInt("idSampah"));
-                    // jenisMember.setNama digunakan untuk mengubah nilai dari variabel nama dengan nilai dari ResultSet berdasarkan kolom nama
-                    sampah.setNamaPelanggan(resultSet.getString("namaPelanggan"));
-                    sampah.setNamaKurir(resultSet.getString("namaKurir"));
+                    sampah.setBeratSampah(resultSet.getFloat("beratSampah"));
+                    sampah.setJumlahSampah(resultSet.getInt("jumlahSampah"));
+                    sampah.setJenisSampah(resultSet.getString("jenisSampah"));
+                    sampah.setPoin(resultSet.getInt("poin"));
 
                     // list.add digunakan untuk menambahkan data jenis member ke list
                     list.add(sampah);
@@ -127,5 +142,30 @@ public class SampahDao {
 
         // mengembalikan nilai list
         return list;
+    }
+    
+    public Sampah select(String column, String value) {
+        Sampah sampah = new Sampah();
+
+        try (
+                Connection connection = MySqlConnection.getInstance().getConnection();
+                Statement statement = connection.createStatement();) {
+            try (ResultSet resultSet = statement
+                    .executeQuery("select * from sampah where " + column + " = '" + value + "'");) {
+                while (resultSet.next()) {
+                    sampah.setId(resultSet.getInt("idSampah"));
+                    sampah.setBeratSampah(resultSet.getFloat("beratSampah"));
+                    sampah.setJumlahSampah(resultSet.getInt("jumlahSampah"));
+                    sampah.setJenisSampah(resultSet.getString("jenisSampah"));
+                    sampah.setPoin(resultSet.getInt("poin"));
+                }
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return sampah;
     }
 }
