@@ -179,6 +179,10 @@ public class LacakCard
 
     private void buttonLacakActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonLacakActionPerformed
         // TODO add your handling code here:
+        Lacak lacak = new Lacak();
+        lacak.setAlamatPenjemputan(alamatPenjemputan.getText());
+        LacakDetailFrame lacakDetailFrame = new LacakDetailFrame(lacak);
+        lacakDetailFrame.setVisible(true);
     }//GEN-LAST:event_buttonLacakActionPerformed
 
     /**
