@@ -9,6 +9,7 @@ import id.ac.unpas.techIn.dao.LacakDao;
 import id.ac.unpas.techIn.dao.PelangganDao;
 import id.ac.unpas.techIn.dao.PermintaanDao;
 import id.ac.unpas.techIn.dao.PenjemputanDao;
+import id.ac.unpas.techIn.dao.SampahDao;
 import id.ac.unpas.techIn.kurir.Kurir;
 import id.ac.unpas.techIn.lacak.LacakCRUD;
 import id.ac.unpas.techIn.lacak.LacakFrame;
@@ -19,6 +20,7 @@ import id.ac.unpas.techIn.permintaan.PermintaanFrame;
 import id.ac.unpas.techIn.kurir.KurirCRUD;
 import id.ac.unpas.techIn.penjemputan.PenjemputanCRUD;
 import id.ac.unpas.techIn.pelanggan.PelangganCRUD;
+import id.ac.unpas.techIn.sampah.SampahCRUD;
 import java.util.List;
 
 /**
@@ -171,6 +173,8 @@ public class MenuCRUD
 
     private void buttonPageSampahActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonPageSampahActionPerformed
         // TODO add your handling code here:
+        SampahCRUD sampahCRUD = new SampahCRUD(new SampahDao());
+        sampahCRUD.setVisible(true);
     }//GEN-LAST:event_buttonPageSampahActionPerformed
 
     private void buttonPagePermintaanActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_buttonPagePermintaanActionPerformed

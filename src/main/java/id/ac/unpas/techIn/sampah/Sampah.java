@@ -12,10 +12,14 @@ public class Sampah {
     private String namaPelanggan;
     private String namaKurir;
     private String noKendaraan;
+    private String alamatPenjemputan;
     private String jenisSampah;
     private int poin;
     private int jumlahSampah;
     private float beratSampah;
+    private int idKurir;
+    private int idPelanggan;
+    private int idDetail;
     
     // setter id digunakan untuk mengubah nilai dari variabel id
     public void setId(int id) {
@@ -53,6 +57,17 @@ public class Sampah {
         return this.namaKurir;
     } 
     
+    // setter noKendaraan digunakan untuk mengubah nilai dari variabel noKendaraan
+    public void setAlamatPenjemputan(String alamatPenjemputan) {
+        // this.noKendaraan diberikan nilai dari parameter noKendaraan
+        this.alamatPenjemputan = alamatPenjemputan;
+    }
+
+    // getter noKendaraan digunakan untuk mengambil nilai dari variabel noKendaraan
+    public String getAlamatPenjemputan() {
+        // mengembalikan nilai dari variabel noKendaraan
+        return this.alamatPenjemputan;
+    } 
     
     // setter noKendaraan digunakan untuk mengubah nilai dari variabel noKendaraan
     public void setNoKendaraan(String noKendaraan) {
@@ -67,7 +82,7 @@ public class Sampah {
     } 
     
     // setter noKendaraan digunakan untuk mengubah nilai dari variabel noKendaraan
-    public void jenisSampah(String jenisSampah) {
+    public void setJenisSampah(String jenisSampah) {
         // this.noKendaraan diberikan nilai dari parameter noKendaraan
         this.jenisSampah = jenisSampah;
     }
@@ -79,31 +94,19 @@ public class Sampah {
     } 
     
     // setter noKendaraan digunakan untuk mengubah nilai dari variabel noKendaraan
-    public void beratSampah(float beratSampah) {
-        // this.noKendaraan diberikan nilai dari parameter noKendaraan
-        this.beratSampah = beratSampah;
-    }
-
-    // getter noKendaraan digunakan untuk mengambil nilai dari variabel noKendaraan
-    public float getBeratSampah() {
-        // mengembalikan nilai dari variabel noKendaraan
-        return this.beratSampah;
-    } 
-    
-    // setter noKendaraan digunakan untuk mengubah nilai dari variabel noKendaraan
-    public void poin(int poin) {
+    public void setPoin(int poin) {
         // this.noKendaraan diberikan nilai dari parameter noKendaraan
         this.poin = poin;
     }
 
     // getter noKendaraan digunakan untuk mengambil nilai dari variabel noKendaraan
-    public int poin() {
+    public int getPoin() {
         // mengembalikan nilai dari variabel noKendaraan
         return this.poin;
     } 
     
     // setter noKendaraan digunakan untuk mengubah nilai dari variabel noKendaraan
-    public void setjumlahSampah(int jumlahSampah) {
+    public void setJumlahSampah(int jumlahSampah) {
         // this.noKendaraan diberikan nilai dari parameter noKendaraan
         this.jumlahSampah = jumlahSampah;
     }
@@ -114,5 +117,51 @@ public class Sampah {
         return this.jumlahSampah;
     } 
     
+    // setter noKendaraan digunakan untuk mengubah nilai dari variabel noKendaraan
+    public void setBeratSampah(float beratSampah) {
+        // this.noKendaraan diberikan nilai dari parameter noKendaraan
+        this.beratSampah = beratSampah;
+    }
+
+    // getter noKendaraan digunakan untuk mengambil nilai dari variabel noKendaraan
+    public float getBeratSampah() {
+        // mengembalikan nilai dari variabel noKendaraan
+        return this.beratSampah;
+    }
+
+    // setter id digunakan untuk mengubah nilai dari variabel id
+    public void setIdKurir(int idKurir) {
+        // this.id diberikan nilai dari parameter id
+        this.idKurir = idKurir;
+    }
     
+    // getter id digunakan untuk mengambil nilai dari variabel id
+    public int getIdKurir() {
+        // mengembalikan nilai dari variabel id
+        return this.idKurir;
+    } 
+    
+    // setter id digunakan untuk mengubah nilai dari variabel id
+    public void setIdPelanggan(int idPelanggan) {
+        // this.id diberikan nilai dari parameter id
+        this.idPelanggan = idPelanggan;
+    }
+    
+    // getter id digunakan untuk mengambil nilai dari variabel id
+    public int getIdPelanggan() {
+        // mengembalikan nilai dari variabel id
+        return this.idPelanggan;
+    } 
+    
+    // setter id digunakan untuk mengubah nilai dari variabel id
+    public void setIdDetail(int idDetail) {
+        // this.id diberikan nilai dari parameter id
+        this.idDetail = idDetail;
+    }
+    
+    // getter id digunakan untuk mengambil nilai dari variabel id
+    public int getIdDetail() {
+        // mengembalikan nilai dari variabel id
+        return this.idDetail;
+    } 
 }

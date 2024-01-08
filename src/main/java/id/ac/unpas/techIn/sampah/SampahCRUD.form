@@ -67,9 +67,9 @@
                   <EmptySpace min="-2" pref="75" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" max="-2" attributes="0">
                       <Component id="panelCRUDSampah" max="32767" attributes="0"/>
-                      <Component id="scrollableTable" pref="487" max="32767" attributes="0"/>
+                      <Component id="scrollableTable" pref="457" max="32767" attributes="0"/>
                   </Group>
-                  <EmptySpace pref="62" max="32767" attributes="0"/>
+                  <EmptySpace pref="72" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -100,17 +100,15 @@
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" alignment="0" attributes="0">
                               <EmptySpace min="-2" pref="16" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Group type="103" groupAlignment="0" attributes="0">
-                                      <Component id="textfieldNamaPelanggan" alignment="0" min="-2" pref="193" max="-2" attributes="0"/>
-                                      <Component id="labelNamaPelanggan" alignment="0" min="-2" max="-2" attributes="0"/>
-                                      <Component id="textfieldPoin" alignment="0" min="-2" pref="193" max="-2" attributes="0"/>
-                                      <Component id="labelJenisSampah" alignment="0" min="-2" max="-2" attributes="0"/>
-                                      <Component id="textfieldJenisSampah" alignment="1" min="-2" pref="193" max="-2" attributes="0"/>
-                                      <Component id="labelJumlahSampah" alignment="0" min="-2" max="-2" attributes="0"/>
-                                      <Component id="textfieldJumlahSampah" alignment="0" min="-2" pref="193" max="-2" attributes="0"/>
-                                  </Group>
-                                  <Component id="labelNamaPelanggan1" min="-2" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                  <Component id="textfieldNamaPelanggan" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="labelNamaPelanggan" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="labelJenisSampah" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="textfieldJenisSampah" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="labelJumlahSampah" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="textfieldJumlahSampah" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="labelAlamatPenjemputan" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="textfieldAlamatPenjemputan" pref="193" max="32767" attributes="0"/>
                               </Group>
                               <EmptySpace type="separate" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
@@ -120,6 +118,8 @@
                                   <Component id="labeNoKendaraanKurir" alignment="0" min="-2" max="-2" attributes="0"/>
                                   <Component id="textfieldNoKendaraan" alignment="0" min="-2" pref="193" max="-2" attributes="0"/>
                                   <Component id="textfieldBeratSampah" min="-2" pref="193" max="-2" attributes="0"/>
+                                  <Component id="textfieldPoin" alignment="0" min="-2" pref="193" max="-2" attributes="0"/>
+                                  <Component id="labelNamaPelanggan1" min="-2" max="-2" attributes="0"/>
                               </Group>
                           </Group>
                           <Group type="102" attributes="0">
@@ -148,7 +148,7 @@
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="titleCRUDSampah" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace max="32767" attributes="0"/>
+                      <EmptySpace pref="12" max="32767" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Component id="labelNamaPelanggan" alignment="1" min="-2" max="-2" attributes="0"/>
                           <Component id="labelNamaKurir" alignment="1" min="-2" max="-2" attributes="0"/>
@@ -161,12 +161,12 @@
                       <EmptySpace max="32767" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="labeNoKendaraanKurir" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="labelNamaPelanggan1" alignment="1" min="-2" max="-2" attributes="0"/>
+                          <Component id="labelAlamatPenjemputan" alignment="0" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="textfieldPoin" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="textfieldNoKendaraan" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="textfieldAlamatPenjemputan" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
@@ -179,10 +179,19 @@
                           <Component id="textfieldBeratSampah" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="labelJumlahSampah" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Component id="textfieldJumlahSampah" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace pref="66" max="32767" attributes="0"/>
+                      <Group type="103" groupAlignment="1" attributes="0">
+                          <Group type="102" attributes="0">
+                              <Component id="labelJumlahSampah" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="textfieldJumlahSampah" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <Group type="102" attributes="0">
+                              <Component id="labelNamaPelanggan1" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="textfieldPoin" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                      </Group>
+                      <EmptySpace pref="60" max="32767" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="buttonKembali" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="buttonUbah" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -309,6 +318,13 @@
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="textfieldJumlahSampahActionPerformed"/>
               </Events>
             </Component>
+            <Component class="javax.swing.JLabel" name="labelAlamatPenjemputan">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Alamat Penjemputan"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JTextField" name="textfieldAlamatPenjemputan">
+            </Component>
           </SubComponents>
         </Container>
         <Container class="javax.swing.JScrollPane" name="scrollableTable">
@@ -322,10 +338,10 @@
 
               <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
               <SubComponents>
-                <Component class="javax.swing.JTable" name="tableKurir">
+                <Component class="javax.swing.JTable" name="tableSampah">
                   <Properties>
                     <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
-                      <Connection code="kurirModelTable" type="code"/>
+                      <Connection code="sampahModelTable" type="code"/>
                     </Property>
                     <Property name="columnModel" type="javax.swing.table.TableColumnModel" editor="org.netbeans.modules.form.editors2.TableColumnModelEditor">
                       <TableColumnModel selectionModel="0"/>
