@@ -51,7 +51,7 @@ public class MenuCRUD
      */
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated
-    // Code">//GEN-BEGIN:initComponents
+    // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
         panelCRUD = new javax.swing.JPanel();
@@ -62,6 +62,7 @@ public class MenuCRUD
         buttonPageRiwayat = new javax.swing.JButton();
         buttonPageKurir = new javax.swing.JButton();
         buttonPagePelanggan = new javax.swing.JButton();
+        buttonPageSampah = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -106,59 +107,71 @@ public class MenuCRUD
             }
         });
 
+        buttonPageSampah.setText("Sampah");
+        buttonPageSampah.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonPageSampahActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout panelCRUDLayout = new javax.swing.GroupLayout(panelCRUD);
         panelCRUD.setLayout(panelCRUDLayout);
         panelCRUDLayout.setHorizontalGroup(
-                panelCRUDLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(panelCRUDLayout.createSequentialGroup()
-                                .addGroup(panelCRUDLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addGroup(panelCRUDLayout.createSequentialGroup()
-                                                .addGap(23, 23, 23)
-                                                .addComponent(buttonPagePermintaan)
-                                                .addGap(18, 18, 18)
-                                                .addComponent(buttonPagePenjemputan)
-                                                .addGap(18, 18, 18)
-                                                .addComponent(buttonPageLacak)
-                                                .addGap(18, 18, 18)
-                                                .addComponent(buttonPageRiwayat)
-                                                .addGap(18, 18, 18)
-                                                .addComponent(buttonPageKurir, javax.swing.GroupLayout.PREFERRED_SIZE,
-                                                        73, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addGap(18, 18, 18)
-                                                .addComponent(buttonPagePelanggan))
-                                        .addGroup(panelCRUDLayout.createSequentialGroup()
-                                                .addGap(275, 275, 275)
-                                                .addComponent(jLabel1)))
-                                .addContainerGap(12, Short.MAX_VALUE)));
+            panelCRUDLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelCRUDLayout.createSequentialGroup()
+                .addGap(23, 23, 23)
+                .addGroup(panelCRUDLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jLabel1)
+                    .addGroup(panelCRUDLayout.createSequentialGroup()
+                        .addComponent(buttonPagePermintaan)
+                        .addGap(18, 18, 18)
+                        .addComponent(buttonPagePenjemputan)
+                        .addGap(18, 18, 18)
+                        .addComponent(buttonPageLacak)
+                        .addGap(18, 18, 18)
+                        .addComponent(buttonPageRiwayat)))
+                .addGap(18, 18, 18)
+                .addComponent(buttonPageKurir, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(buttonPagePelanggan)
+                .addGap(18, 18, 18)
+                .addComponent(buttonPageSampah, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(28, Short.MAX_VALUE))
+        );
         panelCRUDLayout.setVerticalGroup(
-                panelCRUDLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelCRUDLayout.createSequentialGroup()
-                                .addContainerGap(42, Short.MAX_VALUE)
-                                .addComponent(jLabel1)
-                                .addGap(18, 18, 18)
-                                .addGroup(
-                                        panelCRUDLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                                .addComponent(buttonPagePermintaan)
-                                                .addComponent(buttonPagePenjemputan)
-                                                .addComponent(buttonPageLacak)
-                                                .addComponent(buttonPageRiwayat)
-                                                .addComponent(buttonPageKurir)
-                                                .addComponent(buttonPagePelanggan))
-                                .addGap(40, 40, 40)));
+            panelCRUDLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelCRUDLayout.createSequentialGroup()
+                .addContainerGap(34, Short.MAX_VALUE)
+                .addComponent(jLabel1)
+                .addGap(26, 26, 26)
+                .addGroup(panelCRUDLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(buttonPagePermintaan)
+                    .addComponent(buttonPagePenjemputan)
+                    .addComponent(buttonPageLacak)
+                    .addComponent(buttonPageRiwayat)
+                    .addComponent(buttonPageKurir)
+                    .addComponent(buttonPagePelanggan)
+                    .addComponent(buttonPageSampah))
+                .addGap(40, 40, 40))
+        );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
-                layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(panelCRUD, javax.swing.GroupLayout.DEFAULT_SIZE,
-                                javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE));
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(panelCRUD, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
         layout.setVerticalGroup(
-                layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(panelCRUD, javax.swing.GroupLayout.PREFERRED_SIZE,
-                                javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE));
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(panelCRUD, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+        );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void buttonPageSampahActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonPageSampahActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_buttonPageSampahActionPerformed
 
     private void buttonPagePermintaanActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_buttonPagePermintaanActionPerformed
         // TODO add your handling code here:
@@ -197,6 +210,7 @@ public class MenuCRUD
     private javax.swing.JButton buttonPagePenjemputan;
     private javax.swing.JButton buttonPagePermintaan;
     private javax.swing.JButton buttonPageRiwayat;
+    private javax.swing.JButton buttonPageSampah;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel panelCRUD;
     // End of variables declaration//GEN-END:variables
