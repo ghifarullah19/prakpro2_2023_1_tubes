@@ -17,9 +17,9 @@ public class Sampah {
     private int poin;
     private int jumlahSampah;
     private float beratSampah;
+    private float hargaSampah;
     private int idKurir;
     private int idPelanggan;
-    private int idDetail;
     
     // setter id digunakan untuk mengubah nilai dari variabel id
     public void setId(int id) {
@@ -128,6 +128,18 @@ public class Sampah {
         // mengembalikan nilai dari variabel noKendaraan
         return this.beratSampah;
     }
+    
+    // setter noKendaraan digunakan untuk mengubah nilai dari variabel noKendaraan
+    public void setHargaSampah(float hargaSampah) {
+        // this.noKendaraan diberikan nilai dari parameter noKendaraan
+        this.hargaSampah = hargaSampah;
+    }
+
+    // getter noKendaraan digunakan untuk mengambil nilai dari variabel noKendaraan
+    public float getHargaSampah() {
+        // mengembalikan nilai dari variabel noKendaraan
+        return this.hargaSampah;
+    }
 
     // setter id digunakan untuk mengubah nilai dari variabel id
     public void setIdKurir(int idKurir) {
@@ -151,17 +163,5 @@ public class Sampah {
     public int getIdPelanggan() {
         // mengembalikan nilai dari variabel id
         return this.idPelanggan;
-    } 
-    
-    // setter id digunakan untuk mengubah nilai dari variabel id
-    public void setIdDetail(int idDetail) {
-        // this.id diberikan nilai dari parameter id
-        this.idDetail = idDetail;
-    }
-    
-    // getter id digunakan untuk mengambil nilai dari variabel id
-    public int getIdDetail() {
-        // mengembalikan nilai dari variabel id
-        return this.idDetail;
     } 
 }

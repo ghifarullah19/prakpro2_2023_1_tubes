@@ -21,7 +21,7 @@ public class RiwayatDao {
         // try with resources digunakan untuk mengambil koneksi dari database
         try (Connection connection = MySqlConnection.getInstance().getConnection()) {
             // PreparedStatement digunakan untuk menyiapkan query yang akan dijalankan
-            PreparedStatement statement = connection.prepareStatement("Insert into detail(id, namaPelanggan, namaKurir, alamatPenjemputan, noKendaraan, beratSampah, jumlahSampah, hargaSampah, poinSampah, idPermintaan, idPelanggan) values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ? )");
+            PreparedStatement statement = connection.prepareStatement("Insert into detail(id, namaPelanggan, namaKurir, alamatPenjemputan, noKendaraan, beratSampah, jumlahSampah, hargaSampah, poinSampah, idPermintaan, idPelanggan, idSampah) values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
 
             // statement.setString digunakan untuk mengisi parameter query dengan nilai dari parameter jenisMember
             statement.setInt(1, 0);
@@ -35,6 +35,7 @@ public class RiwayatDao {
             statement.setInt(9, riwayat.getPoinSampah());
             statement.setInt(10, riwayat.getIdPermintaan());
             statement.setInt(11, riwayat.getIdPelanggan());
+            statement.setInt(12, riwayat.getIdSampah());
 
             // result diberikan nilai dari eksekusi query (Berisi jumlah row dari statement berarti berhasil, Berisi 0 berarti gagal)
             result = statement.executeUpdate();
@@ -55,18 +56,13 @@ public class RiwayatDao {
         // try with resources digunakan untuk mengambil koneksi dari database
         try (Connection connection = MySqlConnection.getInstance().getConnection()) {
             // PreparedStatement digunakan untuk menyiapkan query yang akan dijalankan
-            PreparedStatement statement = connection.prepareStatement("update detail set namaPelanggan = ?, namaKurir = ?, alamatPenjemputan = ?, noKendaraan = ?, beratSampah = ?, jumlahSampah = ?, hargaSampah = ?, poinSampah = ? where id = ?");
+            PreparedStatement statement = connection.prepareStatement("update detail set beratSampah = ?, jumlahSampah = ?, poinSampah = ? where idSampah = ?");
 
             // statement.setString digunakan untuk mengisi parameter query dengan nilai dari parameter jenisMember
-            statement.setString(1, riwayat.getNamaPelanggan());
-            statement.setString(2, riwayat.getNamaKurir());
-            statement.setString(3, riwayat.getAlamatPenjemputan());
-            statement.setString(4, riwayat.getNoKendaraan());
-            statement.setFloat(5, riwayat.getBeratSampah());
-            statement.setInt(6, riwayat.getJumlahSampah());
-            statement.setFloat(7, riwayat.getHargaSampah());
-            statement.setInt(8, riwayat.getPoinSampah());
-            statement.setInt(9, riwayat.getId());
+            statement.setFloat(1, riwayat.getBeratSampah());
+            statement.setInt(2, riwayat.getJumlahSampah());
+            statement.setInt(3, riwayat.getPoinSampah());
+            statement.setInt(4, riwayat.getIdSampah());
 
             // result diberikan nilai dari eksekusi query (Berisi jumlah row dari statement berarti berhasil, Berisi 0 berarti gagal)
             result = statement.executeUpdate();
@@ -87,10 +83,10 @@ public class RiwayatDao {
         // try with resources digunakan untuk mengambil koneksi dari database
         try (Connection connection = MySqlConnection.getInstance().getConnection()) {
             // PreparedStatement digunakan untuk menyiapkan query yang akan dijalankan
-            PreparedStatement statement = connection.prepareStatement("delete from detail where id = ?");
+            PreparedStatement statement = connection.prepareStatement("delete from detail where idSampah = ?");
 
             // statement.setString digunakan untuk mengisi parameter query dengan nilai dari parameter jenisMember
-            statement.setInt(1, riwayat.getId());
+            statement.setInt(1, riwayat.getIdSampah());
 
             // result diberikan nilai dari eksekusi query (Berisi jumlah row dari statement berarti berhasil, Berisi 0 berarti gagal)
             result = statement.executeUpdate();

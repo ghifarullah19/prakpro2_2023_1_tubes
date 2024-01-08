@@ -20,6 +20,7 @@ public class Riwayat {
     private int poinSampah;
     private int idPermintaan;
     private int idPelanggan;
+    private int idSampah;
     
     // setter id digunakan untuk mengubah nilai dari variabel id
     public void setId(int id) {
@@ -150,5 +151,17 @@ public class Riwayat {
     public int getIdPelanggan() {
         // mengembalikan nilai dari variabel id
         return this.idPelanggan;
+    } 
+    
+    // setter id digunakan untuk mengubah nilai dari variabel id
+    public void setIdSampah(int idSampah) {
+        // this.id diberikan nilai dari parameter id
+        this.idSampah = idSampah;
+    }
+    
+    // getter id digunakan untuk mengambil nilai dari variabel id
+    public int getIdSampah() {
+        // mengembalikan nilai dari variabel id
+        return this.idSampah;
     } 
 }

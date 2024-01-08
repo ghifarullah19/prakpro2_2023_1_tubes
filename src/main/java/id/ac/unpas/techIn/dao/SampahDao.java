@@ -1,6 +1,7 @@
 package id.ac.unpas.techIn.dao;
 
 import id.ac.unpas.techIn.db.MySqlConnection;
+import id.ac.unpas.techIn.riwayat.Riwayat;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
@@ -16,14 +17,17 @@ public class SampahDao {
     public int insert(Sampah sampah) {
         // result adalah variabel yang digunakan untuk menyimpan nilai apakah eksekusi query berhasil dilakukan atau tidak
         int result = -1;
+        
+        PermintaanDao permintaan = new PermintaanDao();
         PelangganDao pelanggan = new PelangganDao();
         KurirDao kurir = new KurirDao();
         RiwayatDao detail = new RiwayatDao();
+        Riwayat riwayat = new Riwayat();
 
         // try with resources digunakan untuk mengambil koneksi dari database
         try (Connection connection = MySqlConnection.getInstance().getConnection()) {
             // PreparedStatement digunakan untuk menyiapkan query yang akan dijalankan
-            PreparedStatement statement = connection.prepareStatement("Insert into sampah(idSampah, namaPelanggan,namaKurir, alamatPenjemputan, noKendaraan, jumlahSampah, jenisSampah, beratSampah, poin, idPelanggan, idKurir, idDetail) values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
+            PreparedStatement statement = connection.prepareStatement("Insert into sampah(idSampah, namaPelanggan,namaKurir, alamatPenjemputan, noKendaraan, jumlahSampah, jenisSampah, beratSampah, poin, idPelanggan, idKurir) values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
 
             // statement.setString digunakan untuk mengisi parameter query dengan nilai dari parameter jenisMember
             statement.setInt(1, 0);
@@ -39,10 +43,22 @@ public class SampahDao {
                             sampah.getNamaPelanggan()).getId());
             statement.setInt(11, kurir.select("namaKurir",
                             sampah.getNamaKurir()).getId());
-            statement.setInt(12, detail.select("namaPelanggan",
-                            sampah.getNamaPelanggan()).getId());
-            // result diberikan nilai dari eksekusi query (Berisi jumlah row dari statement berarti berhasil, Berisi 0 berarti gagal)
+            
             result = statement.executeUpdate();
+            
+            riwayat.setNamaPelanggan(sampah.getNamaPelanggan());
+            riwayat.setNamaKurir(sampah.getNamaKurir());
+            riwayat.setBeratSampah(sampah.getBeratSampah());
+            riwayat.setJumlahSampah(sampah.getJumlahSampah());
+            riwayat.setHargaSampah(sampah.getHargaSampah());
+            riwayat.setPoinSampah(sampah.getPoin());
+            riwayat.setIdPermintaan(permintaan.select("namaPelanggan", sampah.getNamaPelanggan()).getId());
+            riwayat.setIdPelanggan(pelanggan.select("namaPelanggan", sampah.getNamaPelanggan()).getId());
+            riwayat.setAlamatPenjemputan(sampah.getAlamatPenjemputan());
+            riwayat.setNoKendaraan(sampah.getNoKendaraan());
+            riwayat.setIdSampah(this.select("namaPelanggan",sampah.getNamaPelanggan()).getId());
+
+            detail.insert(riwayat);
         } catch (SQLException e) {
             // jika terjadi error, maka akan ditampilkan errornya
             e.printStackTrace();
@@ -67,7 +83,7 @@ public class SampahDao {
             statement.setString(2, sampah.getJenisSampah());
             statement.setFloat(3, sampah.getBeratSampah());
             statement.setInt(4, sampah.getPoin());
-            statement.setInt(5, this.select("jumlahSampah", String.valueOf(sampah.getJumlahSampah())).getId());
+            statement.setInt(5, this.select("jenisSampah", String.valueOf(sampah.getJenisSampah())).getId());
 
             // result diberikan nilai dari eksekusi query (Berisi jumlah row dari statement berarti berhasil, Berisi 0 berarti gagal)
             result = statement.executeUpdate();
@@ -94,6 +110,13 @@ public class SampahDao {
             statement.setInt(1, this.select("jumlahSampah", String.valueOf(sampah.getJumlahSampah())).getId());
 
             // result diberikan nilai dari eksekusi query (Berisi jumlah row dari statement berarti berhasil, Berisi 0 berarti gagal)
+            
+            RiwayatDao riwayat = new RiwayatDao();
+            Riwayat detail = new Riwayat();
+            detail.setIdSampah(this.select("jumlahSampah",
+                    String.valueOf(sampah.getJumlahSampah())).getId());
+            riwayat.delete(detail);
+            
             result = statement.executeUpdate();
         } catch (SQLException e) {
             // jika terjadi error, maka akan ditampilkan errornya
