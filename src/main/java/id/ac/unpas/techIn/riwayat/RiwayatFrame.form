@@ -36,7 +36,7 @@
     <Container class="javax.swing.JPanel" name="panelRiwayat">
       <Properties>
         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-          <Color blue="ff" green="cc" red="66" type="rgb"/>
+          <Color blue="c8" green="be" red="9b" type="rgb"/>
         </Property>
       </Properties>
 
@@ -53,7 +53,8 @@
                   <EmptySpace min="-2" pref="15" max="-2" attributes="0"/>
                   <Component id="panelTitleRiwayat" min="-2" max="-2" attributes="0"/>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
-                  <Component id="showRiwayatScrollPane" max="32767" attributes="0"/>
+                  <Component id="showRiwayatScrollPane" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -62,7 +63,7 @@
         <Container class="javax.swing.JPanel" name="panelTitleRiwayat">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="ff" green="99" red="33" type="rgb"/>
+              <Color blue="9d" green="7d" red="42" type="rgb"/>
             </Property>
           </Properties>
 
@@ -70,7 +71,7 @@
             <DimensionLayout dim="0">
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
                       <Component id="labelTitleRiwayat" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="32767" attributes="0"/>
                   </Group>
@@ -89,7 +90,13 @@
           <SubComponents>
             <Component class="javax.swing.JLabel" name="labelTitleRiwayat">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Recylce Bin"/>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="Kaushan Script" size="12" style="0"/>
+                </Property>
+                <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                  <Color blue="ff" green="ff" red="ff" type="rgb"/>
+                </Property>
+                <Property name="text" type="java.lang.String" value="Riwayat "/>
               </Properties>
             </Component>
           </SubComponents>
@@ -101,7 +108,7 @@
             <Container class="javax.swing.JPanel" name="showRiwayatPane">
               <Properties>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                  <Color blue="ff" green="cc" red="66" type="rgb"/>
+                  <Color blue="c8" green="be" red="9b" type="rgb"/>
                 </Property>
               </Properties>
 

@@ -131,7 +131,7 @@ public class MainFrame
             }
         });
 
-        iconTitle.setFont(new java.awt.Font("Kreakers Brush", 0, 12)); // NOI18N
+        iconTitle.setFont(new java.awt.Font("Kaushan Script", 0, 12)); // NOI18N
         iconTitle.setForeground(new java.awt.Color(255, 255, 255));
         iconTitle.setText("Recycle Bin");
 

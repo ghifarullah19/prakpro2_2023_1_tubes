@@ -68,18 +68,20 @@ public class RiwayatFrame
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
-        panelRiwayat.setBackground(new java.awt.Color(102, 204, 255));
+        panelRiwayat.setBackground(new java.awt.Color(155, 190, 200));
 
-        panelTitleRiwayat.setBackground(new java.awt.Color(51, 153, 255));
+        panelTitleRiwayat.setBackground(new java.awt.Color(66, 125, 157));
 
-        labelTitleRiwayat.setText("Recylce Bin");
+        labelTitleRiwayat.setFont(new java.awt.Font("Kaushan Script", 0, 12)); // NOI18N
+        labelTitleRiwayat.setForeground(new java.awt.Color(255, 255, 255));
+        labelTitleRiwayat.setText("Riwayat ");
 
         javax.swing.GroupLayout panelTitleRiwayatLayout = new javax.swing.GroupLayout(panelTitleRiwayat);
         panelTitleRiwayat.setLayout(panelTitleRiwayatLayout);
         panelTitleRiwayatLayout.setHorizontalGroup(
             panelTitleRiwayatLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelTitleRiwayatLayout.createSequentialGroup()
-                .addContainerGap()
+                .addGap(20, 20, 20)
                 .addComponent(labelTitleRiwayat)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -91,7 +93,7 @@ public class RiwayatFrame
                 .addContainerGap(10, Short.MAX_VALUE))
         );
 
-        showRiwayatPane.setBackground(new java.awt.Color(102, 204, 255));
+        showRiwayatPane.setBackground(new java.awt.Color(155, 190, 200));
 
         javax.swing.GroupLayout showRiwayatPaneLayout = new javax.swing.GroupLayout(showRiwayatPane);
         showRiwayatPane.setLayout(showRiwayatPaneLayout);
@@ -119,7 +121,8 @@ public class RiwayatFrame
                 .addGap(15, 15, 15)
                 .addComponent(panelTitleRiwayat, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(showRiwayatScrollPane))
+                .addComponent(showRiwayatScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
