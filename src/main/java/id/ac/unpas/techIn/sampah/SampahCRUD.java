@@ -10,10 +10,22 @@ import id.ac.unpas.techIn.dao.PermintaanDao;
 import id.ac.unpas.techIn.dao.RiwayatDao;
 import id.ac.unpas.techIn.sampah.*;
 import id.ac.unpas.techIn.dao.SampahDao;
+import id.ac.unpas.techIn.db.MySqlConnection;
 import id.ac.unpas.techIn.penjemputan.Penjemputan;
 import id.ac.unpas.techIn.riwayat.Riwayat;
 import id.ac.unpas.techIn.sampah.SampahModelTable;
+import java.io.File;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
+import javax.swing.JOptionPane;
+import net.sf.jasperreports.engine.JasperCompileManager;
+import net.sf.jasperreports.engine.JasperExportManager;
+import net.sf.jasperreports.engine.JasperFillManager;
+import net.sf.jasperreports.engine.JasperPrint;
+import net.sf.jasperreports.engine.JasperPrintManager;
+import net.sf.jasperreports.engine.JasperReport;
+import net.sf.jasperreports.view.JasperViewer;
 
 /**
  *
@@ -85,6 +97,8 @@ public class SampahCRUD
         jLabel1 = new javax.swing.JLabel();
         textfieldHargaSampah = new javax.swing.JTextField();
         jSeparator1 = new javax.swing.JSeparator();
+        jButton1 = new javax.swing.JButton();
+        jButton2 = new javax.swing.JButton();
         scrollableTable = new javax.swing.JScrollPane();
         jScrollPane1 = new javax.swing.JScrollPane();
         tableSampah = new javax.swing.JTable();
@@ -98,7 +112,12 @@ public class SampahCRUD
         titleCRUDSampah.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         titleCRUDSampah.setText("Form Sampah");
 
-        buttonKembali.setText("Kembali");
+        buttonKembali.setText("Export");
+        buttonKembali.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonKembaliActionPerformed(evt);
+            }
+        });
 
         buttonUbah.setText("Ubah");
         buttonUbah.addActionListener(new java.awt.event.ActionListener() {
@@ -188,10 +207,25 @@ public class SampahCRUD
 
         jLabel1.setText("Harga Sampah");
 
+        jButton1.setText("Lihat");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
+        jButton2.setText("Cetak");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout panelCRUDSampahLayout = new javax.swing.GroupLayout(panelCRUDSampah);
         panelCRUDSampah.setLayout(panelCRUDSampahLayout);
         panelCRUDSampahLayout.setHorizontalGroup(
             panelCRUDSampahLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jSeparator1)
             .addGroup(panelCRUDSampahLayout.createSequentialGroup()
                 .addGroup(panelCRUDSampahLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(panelCRUDSampahLayout.createSequentialGroup()
@@ -221,10 +255,15 @@ public class SampahCRUD
                                     .addComponent(textfieldNoKendaraan, javax.swing.GroupLayout.PREFERRED_SIZE, 193, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(textfieldBeratSampah, javax.swing.GroupLayout.PREFERRED_SIZE, 193, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(textfieldPoin, javax.swing.GroupLayout.PREFERRED_SIZE, 193, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(labelNamaPelanggan1)))
+                                    .addComponent(labelNamaPelanggan1)
+                                    .addGroup(panelCRUDSampahLayout.createSequentialGroup()
+                                        .addGap(12, 12, 12)
+                                        .addComponent(buttonKembali)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(jButton1)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(jButton2))))
                             .addGroup(panelCRUDSampahLayout.createSequentialGroup()
-                                .addComponent(buttonKembali)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(buttonUbah)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(buttonSimpanUbah)
@@ -233,7 +272,6 @@ public class SampahCRUD
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(buttonKirim)))))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addComponent(jSeparator1)
         );
         panelCRUDSampahLayout.setVerticalGroup(
             panelCRUDSampahLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -279,10 +317,13 @@ public class SampahCRUD
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(textfieldHargaSampah, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(16, 16, 16)
                 .addGroup(panelCRUDSampahLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(textfieldHargaSampah, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(buttonKembali)
+                    .addComponent(jButton1)
+                    .addComponent(jButton2))
+                .addGap(15, 15, 15)
+                .addGroup(panelCRUDSampahLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(buttonUbah)
                     .addComponent(buttonSimpanUbah)
                     .addComponent(buttonHapus)
@@ -303,8 +344,8 @@ public class SampahCRUD
                 .addGap(75, 75, 75)
                 .addGroup(frameCRUDSampahLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(panelCRUDSampah, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(scrollableTable, javax.swing.GroupLayout.DEFAULT_SIZE, 457, Short.MAX_VALUE))
-                .addContainerGap(72, Short.MAX_VALUE))
+                    .addComponent(scrollableTable, javax.swing.GroupLayout.DEFAULT_SIZE, 476, Short.MAX_VALUE))
+                .addContainerGap(68, Short.MAX_VALUE))
         );
         frameCRUDSampahLayout.setVerticalGroup(
             frameCRUDSampahLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -497,6 +538,63 @@ public class SampahCRUD
         // TODO add your handling code here:
     }//GEN-LAST:event_textfieldJumlahSampahActionPerformed
 
+    private void buttonKembaliActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonKembaliActionPerformed
+        // TODO add your handling code here:
+        try {
+            String reportPath = System.getProperty("user.dir") + File.separator + "report";
+            String path = reportPath + File.separator + "DetailReport.jrxml";
+            JasperReport jasperReport = JasperCompileManager.compileReport(path);
+            Map<String, Object> parameters = new HashMap<>();
+            
+            JasperPrint jasperPrint = JasperFillManager.fillReport(jasperReport,
+                            parameters, MySqlConnection.getInstance().getConnection());
+            
+            File outFile = new File(reportPath);
+            outFile.mkdirs();
+            
+            JasperExportManager.exportReportToPdfFile(jasperPrint, reportPath + File.separator + "DetailReport.pdf");
+            
+            JOptionPane.showMessageDialog(this, "Export Selesai");
+        } catch(Exception e) {
+            e.printStackTrace();
+        }
+    }//GEN-LAST:event_buttonKembaliActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+        try {
+            String reportPath = System.getProperty("user.dir") + File.separator + "report";
+            String path = reportPath + File.separator + "DetailReport.jrxml";
+            JasperReport jasperReport = JasperCompileManager.compileReport(path);
+            
+            Map<String, Object> parameters = new HashMap<>();
+            
+            JasperPrint jasperPrint = JasperFillManager.fillReport(jasperReport,
+                            parameters, MySqlConnection.getInstance().getConnection());
+            
+            JasperViewer.viewReport(jasperPrint);
+        } catch(Exception e) {
+            e.printStackTrace();
+        }
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        // TODO add your handling code here:
+        try {
+            String reportPath = System.getProperty("user.dir") + File.separator + "report";
+            String path = reportPath + File.separator + "DetailReport.jrxml";
+            JasperReport jasperReport = JasperCompileManager.compileReport(path);
+            Map<String, Object> parameters = new HashMap<>();
+            
+            JasperPrint jasperPrint = JasperFillManager.fillReport(jasperReport,
+                            parameters, MySqlConnection.getInstance().getConnection());
+            
+            JasperPrintManager.printReport(jasperPrint, true);
+        } catch(Exception e) {
+            e.printStackTrace();
+        }
+    }//GEN-LAST:event_jButton2ActionPerformed
+
     // Method untuk menambahkan sampah ke tableModel
     public void addData(Sampah sampah) {
         sampahModelTable.add(sampah);
@@ -533,6 +631,8 @@ public class SampahCRUD
     private javax.swing.JButton buttonSimpanUbah;
     private javax.swing.JButton buttonUbah;
     private javax.swing.JPanel frameCRUDSampah;
+    private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JSeparator jSeparator1;
