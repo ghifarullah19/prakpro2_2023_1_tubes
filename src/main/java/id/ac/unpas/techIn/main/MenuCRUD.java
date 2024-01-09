@@ -61,7 +61,6 @@ public class MenuCRUD
         buttonPagePermintaan = new javax.swing.JButton();
         buttonPagePenjemputan = new javax.swing.JButton();
         buttonPageLacak = new javax.swing.JButton();
-        buttonPageRiwayat = new javax.swing.JButton();
         buttonPageKurir = new javax.swing.JButton();
         buttonPagePelanggan = new javax.swing.JButton();
         buttonPageSampah = new javax.swing.JButton();
@@ -93,8 +92,6 @@ public class MenuCRUD
             }
         });
 
-        buttonPageRiwayat.setText("Riwayat");
-
         buttonPageKurir.setText("Kurir");
         buttonPageKurir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -120,52 +117,55 @@ public class MenuCRUD
         panelCRUD.setLayout(panelCRUDLayout);
         panelCRUDLayout.setHorizontalGroup(
             panelCRUDLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panelCRUDLayout.createSequentialGroup()
-                .addGap(23, 23, 23)
-                .addGroup(panelCRUDLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jLabel1)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelCRUDLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(panelCRUDLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(buttonPagePelanggan, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(buttonPagePermintaan, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGroup(panelCRUDLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(panelCRUDLayout.createSequentialGroup()
-                        .addComponent(buttonPagePermintaan)
-                        .addGap(18, 18, 18)
-                        .addComponent(buttonPagePenjemputan)
-                        .addGap(18, 18, 18)
-                        .addComponent(buttonPageLacak)
-                        .addGap(18, 18, 18)
-                        .addComponent(buttonPageRiwayat)))
-                .addGap(18, 18, 18)
-                .addComponent(buttonPageKurir, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(buttonPagePelanggan)
-                .addGap(18, 18, 18)
-                .addComponent(buttonPageSampah, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(28, Short.MAX_VALUE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(buttonPagePenjemputan))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelCRUDLayout.createSequentialGroup()
+                        .addGap(8, 8, 8)
+                        .addComponent(buttonPageSampah, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(12, 12, 12)
+                .addGroup(panelCRUDLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(buttonPageLacak, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(buttonPageKurir, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(194, 194, 194))
+            .addGroup(panelCRUDLayout.createSequentialGroup()
+                .addGap(116, 116, 116)
+                .addComponent(jLabel1)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         panelCRUDLayout.setVerticalGroup(
             panelCRUDLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelCRUDLayout.createSequentialGroup()
-                .addContainerGap(34, Short.MAX_VALUE)
+                .addGap(30, 30, 30)
                 .addComponent(jLabel1)
-                .addGap(26, 26, 26)
+                .addGap(18, 18, 18)
                 .addGroup(panelCRUDLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(buttonPagePermintaan)
                     .addComponent(buttonPagePenjemputan)
                     .addComponent(buttonPageLacak)
-                    .addComponent(buttonPageRiwayat)
+                    .addComponent(buttonPagePermintaan))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 23, Short.MAX_VALUE)
+                .addGroup(panelCRUDLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(buttonPageKurir)
                     .addComponent(buttonPagePelanggan)
                     .addComponent(buttonPageSampah))
-                .addGap(40, 40, 40))
+                .addGap(11, 11, 11))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(panelCRUD, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(panelCRUD, javax.swing.GroupLayout.PREFERRED_SIZE, 305, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(panelCRUD, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(panelCRUD, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         pack();
@@ -213,7 +213,6 @@ public class MenuCRUD
     private javax.swing.JButton buttonPagePelanggan;
     private javax.swing.JButton buttonPagePenjemputan;
     private javax.swing.JButton buttonPagePermintaan;
-    private javax.swing.JButton buttonPageRiwayat;
     private javax.swing.JButton buttonPageSampah;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel panelCRUD;

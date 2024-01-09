@@ -62,7 +62,6 @@ public class PelangganCRUD
         labelAlamatPelanggan = new javax.swing.JLabel();
         textfieldAlamatPelanggan = new javax.swing.JTextField();
         titleCRUDPelanggan = new javax.swing.JLabel();
-        buttonHapus = new javax.swing.JButton();
         buttonKirim = new javax.swing.JButton();
         scrollableTable = new javax.swing.JScrollPane();
         jScrollPane1 = new javax.swing.JScrollPane();
@@ -81,13 +80,6 @@ public class PelangganCRUD
         titleCRUDPelanggan.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         titleCRUDPelanggan.setText("Form Pelanggan");
 
-        buttonHapus.setText("Hapus");
-        buttonHapus.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                buttonHapusActionPerformed(evt);
-            }
-        });
-
         buttonKirim.setText("Kirim");
         buttonKirim.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -99,30 +91,29 @@ public class PelangganCRUD
         panelCRUDPelanggan.setLayout(panelCRUDPelangganLayout);
         panelCRUDPelangganLayout.setHorizontalGroup(
             panelCRUDPelangganLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelCRUDPelangganLayout.createSequentialGroup()
-                .addContainerGap(237, Short.MAX_VALUE)
-                .addComponent(titleCRUDPelanggan)
-                .addGap(164, 164, 164))
             .addGroup(panelCRUDPelangganLayout.createSequentialGroup()
-                .addContainerGap()
                 .addGroup(panelCRUDPelangganLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(panelCRUDPelangganLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(labelNamaPelanggan)
-                        .addComponent(labelAlamatPelanggan)
-                        .addComponent(textfieldAlamatPelanggan, javax.swing.GroupLayout.DEFAULT_SIZE, 204, Short.MAX_VALUE)
-                        .addComponent(textfieldNamaPelanggan))
                     .addGroup(panelCRUDPelangganLayout.createSequentialGroup()
-                        .addComponent(buttonHapus)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addContainerGap()
+                        .addGroup(panelCRUDPelangganLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(labelNamaPelanggan)
+                            .addComponent(labelAlamatPelanggan)
+                            .addComponent(textfieldAlamatPelanggan, javax.swing.GroupLayout.DEFAULT_SIZE, 204, Short.MAX_VALUE)
+                            .addComponent(textfieldNamaPelanggan)))
+                    .addGroup(panelCRUDPelangganLayout.createSequentialGroup()
+                        .addGap(195, 195, 195)
+                        .addComponent(titleCRUDPelanggan))
+                    .addGroup(panelCRUDPelangganLayout.createSequentialGroup()
+                        .addContainerGap()
                         .addComponent(buttonKirim)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         panelCRUDPelangganLayout.setVerticalGroup(
             panelCRUDPelangganLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelCRUDPelangganLayout.createSequentialGroup()
-                .addContainerGap()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(titleCRUDPelanggan)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(labelNamaPelanggan)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(textfieldNamaPelanggan, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -130,11 +121,9 @@ public class PelangganCRUD
                 .addComponent(labelAlamatPelanggan)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(textfieldAlamatPelanggan, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(51, 51, 51)
-                .addGroup(panelCRUDPelangganLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(buttonHapus)
-                    .addComponent(buttonKirim))
-                .addGap(62, 62, 62))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(buttonKirim)
+                .addGap(101, 101, 101))
         );
 
         tablePelanggan.setModel(pelangganModelTable);
@@ -150,16 +139,16 @@ public class PelangganCRUD
                 .addGap(75, 75, 75)
                 .addGroup(frameCRUDPelangganLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(panelCRUDPelanggan, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(scrollableTable, javax.swing.GroupLayout.DEFAULT_SIZE, 487, Short.MAX_VALUE))
+                    .addComponent(scrollableTable, javax.swing.GroupLayout.DEFAULT_SIZE, 488, Short.MAX_VALUE))
                 .addContainerGap(62, Short.MAX_VALUE))
         );
         frameCRUDPelangganLayout.setVerticalGroup(
             frameCRUDPelangganLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(frameCRUDPelangganLayout.createSequentialGroup()
                 .addGap(19, 19, 19)
-                .addComponent(panelCRUDPelanggan, javax.swing.GroupLayout.PREFERRED_SIZE, 221, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(scrollableTable, javax.swing.GroupLayout.PREFERRED_SIZE, 238, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(panelCRUDPelanggan, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(scrollableTable, javax.swing.GroupLayout.PREFERRED_SIZE, 277, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(38, Short.MAX_VALUE))
         );
 
@@ -200,49 +189,6 @@ public class PelangganCRUD
                }
     }//GEN-LAST:event_buttonKirimActionPerformed
 
-    private void buttonHapusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonHapusActionPerformed
-        // TODO add your handling code here:
-        int row = this.tablePelanggan.getSelectedRow();
-        int column = this.tablePelanggan.getSelectedColumn();
-
-        if (row == -1 || column == -1) {
-          return;
-        } else {
-          String newValue = (String) this.tablePelanggan.getModel().getValueAt(row, column);
-     
-          Pelanggan id = new Pelanggan();
-
-          String col = "";
-
-          switch (column) {
-                case 0:
-                    col = "namaPelanggan";
-                    break;
-                case 1:
-                    col = "alamatPenjemputan";
-                    break;
-                case 2:
-                    col = "status";
-                    break;
-                default:
-                    System.out.println("Kolom tidak ditemukan");
-                    break;
-            }
-            id = this.pelangganDao.select(col, newValue);
-
-            int confirmation = JOptionPane.showConfirmDialog(PelangganCRUD.this,"Apakah yakin ingin menghapus data?", 
-                       "Peringatan!", JOptionPane.YES_NO_OPTION);
-        
-            if (confirmation == JOptionPane.YES_OPTION) { //Jika Confirmation Option bernilai "Yes"
-                this.delete(id);
-                this.pelangganDao.delete(id);
-                JOptionPane.showMessageDialog(PelangganCRUD.this, "Data sudah dihapus", "Peringatan!", JOptionPane.WARNING_MESSAGE);
-              } else { //Jika tidak,
-                JOptionPane.showMessageDialog(PelangganCRUD.this, "Data tidak dihapus"); 
-              }
-        }
-    }//GEN-LAST:event_buttonHapusActionPerformed
-
     // Method untuk menambahkan pelanggan ke tableModel
     public void addData(Pelanggan pelanggan) {
         pelangganModelTable.add(pelanggan);
@@ -273,7 +219,6 @@ public class PelangganCRUD
     private javax.swing.ButtonGroup buttonGroup7;
     private javax.swing.ButtonGroup buttonGroup8;
     private javax.swing.ButtonGroup buttonGroup9;
-    private javax.swing.JButton buttonHapus;
     private javax.swing.JButton buttonKirim;
     private javax.swing.JPanel frameCRUDPelanggan;
     private javax.swing.JScrollPane jScrollPane1;

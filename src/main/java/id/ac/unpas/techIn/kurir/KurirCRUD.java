@@ -58,7 +58,6 @@ public class KurirCRUD
         frameCRUDKurir = new javax.swing.JPanel();
         panelCRUDKurir = new javax.swing.JPanel();
         titleCRUDPermintaan = new javax.swing.JLabel();
-        buttonHapus = new javax.swing.JButton();
         buttonKirim = new javax.swing.JButton();
         labelNamaKurir = new javax.swing.JLabel();
         textfieldNamaKurir = new javax.swing.JTextField();
@@ -76,13 +75,6 @@ public class KurirCRUD
 
         titleCRUDPermintaan.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         titleCRUDPermintaan.setText("Form Kurir");
-
-        buttonHapus.setText("Hapus");
-        buttonHapus.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                buttonHapusActionPerformed(evt);
-            }
-        });
 
         buttonKirim.setText("Kirim");
         buttonKirim.addActionListener(new java.awt.event.ActionListener() {
@@ -111,29 +103,27 @@ public class KurirCRUD
         panelCRUDKurir.setLayout(panelCRUDKurirLayout);
         panelCRUDKurirLayout.setHorizontalGroup(
             panelCRUDKurirLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelCRUDKurirLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(titleCRUDPermintaan)
-                .addGap(164, 164, 164))
             .addGroup(panelCRUDKurirLayout.createSequentialGroup()
-                .addGap(16, 16, 16)
                 .addGroup(panelCRUDKurirLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(panelCRUDKurirLayout.createSequentialGroup()
-                        .addComponent(buttonHapus)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(buttonKirim))
-                    .addComponent(labelNamaKurir)
-                    .addComponent(textfieldNamaKurir, javax.swing.GroupLayout.PREFERRED_SIZE, 193, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(labeNoKendaraanKurir)
-                    .addComponent(textfieldNoKendaraan, javax.swing.GroupLayout.PREFERRED_SIZE, 193, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(278, Short.MAX_VALUE))
+                        .addGap(16, 16, 16)
+                        .addGroup(panelCRUDKurirLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(buttonKirim)
+                            .addComponent(labelNamaKurir)
+                            .addComponent(textfieldNamaKurir, javax.swing.GroupLayout.PREFERRED_SIZE, 193, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(labeNoKendaraanKurir)
+                            .addComponent(textfieldNoKendaraan, javax.swing.GroupLayout.PREFERRED_SIZE, 193, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(panelCRUDKurirLayout.createSequentialGroup()
+                        .addGap(199, 199, 199)
+                        .addComponent(titleCRUDPermintaan)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         panelCRUDKurirLayout.setVerticalGroup(
             panelCRUDKurirLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelCRUDKurirLayout.createSequentialGroup()
-                .addContainerGap()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(titleCRUDPermintaan)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(labelNamaKurir)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(textfieldNamaKurir, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -141,11 +131,9 @@ public class KurirCRUD
                 .addComponent(labeNoKendaraanKurir)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(textfieldNoKendaraan, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(52, 52, 52)
-                .addGroup(panelCRUDKurirLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(buttonKirim)
-                    .addComponent(buttonHapus))
-                .addGap(34, 34, 34))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(buttonKirim)
+                .addGap(74, 74, 74))
         );
 
         tableKurir.setModel(kurirModelTable);
@@ -168,9 +156,9 @@ public class KurirCRUD
             frameCRUDKurirLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(frameCRUDKurirLayout.createSequentialGroup()
                 .addGap(19, 19, 19)
-                .addComponent(panelCRUDKurir, javax.swing.GroupLayout.PREFERRED_SIZE, 221, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(panelCRUDKurir, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(scrollableTable, javax.swing.GroupLayout.PREFERRED_SIZE, 238, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(scrollableTable, javax.swing.GroupLayout.PREFERRED_SIZE, 279, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(38, Short.MAX_VALUE))
         );
 
@@ -213,51 +201,6 @@ public class KurirCRUD
         
     }//GEN-LAST:event_buttonKirimActionPerformed
 
-    private void buttonHapusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonHapusActionPerformed
-        // TODO add your handling code here:
-        int row = this.tableKurir.getSelectedRow();
-        int column = this.tableKurir.getSelectedColumn();
-
-        if (row == -1 || column == -1) {
-          return;
-        } else {
-          String newValue = (String) this.tableKurir.getModel().getValueAt(row, column);
-     
-          Kurir id = new Kurir();
-
-          String col = "";
-
-          switch (column) {
-                case 0:
-                    col = "namaKurir";
-                    break;
-                case 1:
-                    col = "noKendaraan";
-                    break;
-                case 2:
-                    col = "status";
-                    break;
-                default:
-                    System.out.println("Kolom tidak ditemukan");
-                    break;
-            }
-            id = this.kurirDao.select(col, newValue);
-
-            
-            
-            int confirmation = JOptionPane.showConfirmDialog(KurirCRUD.this,"Apakah yakin ingin menghapus data?", 
-                       "Peringatan!", JOptionPane.YES_NO_OPTION);
-        
-        if (confirmation == JOptionPane.YES_OPTION) { //Jika Confirmation Option bernilai "Yes"
-            this.delete(id);
-            this.kurirDao.delete(id);
-            JOptionPane.showMessageDialog(KurirCRUD.this, "Data sudah dihapus", "Peringatan!", JOptionPane.WARNING_MESSAGE);
-          } else { //Jika tidak,
-            JOptionPane.showMessageDialog(KurirCRUD.this, "Data tidak dihapus"); 
-          }
-        }
-    }//GEN-LAST:event_buttonHapusActionPerformed
-
     private void textfieldNamaKurirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textfieldNamaKurirActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_textfieldNamaKurirActionPerformed
@@ -296,7 +239,6 @@ public class KurirCRUD
     private javax.swing.ButtonGroup buttonGroup7;
     private javax.swing.ButtonGroup buttonGroup8;
     private javax.swing.ButtonGroup buttonGroup9;
-    private javax.swing.JButton buttonHapus;
     private javax.swing.JButton buttonKirim;
     private javax.swing.JPanel frameCRUDKurir;
     private javax.swing.JScrollPane jScrollPane1;

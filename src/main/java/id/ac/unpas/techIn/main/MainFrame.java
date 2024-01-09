@@ -17,7 +17,9 @@ import id.ac.unpas.techIn.penjemputan.PenjemputanFrame;
 import id.ac.unpas.techIn.permintaan.Permintaan;
 import id.ac.unpas.techIn.riwayat.RiwayatFrame;
 import id.ac.unpas.techIn.sampah.Sampah;
+import java.awt.Image;
 import java.util.List;
+import javax.swing.ImageIcon;
 
 /**
  *
@@ -49,6 +51,36 @@ public class MainFrame
         initComponents();
         jumlahTotalSampah.setText(String.valueOf(sampahList.size()));
         jumlahTotalPermintaan.setText(String.valueOf(permintaanList.size()));
+        
+        iconMain.setText("");
+        iconMain.setIcon(imageIcon("C:\\Users\\ghifarullah19\\Documents\\NetBeansProjects\\tech-in\\src\\main\\java\\id\\ac\\unpas\\techIn\\img\\rycle.png",
+                35,
+                35));
+        
+        iconTotalSampah.setText("");
+        iconTotalSampah.setIcon(imageIcon("C:\\Users\\ghifarullah19\\Documents\\NetBeansProjects\\tech-in\\src\\main\\java\\id\\ac\\unpas\\techIn\\img\\sampah.png",
+                50,
+                80));
+        
+        iconTotalPermintaan.setText("");
+        iconTotalPermintaan.setIcon(imageIcon("C:\\Users\\ghifarullah19\\Documents\\NetBeansProjects\\tech-in\\src\\main\\java\\id\\ac\\unpas\\techIn\\img\\mobil.png",
+                50,
+                83));
+        
+        grafik.setText("");
+        grafik.setIcon(imageIcon("C:\\Users\\ghifarullah19\\Documents\\NetBeansProjects\\tech-in\\src\\main\\java\\id\\ac\\unpas\\techIn\\img\\grafik.png",
+                207,
+                806));
+    }
+    
+    public ImageIcon imageIcon(String imageURL, int height, int width) {
+        ImageIcon icon = new ImageIcon(imageURL);
+        Image image = icon.getImage();
+        Image newImage = image.getScaledInstance(width,
+                        height,
+                        Image.SCALE_SMOOTH);
+        icon = new ImageIcon(newImage);
+        return icon;
     }
 
     /**
@@ -69,6 +101,7 @@ public class MainFrame
         buttonLacak = new javax.swing.JButton();
         iconTitle = new javax.swing.JLabel();
         buttonRiwayat = new javax.swing.JButton();
+        iconMain = new javax.swing.JLabel();
         panelHome = new javax.swing.JPanel();
         panelTotalSampah = new javax.swing.JPanel();
         labelTotalSampah = new javax.swing.JLabel();
@@ -81,6 +114,7 @@ public class MainFrame
         iconTotalPermintaan = new javax.swing.JLabel();
         jumlahTotalPermintaan = new javax.swing.JLabel();
         panelGrafik = new javax.swing.JPanel();
+        grafik = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         buttonCRUD = new javax.swing.JButton();
 
@@ -139,13 +173,22 @@ public class MainFrame
         buttonRiwayat.setForeground(new java.awt.Color(255, 255, 255));
         buttonRiwayat.setText("Riwayat");
         buttonRiwayat.setBorderPainted(false);
+        buttonRiwayat.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonRiwayatActionPerformed(evt);
+            }
+        });
+
+        iconMain.setText("iconMain");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(52, 52, 52)
+                .addGap(15, 15, 15)
+                .addComponent(iconMain, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
                 .addComponent(iconTitle)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(buttonHome)
@@ -164,11 +207,12 @@ public class MainFrame
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(iconMain, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(iconTitle)
                     .addComponent(buttonHome)
                     .addComponent(cobaShowPelanggan)
                     .addComponent(buttonPenjemputan)
                     .addComponent(buttonLacak)
-                    .addComponent(iconTitle)
                     .addComponent(buttonRiwayat))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -186,7 +230,7 @@ public class MainFrame
 
         iconTotalSampah.setText("iconTotalSampah");
 
-        jumlahTotalSampah.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jumlahTotalSampah.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         jumlahTotalSampah.setForeground(new java.awt.Color(22, 72, 99));
         jumlahTotalSampah.setText("jumlahTotalSampah");
 
@@ -200,8 +244,8 @@ public class MainFrame
                 .addGroup(panelTotalSampahLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(labelTotalSampah)
                     .addGroup(panelTotalSampahLayout.createSequentialGroup()
-                        .addComponent(iconTotalSampah)
-                        .addGap(52, 52, 52)
+                        .addComponent(iconTotalSampah, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(43, 43, 43)
                         .addComponent(jumlahTotalSampah)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -212,11 +256,15 @@ public class MainFrame
                 .addComponent(labelTotalSampah)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(26, 26, 26)
-                .addGroup(panelTotalSampahLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(iconTotalSampah)
-                    .addComponent(jumlahTotalSampah))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGroup(panelTotalSampahLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(panelTotalSampahLayout.createSequentialGroup()
+                        .addGap(26, 26, 26)
+                        .addComponent(jumlahTotalSampah)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(panelTotalSampahLayout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(iconTotalSampah, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addContainerGap())))
         );
 
         panelTotalPermintaan.setBackground(new java.awt.Color(255, 255, 255));
@@ -230,7 +278,7 @@ public class MainFrame
 
         iconTotalPermintaan.setText("iconTotalPermintaan");
 
-        jumlahTotalPermintaan.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jumlahTotalPermintaan.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         jumlahTotalPermintaan.setForeground(new java.awt.Color(22, 72, 99));
         jumlahTotalPermintaan.setText("jumlahTotalPermintaan");
 
@@ -243,10 +291,10 @@ public class MainFrame
                 .addGroup(panelTotalPermintaanLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(labelTotalPermintaan)
                     .addGroup(panelTotalPermintaanLayout.createSequentialGroup()
-                        .addComponent(iconTotalPermintaan)
-                        .addGap(34, 34, 34)
+                        .addComponent(iconTotalPermintaan, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
                         .addComponent(jumlahTotalPermintaan)))
-                .addContainerGap(97, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addComponent(jSeparator2, javax.swing.GroupLayout.Alignment.TRAILING)
         );
         panelTotalPermintaanLayout.setVerticalGroup(
@@ -256,25 +304,31 @@ public class MainFrame
                 .addComponent(labelTotalPermintaan)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(29, 29, 29)
-                .addGroup(panelTotalPermintaanLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(iconTotalPermintaan)
-                    .addComponent(jumlahTotalPermintaan))
-                .addContainerGap(51, Short.MAX_VALUE))
+                .addGroup(panelTotalPermintaanLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(panelTotalPermintaanLayout.createSequentialGroup()
+                        .addGap(29, 29, 29)
+                        .addComponent(jumlahTotalPermintaan)
+                        .addContainerGap(39, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelTotalPermintaanLayout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(iconTotalPermintaan, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addContainerGap())))
         );
 
         panelGrafik.setBackground(new java.awt.Color(255, 255, 255));
         panelGrafik.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(102, 102, 102), 3, true));
 
+        grafik.setText("grafik");
+
         javax.swing.GroupLayout panelGrafikLayout = new javax.swing.GroupLayout(panelGrafik);
         panelGrafik.setLayout(panelGrafikLayout);
         panelGrafikLayout.setHorizontalGroup(
             panelGrafikLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 806, Short.MAX_VALUE)
+            .addComponent(grafik, javax.swing.GroupLayout.DEFAULT_SIZE, 806, Short.MAX_VALUE)
         );
         panelGrafikLayout.setVerticalGroup(
             panelGrafikLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 207, Short.MAX_VALUE)
+            .addComponent(grafik, javax.swing.GroupLayout.DEFAULT_SIZE, 201, Short.MAX_VALUE)
         );
 
         jLabel1.setBackground(new java.awt.Color(22, 72, 99));
@@ -318,9 +372,9 @@ public class MainFrame
                 .addGroup(panelHomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(panelTotalSampah, javax.swing.GroupLayout.DEFAULT_SIZE, 144, Short.MAX_VALUE)
                     .addComponent(panelTotalPermintaan, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(panelGrafik, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(31, Short.MAX_VALUE))
+                .addContainerGap(43, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
@@ -451,6 +505,8 @@ public class MainFrame
     private javax.swing.JButton buttonPenjemputan;
     private javax.swing.JButton buttonRiwayat;
     private javax.swing.JButton cobaShowPelanggan;
+    private javax.swing.JLabel grafik;
+    private javax.swing.JLabel iconMain;
     private javax.swing.JLabel iconTitle;
     private javax.swing.JLabel iconTotalPermintaan;
     private javax.swing.JLabel iconTotalSampah;

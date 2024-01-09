@@ -45,7 +45,7 @@ public class LacakCRUD
      */
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated
-    // Code">//GEN-BEGIN:initComponents
+    // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
         buttonGroup1 = new javax.swing.ButtonGroup();
@@ -67,9 +67,7 @@ public class LacakCRUD
         radioTrue = new javax.swing.JRadioButton();
         radioFalse = new javax.swing.JRadioButton();
         titleCRUDPermintaan = new javax.swing.JLabel();
-        buttonKembali = new javax.swing.JButton();
         buttonUbah = new javax.swing.JButton();
-        buttonHapus = new javax.swing.JButton();
         buttonKirim = new javax.swing.JButton();
         buttonSimpanUbah = new javax.swing.JButton();
         labelNamaKurir = new javax.swing.JLabel();
@@ -99,19 +97,10 @@ public class LacakCRUD
         titleCRUDPermintaan.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         titleCRUDPermintaan.setText("Form Permintaan");
 
-        buttonKembali.setText("Kembali");
-
         buttonUbah.setText("Ubah");
         buttonUbah.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 buttonUbahActionPerformed(evt);
-            }
-        });
-
-        buttonHapus.setText("Hapus");
-        buttonHapus.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                buttonHapusActionPerformed(evt);
             }
         });
 
@@ -136,107 +125,75 @@ public class LacakCRUD
         javax.swing.GroupLayout panelCRUDPermintaanLayout = new javax.swing.GroupLayout(panelCRUDPermintaan);
         panelCRUDPermintaan.setLayout(panelCRUDPermintaanLayout);
         panelCRUDPermintaanLayout.setHorizontalGroup(
-                panelCRUDPermintaanLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(panelCRUDPermintaanLayout.createSequentialGroup()
-                                .addGroup(panelCRUDPermintaanLayout
-                                        .createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addGroup(panelCRUDPermintaanLayout.createSequentialGroup()
-                                                .addContainerGap()
-                                                .addGroup(panelCRUDPermintaanLayout
-                                                        .createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                        .addComponent(labelStatus)
-                                                        .addGroup(panelCRUDPermintaanLayout.createSequentialGroup()
-                                                                .addGroup(panelCRUDPermintaanLayout.createParallelGroup(
-                                                                        javax.swing.GroupLayout.Alignment.LEADING,
-                                                                        false)
-                                                                        .addComponent(labelNamaPelanggan)
-                                                                        .addComponent(labelAlamatPelanggan)
-                                                                        .addComponent(textfieldAlamatPelanggan,
-                                                                                javax.swing.GroupLayout.DEFAULT_SIZE,
-                                                                                204, Short.MAX_VALUE)
-                                                                        .addComponent(textfieldNamaPelanggan))
-                                                                .addGap(42, 42, 42)
-                                                                .addGroup(panelCRUDPermintaanLayout.createParallelGroup(
-                                                                        javax.swing.GroupLayout.Alignment.LEADING,
-                                                                        false)
-                                                                        .addComponent(labelNamaKurir)
-                                                                        .addComponent(labelAlamatTujuan)
-                                                                        .addComponent(textfieldNamaKurir,
-                                                                                javax.swing.GroupLayout.DEFAULT_SIZE,
-                                                                                214, Short.MAX_VALUE)
-                                                                        .addComponent(textfieldAlamatTujuan)))
-                                                        .addGroup(panelCRUDPermintaanLayout.createSequentialGroup()
-                                                                .addComponent(radioTrue)
-                                                                .addPreferredGap(
-                                                                        javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                                .addComponent(radioFalse))
-                                                        .addGroup(panelCRUDPermintaanLayout.createSequentialGroup()
-                                                                .addComponent(buttonKembali)
-                                                                .addPreferredGap(
-                                                                        javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                                .addComponent(buttonUbah)
-                                                                .addPreferredGap(
-                                                                        javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                                .addComponent(buttonSimpanUbah)
-                                                                .addPreferredGap(
-                                                                        javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                                .addComponent(buttonHapus)
-                                                                .addPreferredGap(
-                                                                        javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                                .addComponent(buttonKirim))))
-                                        .addGroup(panelCRUDPermintaanLayout.createSequentialGroup()
-                                                .addGap(210, 210, 210)
-                                                .addComponent(titleCRUDPermintaan)))
-                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)));
+            panelCRUDPermintaanLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelCRUDPermintaanLayout.createSequentialGroup()
+                .addGroup(panelCRUDPermintaanLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(panelCRUDPermintaanLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addGroup(panelCRUDPermintaanLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(labelStatus)
+                            .addGroup(panelCRUDPermintaanLayout.createSequentialGroup()
+                                .addGroup(panelCRUDPermintaanLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(labelNamaPelanggan)
+                                    .addComponent(labelAlamatPelanggan)
+                                    .addComponent(textfieldAlamatPelanggan, javax.swing.GroupLayout.DEFAULT_SIZE, 204, Short.MAX_VALUE)
+                                    .addComponent(textfieldNamaPelanggan))
+                                .addGap(42, 42, 42)
+                                .addGroup(panelCRUDPermintaanLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(labelNamaKurir)
+                                    .addComponent(labelAlamatTujuan)
+                                    .addComponent(textfieldNamaKurir, javax.swing.GroupLayout.DEFAULT_SIZE, 214, Short.MAX_VALUE)
+                                    .addComponent(textfieldAlamatTujuan)))
+                            .addGroup(panelCRUDPermintaanLayout.createSequentialGroup()
+                                .addComponent(radioTrue)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(radioFalse))))
+                    .addGroup(panelCRUDPermintaanLayout.createSequentialGroup()
+                        .addGap(210, 210, 210)
+                        .addComponent(titleCRUDPermintaan))
+                    .addGroup(panelCRUDPermintaanLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(buttonUbah)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(buttonSimpanUbah)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(buttonKirim)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
         panelCRUDPermintaanLayout.setVerticalGroup(
-                panelCRUDPermintaanLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(panelCRUDPermintaanLayout.createSequentialGroup()
-                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(titleCRUDPermintaan)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addGroup(panelCRUDPermintaanLayout
-                                        .createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                        .addComponent(labelNamaPelanggan)
-                                        .addComponent(labelNamaKurir))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addGroup(panelCRUDPermintaanLayout
-                                        .createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                        .addComponent(textfieldNamaPelanggan, javax.swing.GroupLayout.PREFERRED_SIZE,
-                                                javax.swing.GroupLayout.DEFAULT_SIZE,
-                                                javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(textfieldNamaKurir, javax.swing.GroupLayout.PREFERRED_SIZE,
-                                                javax.swing.GroupLayout.DEFAULT_SIZE,
-                                                javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addGroup(panelCRUDPermintaanLayout
-                                        .createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                        .addComponent(labelAlamatPelanggan)
-                                        .addComponent(labelAlamatTujuan))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addGroup(panelCRUDPermintaanLayout
-                                        .createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                        .addComponent(textfieldAlamatPelanggan, javax.swing.GroupLayout.PREFERRED_SIZE,
-                                                javax.swing.GroupLayout.DEFAULT_SIZE,
-                                                javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(textfieldAlamatTujuan, javax.swing.GroupLayout.PREFERRED_SIZE,
-                                                javax.swing.GroupLayout.DEFAULT_SIZE,
-                                                javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(labelStatus)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addGroup(panelCRUDPermintaanLayout
-                                        .createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                        .addComponent(radioTrue)
-                                        .addComponent(radioFalse))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addGroup(panelCRUDPermintaanLayout
-                                        .createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                        .addComponent(buttonKembali)
-                                        .addComponent(buttonUbah)
-                                        .addComponent(buttonHapus)
-                                        .addComponent(buttonKirim)
-                                        .addComponent(buttonSimpanUbah))
-                                .addGap(52, 52, 52)));
+            panelCRUDPermintaanLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelCRUDPermintaanLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(titleCRUDPermintaan)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(panelCRUDPermintaanLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(labelNamaPelanggan)
+                    .addComponent(labelNamaKurir))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(panelCRUDPermintaanLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(textfieldNamaPelanggan, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(textfieldNamaKurir, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(panelCRUDPermintaanLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(labelAlamatPelanggan)
+                    .addComponent(labelAlamatTujuan))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(panelCRUDPermintaanLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(textfieldAlamatPelanggan, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(textfieldAlamatTujuan, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(labelStatus)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(panelCRUDPermintaanLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(radioTrue)
+                    .addComponent(radioFalse))
+                .addGap(18, 18, 18)
+                .addGroup(panelCRUDPermintaanLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(buttonUbah)
+                    .addComponent(buttonKirim)
+                    .addComponent(buttonSimpanUbah))
+                .addGap(46, 46, 46))
+        );
 
         tableLacak.setModel(lacakModelTable);
         jScrollPane1.setViewportView(tableLacak);
@@ -246,37 +203,34 @@ public class LacakCRUD
         javax.swing.GroupLayout frameCRUDPermintaanLayout = new javax.swing.GroupLayout(frameCRUDPermintaan);
         frameCRUDPermintaan.setLayout(frameCRUDPermintaanLayout);
         frameCRUDPermintaanLayout.setHorizontalGroup(
-                frameCRUDPermintaanLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(frameCRUDPermintaanLayout.createSequentialGroup()
-                                .addGap(75, 75, 75)
-                                .addGroup(frameCRUDPermintaanLayout
-                                        .createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                        .addComponent(panelCRUDPermintaan, javax.swing.GroupLayout.DEFAULT_SIZE,
-                                                javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(scrollableTable, javax.swing.GroupLayout.DEFAULT_SIZE, 530,
-                                                Short.MAX_VALUE))
-                                .addContainerGap(19, Short.MAX_VALUE)));
+            frameCRUDPermintaanLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(frameCRUDPermintaanLayout.createSequentialGroup()
+                .addGap(75, 75, 75)
+                .addGroup(frameCRUDPermintaanLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(panelCRUDPermintaan, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(scrollableTable, javax.swing.GroupLayout.DEFAULT_SIZE, 530, Short.MAX_VALUE))
+                .addContainerGap(19, Short.MAX_VALUE))
+        );
         frameCRUDPermintaanLayout.setVerticalGroup(
-                frameCRUDPermintaanLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(frameCRUDPermintaanLayout.createSequentialGroup()
-                                .addGap(19, 19, 19)
-                                .addComponent(panelCRUDPermintaan, javax.swing.GroupLayout.PREFERRED_SIZE, 221,
-                                        javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(scrollableTable, javax.swing.GroupLayout.PREFERRED_SIZE, 238,
-                                        javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addContainerGap(38, Short.MAX_VALUE)));
+            frameCRUDPermintaanLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(frameCRUDPermintaanLayout.createSequentialGroup()
+                .addGap(19, 19, 19)
+                .addComponent(panelCRUDPermintaan, javax.swing.GroupLayout.PREFERRED_SIZE, 233, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(scrollableTable, javax.swing.GroupLayout.PREFERRED_SIZE, 226, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(38, Short.MAX_VALUE))
+        );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
-                layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(frameCRUDPermintaan, javax.swing.GroupLayout.DEFAULT_SIZE,
-                                javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE));
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(frameCRUDPermintaan, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
         layout.setVerticalGroup(
-                layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(frameCRUDPermintaan, javax.swing.GroupLayout.DEFAULT_SIZE,
-                                javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE));
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(frameCRUDPermintaan, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -387,12 +341,12 @@ public class LacakCRUD
         int confirmation = JOptionPane.showConfirmDialog(LacakCRUD.this,"Apakah yakin ingin mengubah data?", 
                        "Peringatan!", JOptionPane.YES_NO_OPTION);
         
-            if (confirmation == JOptionPane.YES_OPTION) { //Jika Confirmation Option bernilai "Yes"
-                this.lacakDao.update(lacak);
-                this.update(lacak);
-              } else { //Jika tidak,
-                JOptionPane.showMessageDialog(LacakCRUD.this, "Data tidak diubah"); 
-              }
+        if (confirmation == JOptionPane.YES_OPTION) { //Jika Confirmation Option bernilai "Yes"
+            this.lacakDao.update(lacak);
+            this.update(lacak);
+        } else { //Jika tidak,
+            JOptionPane.showMessageDialog(LacakCRUD.this, "Data tidak diubah"); 
+        }
     }// GEN-LAST:event_buttonSimpanUbahActionPerformed
 
     private void buttonHapusActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_buttonHapusActionPerformed
@@ -479,8 +433,6 @@ public class LacakCRUD
     private javax.swing.ButtonGroup buttonGroup7;
     private javax.swing.ButtonGroup buttonGroup8;
     private javax.swing.ButtonGroup buttonGroup9;
-    private javax.swing.JButton buttonHapus;
-    private javax.swing.JButton buttonKembali;
     private javax.swing.JButton buttonKirim;
     private javax.swing.JButton buttonSimpanUbah;
     private javax.swing.JButton buttonUbah;

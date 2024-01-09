@@ -174,11 +174,16 @@ public class SampahDao {
                 Connection connection = MySqlConnection.getInstance().getConnection();
                 Statement statement = connection.createStatement();) {
             try (ResultSet resultSet = statement
-                    .executeQuery("select * from sampah where " + column + " = '" + value + "'");) {
+                    .executeQuery("select * from sampah join detail on sampah.idSampah = detail.idSampah where sampah." + column + " = '" + value + "'");) {
                 while (resultSet.next()) {
                     sampah.setId(resultSet.getInt("idSampah"));
+                    sampah.setNamaPelanggan(resultSet.getString("namaPelanggan"));
+                    sampah.setNamaKurir(resultSet.getString("namaKurir"));
+                    sampah.setAlamatPenjemputan(resultSet.getString("alamatPenjemputan"));
+                    sampah.setNoKendaraan(resultSet.getString("noKendaraan"));
                     sampah.setBeratSampah(resultSet.getFloat("beratSampah"));
                     sampah.setJumlahSampah(resultSet.getInt("jumlahSampah"));
+                    sampah.setHargaSampah(resultSet.getInt("hargaSampah"));
                     sampah.setJenisSampah(resultSet.getString("jenisSampah"));
                     sampah.setPoin(resultSet.getInt("poin"));
                 }

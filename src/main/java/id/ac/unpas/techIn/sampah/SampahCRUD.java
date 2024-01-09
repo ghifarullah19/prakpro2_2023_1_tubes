@@ -444,8 +444,13 @@ public class SampahCRUD
         }
         id = this.sampahDao.select(col, dataUbah).getId();
        System.out.println(col + " " + dataUbah);
+        this.textfieldNamaPelanggan.setText(String.valueOf(this.sampahDao.select(col, dataUbah).getNamaPelanggan()));
+        this.textfieldNamaKurir.setText(String.valueOf(this.sampahDao.select(col, dataUbah).getNamaKurir()));
+        this.textfieldAlamatPenjemputan.setText(String.valueOf(this.sampahDao.select(col, dataUbah).getAlamatPenjemputan()));
+        this.textfieldNoKendaraan.setText(String.valueOf(this.sampahDao.select(col, dataUbah).getNoKendaraan()));
         this.textfieldJumlahSampah.setText(String.valueOf(this.sampahDao.select(col, dataUbah).getJumlahSampah()));
         this.textfieldJenisSampah.setText(String.valueOf(this.sampahDao.select(col, dataUbah).getJenisSampah()));
+        this.textfieldHargaSampah.setText(String.valueOf(this.sampahDao.select(col, dataUbah).getHargaSampah()));
         this.textfieldBeratSampah.setText(String.valueOf(this.sampahDao.select(col, dataUbah).getBeratSampah()));
         this.textfieldPoin.setText(String.valueOf(this.sampahDao.select(col, dataUbah).getPoin()));
         
@@ -479,13 +484,22 @@ public class SampahCRUD
         int confirmation = JOptionPane.showConfirmDialog(SampahCRUD.this,"Apakah yakin ingin mengubah data?", 
                        "Peringatan!", JOptionPane.YES_NO_OPTION);
         
-            if (confirmation == JOptionPane.YES_OPTION) { //Jika Confirmation Option bernilai "Yes"
-                this.sampahDao.update(sampah);
-                riwayatDao.update(riwayat);
-                this.update(sampah);
-              } else { //Jika tidak,
-                JOptionPane.showMessageDialog(SampahCRUD.this, "Data tidak diubah"); 
-              }
+        if (confirmation == JOptionPane.YES_OPTION) { //Jika Confirmation Option bernilai "Yes"
+            this.sampahDao.update(sampah);
+            riwayatDao.update(riwayat);
+            this.update(sampah);
+            this.textfieldNamaPelanggan.setText("");
+            this.textfieldNamaKurir.setText("");
+            this.textfieldAlamatPenjemputan.setText("");
+            this.textfieldNoKendaraan.setText("");
+            this.textfieldJumlahSampah.setText("");
+            this.textfieldJenisSampah.setText("");
+            this.textfieldHargaSampah.setText("");
+            this.textfieldBeratSampah.setText("");
+            this.textfieldPoin.setText("");
+        } else { //Jika tidak,
+            JOptionPane.showMessageDialog(SampahCRUD.this, "Data tidak diubah"); 
+        }
     }//GEN-LAST:event_buttonSimpanUbahActionPerformed
 
     private void buttonHapusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonHapusActionPerformed
