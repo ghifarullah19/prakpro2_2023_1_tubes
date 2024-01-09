@@ -78,20 +78,22 @@ public class RiwayatDetailFrame
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
-        panelLacak.setBackground(new java.awt.Color(102, 204, 255));
+        panelLacak.setBackground(new java.awt.Color(155, 190, 200));
 
-        panelTitlePermintaan.setBackground(new java.awt.Color(51, 153, 255));
+        panelTitlePermintaan.setBackground(new java.awt.Color(66, 125, 157));
 
-        labelTitlePermintaan.setText("Recylce Bin");
+        labelTitlePermintaan.setFont(new java.awt.Font("Kaushan Script", 0, 12)); // NOI18N
+        labelTitlePermintaan.setForeground(new java.awt.Color(255, 255, 255));
+        labelTitlePermintaan.setText("Riwayat ");
 
         javax.swing.GroupLayout panelTitlePermintaanLayout = new javax.swing.GroupLayout(panelTitlePermintaan);
         panelTitlePermintaan.setLayout(panelTitlePermintaanLayout);
         panelTitlePermintaanLayout.setHorizontalGroup(
             panelTitlePermintaanLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelTitlePermintaanLayout.createSequentialGroup()
-                .addContainerGap()
+                .addGap(21, 21, 21)
                 .addComponent(labelTitlePermintaan)
-                .addContainerGap(780, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         panelTitlePermintaanLayout.setVerticalGroup(
             panelTitlePermintaanLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -270,12 +272,12 @@ public class RiwayatDetailFrame
         );
 
         jLabel17.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        jLabel17.setForeground(new java.awt.Color(0, 51, 255));
+        jLabel17.setForeground(new java.awt.Color(22, 72, 99));
         jLabel17.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel17.setText("INFORMASI PELANGGAN");
 
         jLabel18.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        jLabel18.setForeground(new java.awt.Color(0, 51, 255));
+        jLabel18.setForeground(new java.awt.Color(22, 72, 99));
         jLabel18.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel18.setText("INFORMASI KURIR");
 
@@ -283,9 +285,8 @@ public class RiwayatDetailFrame
         panelLacak.setLayout(panelLacakLayout);
         panelLacakLayout.setHorizontalGroup(
             panelLacakLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(panelTitlePermintaan, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelLacakLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap(82, Short.MAX_VALUE)
                 .addGroup(panelLacakLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelLacakLayout.createSequentialGroup()
                         .addGroup(panelLacakLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
@@ -299,6 +300,7 @@ public class RiwayatDetailFrame
                 .addGap(328, 328, 328)
                 .addComponent(jLabel18, javax.swing.GroupLayout.PREFERRED_SIZE, 201, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, Short.MAX_VALUE))
+            .addComponent(panelTitlePermintaan, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         panelLacakLayout.setVerticalGroup(
             panelLacakLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
