@@ -67,11 +67,13 @@ public class LacakFrame
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
-        panelLacak.setBackground(new java.awt.Color(102, 204, 255));
+        panelLacak.setBackground(new java.awt.Color(155, 190, 200));
 
-        panelTitlePermintaan.setBackground(new java.awt.Color(51, 153, 255));
+        panelTitlePermintaan.setBackground(new java.awt.Color(22, 72, 99));
 
-        labelTitlePermintaan.setText("Recylce Bin");
+        labelTitlePermintaan.setFont(new java.awt.Font("Kaushan Script", 0, 12)); // NOI18N
+        labelTitlePermintaan.setForeground(new java.awt.Color(255, 255, 255));
+        labelTitlePermintaan.setText("Lacak");
 
         javax.swing.GroupLayout panelTitlePermintaanLayout = new javax.swing.GroupLayout(panelTitlePermintaan);
         panelTitlePermintaan.setLayout(panelTitlePermintaanLayout);
@@ -90,7 +92,7 @@ public class LacakFrame
                 .addContainerGap(10, Short.MAX_VALUE))
         );
 
-        showLacakPane.setBackground(new java.awt.Color(102, 204, 255));
+        showLacakPane.setBackground(new java.awt.Color(155, 190, 200));
 
         javax.swing.GroupLayout showLacakPaneLayout = new javax.swing.GroupLayout(showLacakPane);
         showLacakPane.setLayout(showLacakPaneLayout);
@@ -118,7 +120,7 @@ public class LacakFrame
                 .addGap(15, 15, 15)
                 .addComponent(panelTitlePermintaan, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(showLacakScrollPane))
+                .addComponent(showLacakScrollPane, javax.swing.GroupLayout.DEFAULT_SIZE, 404, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());

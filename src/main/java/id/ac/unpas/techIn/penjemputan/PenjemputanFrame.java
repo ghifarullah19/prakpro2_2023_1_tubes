@@ -62,7 +62,7 @@ public class PenjemputanFrame
      */
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated
-    // Code">//GEN-BEGIN:initComponents
+    // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
         panelPenjemputan = new javax.swing.JPanel();
@@ -73,66 +73,72 @@ public class PenjemputanFrame
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
-        panelPenjemputan.setBackground(new java.awt.Color(102, 204, 255));
+        panelPenjemputan.setBackground(new java.awt.Color(155, 190, 200));
 
-        panelTitlePenjemputan.setBackground(new java.awt.Color(51, 153, 255));
+        panelTitlePenjemputan.setBackground(new java.awt.Color(22, 72, 99));
 
+        labelTitlePenjemputan.setFont(new java.awt.Font("Kaushan Script", 0, 12)); // NOI18N
+        labelTitlePenjemputan.setForeground(new java.awt.Color(255, 255, 255));
         labelTitlePenjemputan.setText("Penerimaan Penjemputan");
 
         javax.swing.GroupLayout panelTitlePenjemputanLayout = new javax.swing.GroupLayout(panelTitlePenjemputan);
         panelTitlePenjemputan.setLayout(panelTitlePenjemputanLayout);
         panelTitlePenjemputanLayout.setHorizontalGroup(
-                panelTitlePenjemputanLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(panelTitlePenjemputanLayout.createSequentialGroup()
-                                .addContainerGap()
-                                .addComponent(labelTitlePenjemputan)
-                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)));
+            panelTitlePenjemputanLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelTitlePenjemputanLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(labelTitlePenjemputan)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
         panelTitlePenjemputanLayout.setVerticalGroup(
-                panelTitlePenjemputanLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(panelTitlePenjemputanLayout.createSequentialGroup()
-                                .addContainerGap()
-                                .addComponent(labelTitlePenjemputan)
-                                .addContainerGap(10, Short.MAX_VALUE)));
+            panelTitlePenjemputanLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelTitlePenjemputanLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(labelTitlePenjemputan)
+                .addContainerGap(10, Short.MAX_VALUE))
+        );
 
-        showPenjemputanPane.setBackground(new java.awt.Color(102, 204, 255));
+        showPenjemputanPane.setBackground(new java.awt.Color(155, 190, 200));
 
         javax.swing.GroupLayout showPenjemputanPaneLayout = new javax.swing.GroupLayout(showPenjemputanPane);
         showPenjemputanPane.setLayout(showPenjemputanPaneLayout);
         showPenjemputanPaneLayout.setHorizontalGroup(
-                showPenjemputanPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGap(0, 821, Short.MAX_VALUE));
+            showPenjemputanPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 821, Short.MAX_VALUE)
+        );
         showPenjemputanPaneLayout.setVerticalGroup(
-                showPenjemputanPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGap(0, 404, Short.MAX_VALUE));
+            showPenjemputanPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 404, Short.MAX_VALUE)
+        );
 
         showPenjemputanScrollPane.setViewportView(showPenjemputanPane);
 
         javax.swing.GroupLayout panelPenjemputanLayout = new javax.swing.GroupLayout(panelPenjemputan);
         panelPenjemputan.setLayout(panelPenjemputanLayout);
         panelPenjemputanLayout.setHorizontalGroup(
-                panelPenjemputanLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(panelTitlePenjemputan, javax.swing.GroupLayout.DEFAULT_SIZE,
-                                javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(showPenjemputanScrollPane));
+            panelPenjemputanLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(panelTitlePenjemputan, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(showPenjemputanScrollPane)
+        );
         panelPenjemputanLayout.setVerticalGroup(
-                panelPenjemputanLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(panelPenjemputanLayout.createSequentialGroup()
-                                .addGap(15, 15, 15)
-                                .addComponent(panelTitlePenjemputan, javax.swing.GroupLayout.PREFERRED_SIZE,
-                                        javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(showPenjemputanScrollPane)));
+            panelPenjemputanLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelPenjemputanLayout.createSequentialGroup()
+                .addGap(15, 15, 15)
+                .addComponent(panelTitlePenjemputan, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, Short.MAX_VALUE)
+                .addComponent(showPenjemputanScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 390, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
-                layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(panelPenjemputan, javax.swing.GroupLayout.DEFAULT_SIZE,
-                                javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE));
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(panelPenjemputan, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
         layout.setVerticalGroup(
-                layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(panelPenjemputan, javax.swing.GroupLayout.DEFAULT_SIZE,
-                                javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE));
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(panelPenjemputan, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents

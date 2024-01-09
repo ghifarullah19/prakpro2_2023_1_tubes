@@ -67,13 +67,14 @@ public class PermintaanFrame
         showPermintaanPane = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        setPreferredSize(new java.awt.Dimension(728, 470));
 
-        panelPermintaan.setBackground(new java.awt.Color(102, 204, 255));
+        panelPermintaan.setBackground(new java.awt.Color(155, 190, 200));
 
-        panelTitlePermintaan.setBackground(new java.awt.Color(51, 153, 255));
+        panelTitlePermintaan.setBackground(new java.awt.Color(22, 72, 99));
 
-        labelTitlePermintaan.setText("Recylce Bin");
+        labelTitlePermintaan.setFont(new java.awt.Font("Kaushan Script", 0, 12)); // NOI18N
+        labelTitlePermintaan.setForeground(new java.awt.Color(255, 255, 255));
+        labelTitlePermintaan.setText("Permintaan Penjemputan");
 
         javax.swing.GroupLayout panelTitlePermintaanLayout = new javax.swing.GroupLayout(panelTitlePermintaan);
         panelTitlePermintaan.setLayout(panelTitlePermintaanLayout);
@@ -92,7 +93,7 @@ public class PermintaanFrame
                 .addContainerGap(10, Short.MAX_VALUE))
         );
 
-        showPermintaanPane.setBackground(new java.awt.Color(102, 204, 255));
+        showPermintaanPane.setBackground(new java.awt.Color(155, 190, 200));
 
         javax.swing.GroupLayout showPermintaanPaneLayout = new javax.swing.GroupLayout(showPermintaanPane);
         showPermintaanPane.setLayout(showPermintaanPaneLayout);
@@ -120,7 +121,7 @@ public class PermintaanFrame
                 .addGap(15, 15, 15)
                 .addComponent(panelTitlePermintaan, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(showPermintaanScrollPane))
+                .addComponent(showPermintaanScrollPane, javax.swing.GroupLayout.DEFAULT_SIZE, 404, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
