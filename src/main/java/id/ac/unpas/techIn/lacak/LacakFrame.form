@@ -36,7 +36,7 @@
     <Container class="javax.swing.JPanel" name="panelLacak">
       <Properties>
         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-          <Color blue="ff" green="cc" red="66" type="rgb"/>
+          <Color blue="c8" green="be" red="9b" type="rgb"/>
         </Property>
       </Properties>
 
@@ -53,7 +53,7 @@
                   <EmptySpace min="-2" pref="15" max="-2" attributes="0"/>
                   <Component id="panelTitlePermintaan" min="-2" max="-2" attributes="0"/>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
-                  <Component id="showLacakScrollPane" max="32767" attributes="0"/>
+                  <Component id="showLacakScrollPane" pref="404" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -62,7 +62,7 @@
         <Container class="javax.swing.JPanel" name="panelTitlePermintaan">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="ff" green="99" red="33" type="rgb"/>
+              <Color blue="63" green="48" red="16" type="rgb"/>
             </Property>
           </Properties>
 
@@ -89,7 +89,13 @@
           <SubComponents>
             <Component class="javax.swing.JLabel" name="labelTitlePermintaan">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Recylce Bin"/>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="Kaushan Script" size="12" style="0"/>
+                </Property>
+                <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                  <Color blue="ff" green="ff" red="ff" type="rgb"/>
+                </Property>
+                <Property name="text" type="java.lang.String" value="Lacak"/>
               </Properties>
             </Component>
           </SubComponents>
@@ -101,7 +107,7 @@
             <Container class="javax.swing.JPanel" name="showLacakPane">
               <Properties>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                  <Color blue="ff" green="cc" red="66" type="rgb"/>
+                  <Color blue="c8" green="be" red="9b" type="rgb"/>
                 </Property>
               </Properties>
 
