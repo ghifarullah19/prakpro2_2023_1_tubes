@@ -92,7 +92,7 @@ public class PenjemputanDao {
 
             // lacak
             PermintaanDao permintaanDao = new PermintaanDao();
-            int id = this.selectPermintaan("status", !(penjemputan.getStatus())).getId();
+            int id = this.selectPermintaanV2("id", String.valueOf(penjemputan.getIdPermintaan())).getId();
 
             LacakDao lacakDao = new LacakDao();
             Lacak lacak = new Lacak();
@@ -247,6 +247,30 @@ public class PenjemputanDao {
     }
 
     public Permintaan selectPermintaan(String column, boolean value) {
+        Permintaan permintaan = new Permintaan();
+
+        try (
+                Connection connection = MySqlConnection.getInstance().getConnection();
+                Statement statement = connection.createStatement();) {
+            try (ResultSet resultSet = statement
+                    .executeQuery("select * from permintaan where " + column + " = '" + value + "'");) {
+                while (resultSet.next()) {
+                    permintaan.setId(resultSet.getInt("id")); // id
+                    permintaan.setNama(resultSet.getString("namaPelanggan")); // nama
+                    permintaan.setAlamat(resultSet.getString("alamatPenjemputan")); // alamat
+                    permintaan.setStatus(resultSet.getBoolean("status")); // no_telepon
+                }
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return permintaan;
+    }
+    
+    public Permintaan selectPermintaanV2(String column, String value) {
         Permintaan permintaan = new Permintaan();
 
         try (

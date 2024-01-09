@@ -4,10 +4,9 @@
  */
 package id.ac.unpas.techIn.riwayat;
 
+import id.ac.unpas.techIn.dao.PermintaanDao;
 import id.ac.unpas.techIn.dao.RiwayatDao;
-import id.ac.unpas.techIn.riwayat.*;
-import id.ac.unpas.techIn.riwayat.Riwayat;
-import java.awt.Color;
+import id.ac.unpas.techIn.permintaan.Permintaan;
 import java.awt.Image;
 import javax.swing.ImageIcon;
 import javax.swing.JPanel;
@@ -36,9 +35,18 @@ public class RiwayatCard
         alamatRiwayat.setText(riwayat.getAlamatPenjemputan());
         
         iconBox.setText("");
-        iconBox.setIcon(imageIcon("C:\\Users\\malwi\\OneDrive\\Documents\\NetBeansProjects\\tech-in\\src\\main\\java\\id\\ac\\unpas\\techIn\\img\\box.png",
+        iconBox.setIcon(imageIcon("C:\\Users\\ghifarullah19\\Documents\\NetBeansProjects\\tech-in\\src\\main\\java\\id\\ac\\unpas\\techIn\\img\\box.png",
                 65,
                 65));
+        
+        PermintaanDao permintaanDao = new PermintaanDao();
+        Permintaan permintaan = permintaanDao.select("namaPelanggan", namaPelanggan.getText());
+        
+        if (permintaan.getStatus()) {
+            status.setText("Sampah sudah dijemput");
+        } else {
+            status.setText("Sampah sedang dijemput");
+        }
     }
     
     public ImageIcon imageIcon(String imageURL, int height, int width) {
@@ -123,19 +131,20 @@ public class RiwayatCard
             riwayatPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jSeparator1, javax.swing.GroupLayout.Alignment.TRAILING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, riwayatPanelLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(iconBox, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addGroup(riwayatPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(alamatRiwayat, javax.swing.GroupLayout.DEFAULT_SIZE, 488, Short.MAX_VALUE)
-                    .addComponent(status, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(18, 18, 18)
-                .addComponent(buttonDetail)
-                .addGap(18, 18, 18))
-            .addGroup(riwayatPanelLayout.createSequentialGroup()
-                .addGap(289, 289, 289)
-                .addComponent(namaPelanggan, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(292, Short.MAX_VALUE))
+                .addContainerGap(14, Short.MAX_VALUE)
+                .addGroup(riwayatPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, riwayatPanelLayout.createSequentialGroup()
+                        .addComponent(iconBox, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addGroup(riwayatPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(alamatRiwayat, javax.swing.GroupLayout.DEFAULT_SIZE, 488, Short.MAX_VALUE)
+                            .addComponent(status, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGap(18, 18, 18)
+                        .addComponent(buttonDetail)
+                        .addGap(18, 18, 18))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, riwayatPanelLayout.createSequentialGroup()
+                        .addComponent(namaPelanggan, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(281, 281, 281))))
         );
         riwayatPanelLayout.setVerticalGroup(
             riwayatPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)

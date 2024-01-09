@@ -7,7 +7,7 @@ import javax.swing.JButton;
 // Membuat class ModelTable yang mewarisi class AbstractTableModel untuk membuat model tabel
 public class PelangganModelTable extends AbstractTableModel {
     // Array columnNames untuk menyimpan nama-nama kolom
-    private String[] columnNames = { "Nama", "Alamat", "Aksi" };
+    private String[] columnNames = { "Nama", "Alamat"};
     // Membuat List dengan nama data yang berisi Biodata untuk menyimpan data dari input
     private List<Pelanggan> data;
 

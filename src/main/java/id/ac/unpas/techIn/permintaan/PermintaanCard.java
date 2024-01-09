@@ -4,7 +4,10 @@
  */
 package id.ac.unpas.techIn.permintaan;
 
+import id.ac.unpas.techIn.dao.RiwayatDao;
 import id.ac.unpas.techIn.permintaan.Permintaan;
+import id.ac.unpas.techIn.riwayat.Riwayat;
+import id.ac.unpas.techIn.riwayat.RiwayatDetailFrame;
 import java.awt.Color;
 import java.awt.Image;
 import javax.swing.ImageIcon;
@@ -16,6 +19,7 @@ import javax.swing.JPanel;
  */
 public class PermintaanCard
         extends javax.swing.JFrame {
+    private boolean status;
 
     /**
      * Creates new form PermintaanFrame
@@ -34,16 +38,18 @@ public class PermintaanCard
         alamatPenjemputan.setText(pelanggan.getAlamat());
         
         iconMaps.setText("");
-        iconMaps.setIcon(imageIcon("C:\\Users\\HP\\Documents\\NetBeansProjects\\prakpro2_2023_1_tubes\\src\\main\\java\\id\\ac\\unpas\\techIn\\img\\maps.png",
+        iconMaps.setIcon(imageIcon("C:\\Users\\ghifarullah19\\Documents\\NetBeansProjects\\tech-in\\src\\main\\java\\id\\ac\\unpas\\techIn\\img\\maps.png",
                 70,
                 70));
         
         if (pelanggan.getStatus()) {
+            status = true;
             iconStatus.setText("");
             iconStatus.setIcon(imageIcon("C:\\Users\\ghifarullah19\\Documents\\NetBeansProjects\\tech-in\\src\\main\\java\\id\\ac\\unpas\\techIn\\img\\my-svg.png",
                     26,
                     26));
         } else {
+            status = false;
             buttonDetail.setText("Menunggu");
             buttonDetail.setBackground(Color.red);
             iconStatus.setText("");
@@ -180,6 +186,13 @@ public class PermintaanCard
 
     private void buttonDetailActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonDetailActionPerformed
         // TODO add your handling code here:
+        if (status) {
+            Riwayat riwayat = new Riwayat();
+            RiwayatDao riwayatDao = new RiwayatDao();
+            riwayat = riwayatDao.select("namaPelanggan", namaKurir.getText());
+            RiwayatDetailFrame riwayatDetailFrame = new RiwayatDetailFrame(riwayat);
+            riwayatDetailFrame.setVisible(true);
+        }
     }//GEN-LAST:event_buttonDetailActionPerformed
 
     /**

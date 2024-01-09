@@ -93,6 +93,8 @@ public class RiwayatFrame
                 .addContainerGap(10, Short.MAX_VALUE))
         );
 
+        showRiwayatScrollPane.setBackground(new java.awt.Color(155, 190, 200));
+
         showRiwayatPane.setBackground(new java.awt.Color(155, 190, 200));
 
         javax.swing.GroupLayout showRiwayatPaneLayout = new javax.swing.GroupLayout(showRiwayatPane);
@@ -103,7 +105,7 @@ public class RiwayatFrame
         );
         showRiwayatPaneLayout.setVerticalGroup(
             showRiwayatPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 404, Short.MAX_VALUE)
+            .addGap(0, 422, Short.MAX_VALUE)
         );
 
         showRiwayatScrollPane.setViewportView(showRiwayatPane);
@@ -120,9 +122,8 @@ public class RiwayatFrame
             .addGroup(panelRiwayatLayout.createSequentialGroup()
                 .addGap(15, 15, 15)
                 .addComponent(panelTitleRiwayat, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(showRiwayatScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(showRiwayatScrollPane))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());

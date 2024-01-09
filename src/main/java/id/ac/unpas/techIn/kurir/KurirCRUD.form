@@ -77,9 +77,9 @@
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" attributes="0">
                   <EmptySpace min="-2" pref="19" max="-2" attributes="0"/>
-                  <Component id="panelCRUDKurir" min="-2" pref="221" max="-2" attributes="0"/>
+                  <Component id="panelCRUDKurir" min="-2" pref="180" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
-                  <Component id="scrollableTable" min="-2" pref="238" max="-2" attributes="0"/>
+                  <Component id="scrollableTable" min="-2" pref="279" max="-2" attributes="0"/>
                   <EmptySpace pref="38" max="32767" attributes="0"/>
               </Group>
           </Group>
@@ -96,34 +96,33 @@
           <Layout>
             <DimensionLayout dim="0">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" alignment="1" attributes="0">
-                      <EmptySpace max="32767" attributes="0"/>
-                      <Component id="titleCRUDPermintaan" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="164" max="-2" attributes="0"/>
-                  </Group>
                   <Group type="102" attributes="0">
-                      <EmptySpace min="-2" pref="16" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="102" attributes="0">
-                              <Component id="buttonHapus" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                              <Component id="buttonKirim" min="-2" max="-2" attributes="0"/>
+                          <Group type="102" alignment="0" attributes="0">
+                              <EmptySpace min="-2" pref="16" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="buttonKirim" min="-2" max="-2" attributes="0"/>
+                                  <Component id="labelNamaKurir" min="-2" max="-2" attributes="0"/>
+                                  <Component id="textfieldNamaKurir" min="-2" pref="193" max="-2" attributes="0"/>
+                                  <Component id="labeNoKendaraanKurir" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="textfieldNoKendaraan" alignment="0" min="-2" pref="193" max="-2" attributes="0"/>
+                              </Group>
                           </Group>
-                          <Component id="labelNamaKurir" min="-2" max="-2" attributes="0"/>
-                          <Component id="textfieldNamaKurir" min="-2" pref="193" max="-2" attributes="0"/>
-                          <Component id="labeNoKendaraanKurir" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Component id="textfieldNoKendaraan" alignment="0" min="-2" pref="193" max="-2" attributes="0"/>
+                          <Group type="102" alignment="0" attributes="0">
+                              <EmptySpace min="-2" pref="199" max="-2" attributes="0"/>
+                              <Component id="titleCRUDPermintaan" min="-2" max="-2" attributes="0"/>
+                          </Group>
                       </Group>
-                      <EmptySpace pref="278" max="32767" attributes="0"/>
+                      <EmptySpace max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
             <DimensionLayout dim="1">
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Component id="titleCRUDPermintaan" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="32767" attributes="0"/>
+                      <Component id="titleCRUDPermintaan" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
                       <Component id="labelNamaKurir" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="textfieldNamaKurir" min="-2" max="-2" attributes="0"/>
@@ -131,12 +130,9 @@
                       <Component id="labeNoKendaraanKurir" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="textfieldNoKendaraan" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="52" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="buttonKirim" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="buttonHapus" alignment="3" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                      <EmptySpace min="-2" pref="34" max="-2" attributes="0"/>
+                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                      <Component id="buttonKirim" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="74" max="-2" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -147,14 +143,6 @@
                 <Property name="horizontalAlignment" type="int" value="0"/>
                 <Property name="text" type="java.lang.String" value="Form Kurir"/>
               </Properties>
-            </Component>
-            <Component class="javax.swing.JButton" name="buttonHapus">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="Hapus"/>
-              </Properties>
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buttonHapusActionPerformed"/>
-              </Events>
             </Component>
             <Component class="javax.swing.JButton" name="buttonKirim">
               <Properties>
