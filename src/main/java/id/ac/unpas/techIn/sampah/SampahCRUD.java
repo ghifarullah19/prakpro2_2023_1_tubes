@@ -400,8 +400,15 @@ public class SampahCRUD
         sampah.setIdKurir(kurirDao.select("namaKurir",namaKurir).getId());
         sampah.setIdPelanggan(pelangganDao.select("namaPelanggan",namaPelanggan).getId());
         
-        this.sampahDao.insert(sampah);
-        this.addData(sampah);
+        int confirmation = JOptionPane.showConfirmDialog(SampahCRUD.this,"Apakah yakin ingin menyimpan data?", 
+                       "Peringatan!", JOptionPane.YES_NO_OPTION);
+        
+            if (confirmation == JOptionPane.YES_OPTION) { //Jika Confirmation Option bernilai "Yes"
+                this.sampahDao.insert(sampah);
+                this.addData(sampah);
+              } else { //Jika tidak,
+                JOptionPane.showMessageDialog(SampahCRUD.this, "Data tidak disimpan"); 
+              }
     }//GEN-LAST:event_buttonKirimActionPerformed
 
     private void buttonUbahActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonUbahActionPerformed
@@ -467,9 +474,18 @@ public class SampahCRUD
         riwayat.setBeratSampah(beratSampah);
         riwayat.setPoinSampah(poin);
 
-        this.sampahDao.update(sampah);
-        riwayatDao.update(riwayat);
-        this.update(sampah);
+        
+        
+        int confirmation = JOptionPane.showConfirmDialog(SampahCRUD.this,"Apakah yakin ingin mengubah data?", 
+                       "Peringatan!", JOptionPane.YES_NO_OPTION);
+        
+            if (confirmation == JOptionPane.YES_OPTION) { //Jika Confirmation Option bernilai "Yes"
+                this.sampahDao.update(sampah);
+                riwayatDao.update(riwayat);
+                this.update(sampah);
+              } else { //Jika tidak,
+                JOptionPane.showMessageDialog(SampahCRUD.this, "Data tidak diubah"); 
+              }
     }//GEN-LAST:event_buttonSimpanUbahActionPerformed
 
     private void buttonHapusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonHapusActionPerformed
@@ -505,8 +521,16 @@ public class SampahCRUD
             }
             id = this.sampahDao.select(col, newValue);
 
-            this.delete(id);
-            this.sampahDao.delete(id);
+            int confirmation = JOptionPane.showConfirmDialog(SampahCRUD.this,"Apakah yakin ingin menghapus data?", 
+                       "Peringatan!", JOptionPane.YES_NO_OPTION);
+        
+            if (confirmation == JOptionPane.YES_OPTION) { //Jika Confirmation Option bernilai "Yes"
+                this.delete(id);
+                this.sampahDao.delete(id);
+                JOptionPane.showMessageDialog(SampahCRUD.this, "Data sudah dihapus", "Peringatan!", JOptionPane.WARNING_MESSAGE);
+              } else { //Jika tidak,
+                JOptionPane.showMessageDialog(SampahCRUD.this, "Data tidak dihapus"); 
+              }
         }
     }//GEN-LAST:event_buttonHapusActionPerformed
 

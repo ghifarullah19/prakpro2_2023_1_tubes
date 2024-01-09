@@ -13,6 +13,7 @@ import java.util.List;
 // lacak
 import id.ac.unpas.techIn.dao.LacakDao;
 import id.ac.unpas.techIn.lacak.Lacak;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -340,18 +341,27 @@ public class PermintaanCRUD
         lacak.setAlamatTujuan(alamatTujuan);
         lacak.setStatus(status);
 
-        this.permintaanDao.insert(permintaan);
-        // penjemputan
-        this.penjemputanDao.update(penjemputan, permintaan);
-        // lacak
+        
+        
+        int confirmation = JOptionPane.showConfirmDialog(PermintaanCRUD.this,"Apakah yakin ingin menyimpan data?", 
+                       "Peringatan!", JOptionPane.YES_NO_OPTION);
+        
+        if (confirmation == JOptionPane.YES_OPTION) { //Jika Confirmation Option bernilai "Yes"
+                this.permintaanDao.insert(permintaan);
+                // penjemputan
+                this.penjemputanDao.update(penjemputan, permintaan);
+                // lacak
 
-        this.addData(permintaan);
-        id.ac.unpas.techIn.penjemputan.PenjemputanCRUD penjemputanCRUD = new id.ac.unpas.techIn.penjemputan.PenjemputanCRUD(
-                this.penjemputanDao);
-        penjemputanCRUD.update(penjemputan);
-        // lacak
-        id.ac.unpas.techIn.lacak.LacakCRUD lacakCRUD = new id.ac.unpas.techIn.lacak.LacakCRUD(this.lacakDao);
-        lacakCRUD.update(lacak);
+                this.addData(permintaan);
+                id.ac.unpas.techIn.penjemputan.PenjemputanCRUD penjemputanCRUD = new id.ac.unpas.techIn.penjemputan.PenjemputanCRUD(
+                    this.penjemputanDao);
+                penjemputanCRUD.update(penjemputan);
+                // lacak
+                id.ac.unpas.techIn.lacak.LacakCRUD lacakCRUD = new id.ac.unpas.techIn.lacak.LacakCRUD(this.lacakDao);
+                lacakCRUD.update(lacak);
+               } else { //Jika tidak,
+                   JOptionPane.showMessageDialog(PermintaanCRUD.this, "Data tidak disimpan"); 
+               }
     }// GEN-LAST:event_buttonKirimActionPerformed
 
     private void buttonUbahActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_buttonUbahActionPerformed
@@ -418,8 +428,15 @@ public class PermintaanCRUD
         permintaan.setAlamat(alamat);
         permintaan.setStatus(status);
 
-        this.permintaanDao.update(permintaan);
-        this.update(permintaan);
+        int confirmation = JOptionPane.showConfirmDialog(PermintaanCRUD.this,"Apakah yakin ingin mengubah data?", 
+                       "Peringatan!", JOptionPane.YES_NO_OPTION);
+        
+        if (confirmation == JOptionPane.YES_OPTION) { //Jika Confirmation Option bernilai "Yes"
+                this.permintaanDao.update(permintaan);
+                this.update(permintaan);
+               } else { //Jika tidak,
+                   JOptionPane.showMessageDialog(PermintaanCRUD.this, "Data tidak diubah"); 
+               }
     }// GEN-LAST:event_buttonSimpanUbahActionPerformed
 
     private void buttonHapusActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_buttonHapusActionPerformed
@@ -452,8 +469,16 @@ public class PermintaanCRUD
             }
             id = this.permintaanDao.select(col, newValue);
 
-            this.delete(id);
-            this.permintaanDao.delete(id);
+            int confirmation = JOptionPane.showConfirmDialog(PermintaanCRUD.this,"Apakah yakin ingin menghapus data?", 
+                       "Peringatan!", JOptionPane.YES_NO_OPTION);
+        
+            if (confirmation == JOptionPane.YES_OPTION) { //Jika Confirmation Option bernilai "Yes"
+                this.delete(id);
+                this.permintaanDao.delete(id);
+                JOptionPane.showMessageDialog(PermintaanCRUD.this, "Data sudah dihapus", "Peringatan!", JOptionPane.WARNING_MESSAGE);
+               } else { //Jika tidak,
+                   JOptionPane.showMessageDialog(PermintaanCRUD.this, "Data tidak dihapus"); 
+               }
         }
     }// GEN-LAST:event_buttonHapusActionPerformed
 

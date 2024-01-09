@@ -97,32 +97,26 @@
             <DimensionLayout dim="0">
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="1" attributes="0">
-                      <EmptySpace max="32767" attributes="0"/>
+                      <EmptySpace pref="237" max="32767" attributes="0"/>
                       <Component id="titleCRUDPelanggan" min="-2" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="164" max="-2" attributes="0"/>
                   </Group>
                   <Group type="102" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="102" alignment="0" attributes="0">
-                              <Component id="buttonKembali" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Component id="buttonUbah" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Component id="buttonSimpanUbah" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                          <Group type="103" alignment="0" groupAlignment="0" max="-2" attributes="0">
+                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
                               <Component id="labelNamaPelanggan" min="-2" max="-2" attributes="0"/>
                               <Component id="labelAlamatPelanggan" alignment="0" min="-2" max="-2" attributes="0"/>
                               <Component id="textfieldAlamatPelanggan" alignment="0" pref="204" max="32767" attributes="0"/>
                               <Component id="textfieldNamaPelanggan" alignment="0" max="32767" attributes="0"/>
                           </Group>
+                          <Group type="102" alignment="0" attributes="0">
+                              <Component id="buttonHapus" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="buttonKirim" min="-2" max="-2" attributes="0"/>
+                          </Group>
                       </Group>
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Component id="buttonHapus" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Component id="buttonKirim" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace pref="67" max="32767" attributes="0"/>
+                      <EmptySpace max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -141,11 +135,8 @@
                       <Component id="textfieldAlamatPelanggan" min="-2" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="51" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="buttonKembali" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="buttonUbah" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="buttonHapus" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="buttonKirim" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="buttonSimpanUbah" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace min="-2" pref="62" max="-2" attributes="0"/>
                   </Group>
@@ -173,19 +164,6 @@
                 <Property name="text" type="java.lang.String" value="Form Pelanggan"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JButton" name="buttonKembali">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="Kembali"/>
-              </Properties>
-            </Component>
-            <Component class="javax.swing.JButton" name="buttonUbah">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="Ubah"/>
-              </Properties>
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buttonUbahActionPerformed"/>
-              </Events>
-            </Component>
             <Component class="javax.swing.JButton" name="buttonHapus">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Hapus"/>
@@ -200,14 +178,6 @@
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buttonKirimActionPerformed"/>
-              </Events>
-            </Component>
-            <Component class="javax.swing.JButton" name="buttonSimpanUbah">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="Simpan Ubah"/>
-              </Properties>
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buttonSimpanUbahActionPerformed"/>
               </Events>
             </Component>
           </SubComponents>

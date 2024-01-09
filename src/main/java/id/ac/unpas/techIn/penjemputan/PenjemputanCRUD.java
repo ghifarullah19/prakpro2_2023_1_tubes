@@ -15,6 +15,7 @@ import id.ac.unpas.techIn.permintaan.Permintaan;
 import id.ac.unpas.techIn.permintaan.PermintaanModelTable;
 import id.ac.unpas.techIn.penjemputan.PenjemputanModelTable;
 import java.util.List;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -409,7 +410,14 @@ public class PenjemputanCRUD
 
         PermintaanDao permintaanDao = new PermintaanDao();
 
-        permintaanDao.updateBasedPenjemputan(penjemputan);
+        int confirmation = JOptionPane.showConfirmDialog(PenjemputanCRUD.this,"Apakah yakin ingin mengubah data?", 
+                       "Peringatan!", JOptionPane.YES_NO_OPTION);
+        
+        if (confirmation == JOptionPane.YES_OPTION) { //Jika Confirmation Option bernilai "Yes"
+                permintaanDao.updateBasedPenjemputan(penjemputan);
+               } else { //Jika tidak,
+                   JOptionPane.showMessageDialog(PenjemputanCRUD.this, "Data tidak diubah"); 
+               }
     }// GEN-LAST:event_buttonSimpanUbahActionPerformed
 
     private void buttonHapusActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_buttonHapusActionPerformed
@@ -442,8 +450,16 @@ public class PenjemputanCRUD
             }
             id = this.penjemputanDao.select(col, newValue);
 
-            this.delete(id);
-            // this.penjemputanDao.delete(id);
+            int confirmation = JOptionPane.showConfirmDialog(PenjemputanCRUD.this,"Apakah yakin ingin menghapus data?", 
+                       "Peringatan!", JOptionPane.YES_NO_OPTION);
+        
+            if (confirmation == JOptionPane.YES_OPTION) { //Jika Confirmation Option bernilai "Yes"
+                this.delete(id);
+                // this.penjemputanDao.delete(id);
+                 JOptionPane.showMessageDialog(PenjemputanCRUD.this, "Data sudah dihapus", "Peringatan!", JOptionPane.WARNING_MESSAGE);
+               } else { //Jika tidak,
+                   JOptionPane.showMessageDialog(PenjemputanCRUD.this, "Data tidak dihapus"); 
+               }
         }
     }// GEN-LAST:event_buttonHapusActionPerformed
 

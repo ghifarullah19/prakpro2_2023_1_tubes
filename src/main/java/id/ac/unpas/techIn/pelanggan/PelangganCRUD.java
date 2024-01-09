@@ -9,6 +9,7 @@ import id.ac.unpas.techIn.pelanggan.Pelanggan;
 import id.ac.unpas.techIn.penjemputan.Penjemputan;
 import id.ac.unpas.techIn.pelanggan.PelangganModelTable;
 import java.util.List;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -61,11 +62,8 @@ public class PelangganCRUD
         labelAlamatPelanggan = new javax.swing.JLabel();
         textfieldAlamatPelanggan = new javax.swing.JTextField();
         titleCRUDPelanggan = new javax.swing.JLabel();
-        buttonKembali = new javax.swing.JButton();
-        buttonUbah = new javax.swing.JButton();
         buttonHapus = new javax.swing.JButton();
         buttonKirim = new javax.swing.JButton();
-        buttonSimpanUbah = new javax.swing.JButton();
         scrollableTable = new javax.swing.JScrollPane();
         jScrollPane1 = new javax.swing.JScrollPane();
         tablePelanggan = new javax.swing.JTable();
@@ -83,15 +81,6 @@ public class PelangganCRUD
         titleCRUDPelanggan.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         titleCRUDPelanggan.setText("Form Pelanggan");
 
-        buttonKembali.setText("Kembali");
-
-        buttonUbah.setText("Ubah");
-        buttonUbah.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                buttonUbahActionPerformed(evt);
-            }
-        });
-
         buttonHapus.setText("Hapus");
         buttonHapus.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -106,40 +95,27 @@ public class PelangganCRUD
             }
         });
 
-        buttonSimpanUbah.setText("Simpan Ubah");
-        buttonSimpanUbah.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                buttonSimpanUbahActionPerformed(evt);
-            }
-        });
-
         javax.swing.GroupLayout panelCRUDPelangganLayout = new javax.swing.GroupLayout(panelCRUDPelanggan);
         panelCRUDPelanggan.setLayout(panelCRUDPelangganLayout);
         panelCRUDPelangganLayout.setHorizontalGroup(
             panelCRUDPelangganLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelCRUDPelangganLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap(237, Short.MAX_VALUE)
                 .addComponent(titleCRUDPelanggan)
                 .addGap(164, 164, 164))
             .addGroup(panelCRUDPelangganLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(panelCRUDPelangganLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(panelCRUDPelangganLayout.createSequentialGroup()
-                        .addComponent(buttonKembali)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(buttonUbah)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(buttonSimpanUbah))
                     .addGroup(panelCRUDPelangganLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                         .addComponent(labelNamaPelanggan)
                         .addComponent(labelAlamatPelanggan)
                         .addComponent(textfieldAlamatPelanggan, javax.swing.GroupLayout.DEFAULT_SIZE, 204, Short.MAX_VALUE)
-                        .addComponent(textfieldNamaPelanggan)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(buttonHapus)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(buttonKirim)
-                .addContainerGap(67, Short.MAX_VALUE))
+                        .addComponent(textfieldNamaPelanggan))
+                    .addGroup(panelCRUDPelangganLayout.createSequentialGroup()
+                        .addComponent(buttonHapus)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(buttonKirim)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         panelCRUDPelangganLayout.setVerticalGroup(
             panelCRUDPelangganLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -156,11 +132,8 @@ public class PelangganCRUD
                 .addComponent(textfieldAlamatPelanggan, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(51, 51, 51)
                 .addGroup(panelCRUDPelangganLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(buttonKembali)
-                    .addComponent(buttonUbah)
                     .addComponent(buttonHapus)
-                    .addComponent(buttonKirim)
-                    .addComponent(buttonSimpanUbah))
+                    .addComponent(buttonKirim))
                 .addGap(62, 62, 62))
         );
 
@@ -216,62 +189,16 @@ public class PelangganCRUD
         pelanggan.setNama(namaPelanggan);
         pelanggan.setAlamat(alamatPenjemputan);
 
-        this.pelangganDao.insert(pelanggan);
-        this.addData(pelanggan);
+        int confirmation = JOptionPane.showConfirmDialog(PelangganCRUD.this,"Apakah yakin ingin menyimpan data?", 
+                       "Peringatan!", JOptionPane.YES_NO_OPTION);
+        
+        if (confirmation == JOptionPane.YES_OPTION) { //Jika Confirmation Option bernilai "Yes"
+            this.pelangganDao.insert(pelanggan);
+            this.addData(pelanggan);
+               } else { //Jika tidak,
+                   JOptionPane.showMessageDialog(PelangganCRUD.this, "Data tidak disimpan"); 
+               }
     }//GEN-LAST:event_buttonKirimActionPerformed
-
-    private void buttonUbahActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonUbahActionPerformed
-        // TODO add your handling code here:
-        int row = tablePelanggan.getSelectedRow();
-        int column = tablePelanggan.getSelectedColumn();
-
-        if (row == -1 || column == -1) {
-            return;
-        }
-
-        String dataUbah = (String) tablePelanggan.getModel().getValueAt(row, column);
-
-        int id = -1;
-        String col = "";
-
-        switch (column) {
-            case 0:
-                col = "namaPelanggan";
-                break;
-            case 1:
-                col = "alamatPenjemputan";
-                break;
-            case 2:
-                col = "status";
-                break;
-            default:
-                System.out.println("Kolom tidak ditemukan");
-                break;
-        }
-        id = this.pelangganDao.select(col, dataUbah).getId();
-       
-        this.textfieldNamaPelanggan.setText(this.pelangganDao.select(col, dataUbah).getNama());
-        this.textfieldAlamatPelanggan.setText(this.pelangganDao.select(col, dataUbah).getAlamat());
-
-        
-        pelangganUbah = new Pelanggan();
-        pelangganUbah.setId(id);
-    }//GEN-LAST:event_buttonUbahActionPerformed
-
-    private void buttonSimpanUbahActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonSimpanUbahActionPerformed
-        // TODO add your handling code here:
-        
-        String nama = this.textfieldNamaPelanggan.getText();
-        String alamat = this.textfieldAlamatPelanggan.getText();
-
-        Pelanggan pelanggan = new Pelanggan();
-        pelanggan.setId(pelangganUbah.getId());
-        pelanggan.setNama(nama);
-        pelanggan.setAlamat(alamat);
-
-        this.pelangganDao.update(pelanggan);
-        this.update(pelanggan);
-    }//GEN-LAST:event_buttonSimpanUbahActionPerformed
 
     private void buttonHapusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonHapusActionPerformed
         // TODO add your handling code here:
@@ -303,8 +230,16 @@ public class PelangganCRUD
             }
             id = this.pelangganDao.select(col, newValue);
 
-            this.delete(id);
-            this.pelangganDao.delete(id);
+            int confirmation = JOptionPane.showConfirmDialog(PelangganCRUD.this,"Apakah yakin ingin menghapus data?", 
+                       "Peringatan!", JOptionPane.YES_NO_OPTION);
+        
+            if (confirmation == JOptionPane.YES_OPTION) { //Jika Confirmation Option bernilai "Yes"
+                this.delete(id);
+                this.pelangganDao.delete(id);
+                JOptionPane.showMessageDialog(PelangganCRUD.this, "Data sudah dihapus", "Peringatan!", JOptionPane.WARNING_MESSAGE);
+              } else { //Jika tidak,
+                JOptionPane.showMessageDialog(PelangganCRUD.this, "Data tidak dihapus"); 
+              }
         }
     }//GEN-LAST:event_buttonHapusActionPerformed
 
@@ -339,10 +274,7 @@ public class PelangganCRUD
     private javax.swing.ButtonGroup buttonGroup8;
     private javax.swing.ButtonGroup buttonGroup9;
     private javax.swing.JButton buttonHapus;
-    private javax.swing.JButton buttonKembali;
     private javax.swing.JButton buttonKirim;
-    private javax.swing.JButton buttonSimpanUbah;
-    private javax.swing.JButton buttonUbah;
     private javax.swing.JPanel frameCRUDPelanggan;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel labelAlamatPelanggan;
