@@ -1,4 +1,4 @@
-<h1>Kelompok 1</h1>
+<h1>Kelompok 1 (Minnerva)</h1>
 <hr>
 
 **Anggota**
@@ -19,7 +19,11 @@
 **Terima Kasih Kepada**
 <ul>
   <li>Orang Tua Kami</li>
-  <li>Bapak Wanda Gusdya ST., MT.</li>
+  <li>Bapak Wanda Gusdya, S.T., M.T.</li>
   <li>Kang Dhaifullah Hilmy</li>
-  <li>Kang Adhitya Fataha Dwijaya ST.</li>
+  <li>Kang Aditya Fataha Dwijaya, S.T.</li>
 </ul>
+
+**Lisensi**
+<br>
+&copy; 2024 Minnerva.
