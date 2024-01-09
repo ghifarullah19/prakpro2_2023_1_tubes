@@ -9,12 +9,15 @@ import id.ac.unpas.techIn.dao.PermintaanDao;
 import id.ac.unpas.techIn.dao.LacakDao;
 import id.ac.unpas.techIn.dao.PenjemputanDao;
 import id.ac.unpas.techIn.dao.RiwayatDao;
+import id.ac.unpas.techIn.dao.SampahDao;
 import id.ac.unpas.techIn.pelanggan.PelangganFrame;
 import id.ac.unpas.techIn.permintaan.PermintaanFrame;
 import id.ac.unpas.techIn.lacak.LacakFrame;
 import id.ac.unpas.techIn.penjemputan.PenjemputanFrame;
-import id.ac.unpas.techIn.permintaan.PermintaanCRUD;
+import id.ac.unpas.techIn.permintaan.Permintaan;
 import id.ac.unpas.techIn.riwayat.RiwayatFrame;
+import id.ac.unpas.techIn.sampah.Sampah;
+import java.util.List;
 
 /**
  *
@@ -33,12 +36,19 @@ public class MainFrame
     private LacakDao lacakDao;
     private PenjemputanDao penjemputanDao;
     private RiwayatDao riwayatDao;
-
+    private SampahDao sampahDao;
+    
     /**
      * Creates new form MainFrame
      */
     public MainFrame() {
+        SampahDao sampahDao = new SampahDao();
+        List<Sampah> sampahList = sampahDao.findAll();
+        PermintaanDao permintaanDao = new PermintaanDao();
+        List<Permintaan> permintaanList = permintaanDao.findAll();
         initComponents();
+        jumlahTotalSampah.setText(String.valueOf(sampahList.size()));
+        jumlahTotalPermintaan.setText(String.valueOf(permintaanList.size()));
     }
 
     /**
