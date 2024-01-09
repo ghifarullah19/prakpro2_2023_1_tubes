@@ -88,62 +88,74 @@ public class MainFrame
 
         jPanel2.setBackground(new java.awt.Color(204, 204, 204));
 
-        jPanel1.setBackground(new java.awt.Color(51, 102, 255));
+        jPanel1.setBackground(new java.awt.Color(22, 72, 99));
         jPanel1.setForeground(new java.awt.Color(51, 51, 255));
 
+        buttonHome.setBackground(new java.awt.Color(22, 72, 99));
+        buttonHome.setForeground(new java.awt.Color(255, 255, 255));
         buttonHome.setText("Home");
+        buttonHome.setBorderPainted(false);
         buttonHome.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 buttonHomeActionPerformed(evt);
             }
         });
 
+        cobaShowPelanggan.setBackground(new java.awt.Color(22, 72, 99));
+        cobaShowPelanggan.setForeground(new java.awt.Color(255, 255, 255));
         cobaShowPelanggan.setText("Permintaan");
+        cobaShowPelanggan.setBorderPainted(false);
         cobaShowPelanggan.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cobaShowPelangganActionPerformed(evt);
             }
         });
 
+        buttonPenjemputan.setBackground(new java.awt.Color(22, 72, 99));
+        buttonPenjemputan.setForeground(new java.awt.Color(255, 255, 255));
         buttonPenjemputan.setText("Penjemputan");
+        buttonPenjemputan.setBorderPainted(false);
         buttonPenjemputan.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 buttonPenjemputanActionPerformed(evt);
             }
         });
 
+        buttonLacak.setBackground(new java.awt.Color(22, 72, 99));
+        buttonLacak.setForeground(new java.awt.Color(255, 255, 255));
         buttonLacak.setText("Lacak");
+        buttonLacak.setBorderPainted(false);
         buttonLacak.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 buttonLacakActionPerformed(evt);
             }
         });
 
+        iconTitle.setFont(new java.awt.Font("Kreakers Brush", 0, 12)); // NOI18N
+        iconTitle.setForeground(new java.awt.Color(255, 255, 255));
         iconTitle.setText("Recycle Bin");
 
+        buttonRiwayat.setBackground(new java.awt.Color(22, 72, 99));
+        buttonRiwayat.setForeground(new java.awt.Color(255, 255, 255));
         buttonRiwayat.setText("Riwayat");
-        buttonRiwayat.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                buttonRiwayatActionPerformed(evt);
-            }
-        });
+        buttonRiwayat.setBorderPainted(false);
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(32, 32, 32)
+                .addGap(52, 52, 52)
                 .addComponent(iconTitle)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(buttonHome)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(cobaShowPelanggan)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(buttonPenjemputan)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(buttonLacak)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(buttonRiwayat)
                 .addContainerGap())
         );
@@ -165,16 +177,17 @@ public class MainFrame
 
         panelTotalSampah.setBackground(new java.awt.Color(255, 255, 255));
         panelTotalSampah.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(102, 102, 102), 3, true));
+        panelTotalSampah.setPreferredSize(new java.awt.Dimension(295, 120));
 
         labelTotalSampah.setBackground(new java.awt.Color(51, 153, 255));
         labelTotalSampah.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        labelTotalSampah.setForeground(new java.awt.Color(51, 153, 255));
+        labelTotalSampah.setForeground(new java.awt.Color(22, 72, 99));
         labelTotalSampah.setText("Total Sampah didapat");
 
         iconTotalSampah.setText("iconTotalSampah");
 
         jumlahTotalSampah.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jumlahTotalSampah.setForeground(new java.awt.Color(51, 153, 255));
+        jumlahTotalSampah.setForeground(new java.awt.Color(22, 72, 99));
         jumlahTotalSampah.setText("jumlahTotalSampah");
 
         javax.swing.GroupLayout panelTotalSampahLayout = new javax.swing.GroupLayout(panelTotalSampah);
@@ -208,22 +221,23 @@ public class MainFrame
 
         panelTotalPermintaan.setBackground(new java.awt.Color(255, 255, 255));
         panelTotalPermintaan.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(102, 102, 102), 3, true));
+        panelTotalPermintaan.setPreferredSize(new java.awt.Dimension(295, 120));
 
         labelTotalPermintaan.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        labelTotalPermintaan.setForeground(new java.awt.Color(102, 153, 255));
+        labelTotalPermintaan.setForeground(new java.awt.Color(22, 72, 99));
+        labelTotalPermintaan.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         labelTotalPermintaan.setText("Jumlah Permintaan Penjemputan Sampah");
 
         iconTotalPermintaan.setText("iconTotalPermintaan");
 
         jumlahTotalPermintaan.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jumlahTotalPermintaan.setForeground(new java.awt.Color(51, 153, 255));
+        jumlahTotalPermintaan.setForeground(new java.awt.Color(22, 72, 99));
         jumlahTotalPermintaan.setText("jumlahTotalPermintaan");
 
         javax.swing.GroupLayout panelTotalPermintaanLayout = new javax.swing.GroupLayout(panelTotalPermintaan);
         panelTotalPermintaan.setLayout(panelTotalPermintaanLayout);
         panelTotalPermintaanLayout.setHorizontalGroup(
             panelTotalPermintaanLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jSeparator2)
             .addGroup(panelTotalPermintaanLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(panelTotalPermintaanLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -232,7 +246,8 @@ public class MainFrame
                         .addComponent(iconTotalPermintaan)
                         .addGap(34, 34, 34)
                         .addComponent(jumlahTotalPermintaan)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(97, Short.MAX_VALUE))
+            .addComponent(jSeparator2, javax.swing.GroupLayout.Alignment.TRAILING)
         );
         panelTotalPermintaanLayout.setVerticalGroup(
             panelTotalPermintaanLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -245,7 +260,7 @@ public class MainFrame
                 .addGroup(panelTotalPermintaanLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(iconTotalPermintaan)
                     .addComponent(jumlahTotalPermintaan))
-                .addContainerGap(41, Short.MAX_VALUE))
+                .addContainerGap(51, Short.MAX_VALUE))
         );
 
         panelGrafik.setBackground(new java.awt.Color(255, 255, 255));
@@ -255,16 +270,16 @@ public class MainFrame
         panelGrafik.setLayout(panelGrafikLayout);
         panelGrafikLayout.setHorizontalGroup(
             panelGrafikLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 617, Short.MAX_VALUE)
+            .addGap(0, 806, Short.MAX_VALUE)
         );
         panelGrafikLayout.setVerticalGroup(
             panelGrafikLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 207, Short.MAX_VALUE)
         );
 
-        jLabel1.setBackground(new java.awt.Color(51, 153, 255));
+        jLabel1.setBackground(new java.awt.Color(22, 72, 99));
         jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(51, 102, 255));
+        jLabel1.setForeground(new java.awt.Color(22, 72, 99));
         jLabel1.setText("Jumlah Penjemputan Sampah per Bulan");
 
         buttonCRUD.setText("CRUD");
@@ -278,36 +293,34 @@ public class MainFrame
         panelHome.setLayout(panelHomeLayout);
         panelHomeLayout.setHorizontalGroup(
             panelHomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panelHomeLayout.createSequentialGroup()
-                .addGap(74, 74, 74)
-                .addGroup(panelHomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelHomeLayout.createSequentialGroup()
+                .addContainerGap(18, Short.MAX_VALUE)
+                .addGroup(panelHomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(panelHomeLayout.createSequentialGroup()
                         .addComponent(jLabel1)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(buttonCRUD))
                     .addGroup(panelHomeLayout.createSequentialGroup()
-                        .addComponent(panelGrafik, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelHomeLayout.createSequentialGroup()
-                        .addComponent(panelTotalSampah, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, Short.MAX_VALUE)
-                        .addComponent(panelTotalPermintaan, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(64, 64, 64))
+                        .addComponent(panelTotalSampah, javax.swing.GroupLayout.DEFAULT_SIZE, 390, Short.MAX_VALUE)
+                        .addGap(18, 18, 18)
+                        .addComponent(panelTotalPermintaan, javax.swing.GroupLayout.PREFERRED_SIZE, 404, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(panelGrafik, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(15, 15, 15))
         );
         panelHomeLayout.setVerticalGroup(
             panelHomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelHomeLayout.createSequentialGroup()
-                .addGap(11, 11, 11)
+                .addGap(27, 27, 27)
                 .addGroup(panelHomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
                     .addComponent(buttonCRUD))
                 .addGap(18, 18, 18)
                 .addGroup(panelHomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(panelTotalSampah, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(panelTotalPermintaan, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(panelTotalSampah, javax.swing.GroupLayout.DEFAULT_SIZE, 144, Short.MAX_VALUE)
+                    .addComponent(panelTotalPermintaan, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addComponent(panelGrafik, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(57, Short.MAX_VALUE))
+                .addContainerGap(31, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
