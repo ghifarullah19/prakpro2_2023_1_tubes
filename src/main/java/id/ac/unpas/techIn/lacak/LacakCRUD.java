@@ -8,6 +8,7 @@ import id.ac.unpas.techIn.lacak.*;
 import id.ac.unpas.techIn.dao.LacakDao;
 import id.ac.unpas.techIn.lacak.LacakModelTable;
 import java.util.List;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -293,7 +294,15 @@ public class LacakCRUD
             lacak.setNamaKurir(lacakList.get(i).getNamaKurir());
             lacak.setAlamatTujuan(lacakList.get(i).getAlamatTujuan());
             lacak.setStatus(true);
-            this.addData(lacak);
+
+            int confirmation = JOptionPane.showConfirmDialog(LacakCRUD.this,"Apakah yakin ingin menyimpan data?", 
+                       "Peringatan!", JOptionPane.YES_NO_OPTION);
+        
+            if (confirmation == JOptionPane.YES_OPTION) { //Jika Confirmation Option bernilai "Yes"
+                this.addData(lacak);
+              } else { //Jika tidak,
+                JOptionPane.showMessageDialog(LacakCRUD.this, "Data tidak disimpan"); 
+              }
         }
     }// GEN-LAST:event_buttonKirimActionPerformed
 
@@ -373,8 +382,17 @@ public class LacakCRUD
         lacak.setAlamatTujuan(alamatTujuan);
         lacak.setStatus(status);
 
-        this.lacakDao.update(lacak);
-        this.update(lacak);
+        
+        
+        int confirmation = JOptionPane.showConfirmDialog(LacakCRUD.this,"Apakah yakin ingin mengubah data?", 
+                       "Peringatan!", JOptionPane.YES_NO_OPTION);
+        
+            if (confirmation == JOptionPane.YES_OPTION) { //Jika Confirmation Option bernilai "Yes"
+                this.lacakDao.update(lacak);
+                this.update(lacak);
+              } else { //Jika tidak,
+                JOptionPane.showMessageDialog(LacakCRUD.this, "Data tidak diubah"); 
+              }
     }// GEN-LAST:event_buttonSimpanUbahActionPerformed
 
     private void buttonHapusActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_buttonHapusActionPerformed
@@ -413,8 +431,16 @@ public class LacakCRUD
             }
             id = this.lacakDao.select(col, newValue);
 
-            this.delete(id);
-            // this.lacakDao.delete(id);
+            int confirmation = JOptionPane.showConfirmDialog(LacakCRUD.this,"Apakah yakin ingin menghapus data?", 
+                       "Peringatan!", JOptionPane.YES_NO_OPTION);
+        
+            if (confirmation == JOptionPane.YES_OPTION) { //Jika Confirmation Option bernilai "Yes"
+                this.delete(id);
+                // this.lacakDao.delete(id);
+                JOptionPane.showMessageDialog(LacakCRUD.this, "Data sudah dihapus", "Peringatan!", JOptionPane.WARNING_MESSAGE);
+              } else { //Jika tidak,
+                JOptionPane.showMessageDialog(LacakCRUD.this, "Data tidak dihapus"); 
+              }
         }
     }// GEN-LAST:event_buttonHapusActionPerformed
 

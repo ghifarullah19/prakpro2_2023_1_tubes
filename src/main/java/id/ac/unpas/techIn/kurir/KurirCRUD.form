@@ -102,30 +102,19 @@
                       <EmptySpace min="-2" pref="164" max="-2" attributes="0"/>
                   </Group>
                   <Group type="102" attributes="0">
+                      <EmptySpace min="-2" pref="16" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" attributes="0">
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Component id="buttonKembali" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Component id="buttonUbah" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Component id="buttonSimpanUbah" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace max="-2" attributes="0"/>
                               <Component id="buttonHapus" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace max="-2" attributes="0"/>
+                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
                               <Component id="buttonKirim" min="-2" max="-2" attributes="0"/>
                           </Group>
-                          <Group type="102" alignment="0" attributes="0">
-                              <EmptySpace min="-2" pref="16" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="labelNamaKurir" min="-2" max="-2" attributes="0"/>
-                                  <Component id="textfieldNamaKurir" min="-2" pref="193" max="-2" attributes="0"/>
-                                  <Component id="labeNoKendaraanKurir" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Component id="textfieldNoKendaraan" alignment="0" min="-2" pref="193" max="-2" attributes="0"/>
-                              </Group>
-                          </Group>
+                          <Component id="labelNamaKurir" min="-2" max="-2" attributes="0"/>
+                          <Component id="textfieldNamaKurir" min="-2" pref="193" max="-2" attributes="0"/>
+                          <Component id="labeNoKendaraanKurir" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="textfieldNoKendaraan" alignment="0" min="-2" pref="193" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace max="32767" attributes="0"/>
+                      <EmptySpace pref="278" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -142,15 +131,12 @@
                       <Component id="labeNoKendaraanKurir" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="textfieldNoKendaraan" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="50" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="52" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="buttonKembali" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="buttonUbah" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="buttonHapus" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="buttonKirim" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="buttonSimpanUbah" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="buttonHapus" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace min="-2" pref="36" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="34" max="-2" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -161,19 +147,6 @@
                 <Property name="horizontalAlignment" type="int" value="0"/>
                 <Property name="text" type="java.lang.String" value="Form Kurir"/>
               </Properties>
-            </Component>
-            <Component class="javax.swing.JButton" name="buttonKembali">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="Kembali"/>
-              </Properties>
-            </Component>
-            <Component class="javax.swing.JButton" name="buttonUbah">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="Ubah"/>
-              </Properties>
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buttonUbahActionPerformed"/>
-              </Events>
             </Component>
             <Component class="javax.swing.JButton" name="buttonHapus">
               <Properties>
@@ -189,14 +162,6 @@
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buttonKirimActionPerformed"/>
-              </Events>
-            </Component>
-            <Component class="javax.swing.JButton" name="buttonSimpanUbah">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="Simpan Ubah"/>
-              </Properties>
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buttonSimpanUbahActionPerformed"/>
               </Events>
             </Component>
             <Component class="javax.swing.JLabel" name="labelNamaKurir">

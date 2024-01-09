@@ -10,6 +10,7 @@ import id.ac.unpas.techIn.pelanggan.Pelanggan;
 import id.ac.unpas.techIn.penjemputan.Penjemputan;
 import id.ac.unpas.techIn.kurir.KurirModelTable;
 import java.util.List;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -57,11 +58,8 @@ public class KurirCRUD
         frameCRUDKurir = new javax.swing.JPanel();
         panelCRUDKurir = new javax.swing.JPanel();
         titleCRUDPermintaan = new javax.swing.JLabel();
-        buttonKembali = new javax.swing.JButton();
-        buttonUbah = new javax.swing.JButton();
         buttonHapus = new javax.swing.JButton();
         buttonKirim = new javax.swing.JButton();
-        buttonSimpanUbah = new javax.swing.JButton();
         labelNamaKurir = new javax.swing.JLabel();
         textfieldNamaKurir = new javax.swing.JTextField();
         labeNoKendaraanKurir = new javax.swing.JLabel();
@@ -79,15 +77,6 @@ public class KurirCRUD
         titleCRUDPermintaan.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         titleCRUDPermintaan.setText("Form Kurir");
 
-        buttonKembali.setText("Kembali");
-
-        buttonUbah.setText("Ubah");
-        buttonUbah.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                buttonUbahActionPerformed(evt);
-            }
-        });
-
         buttonHapus.setText("Hapus");
         buttonHapus.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -99,13 +88,6 @@ public class KurirCRUD
         buttonKirim.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 buttonKirimActionPerformed(evt);
-            }
-        });
-
-        buttonSimpanUbah.setText("Simpan Ubah");
-        buttonSimpanUbah.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                buttonSimpanUbahActionPerformed(evt);
             }
         });
 
@@ -134,26 +116,17 @@ public class KurirCRUD
                 .addComponent(titleCRUDPermintaan)
                 .addGap(164, 164, 164))
             .addGroup(panelCRUDKurirLayout.createSequentialGroup()
+                .addGap(16, 16, 16)
                 .addGroup(panelCRUDKurirLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(panelCRUDKurirLayout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(buttonKembali)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(buttonUbah)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(buttonSimpanUbah)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(buttonHapus)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(buttonKirim))
-                    .addGroup(panelCRUDKurirLayout.createSequentialGroup()
-                        .addGap(16, 16, 16)
-                        .addGroup(panelCRUDKurirLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(labelNamaKurir)
-                            .addComponent(textfieldNamaKurir, javax.swing.GroupLayout.PREFERRED_SIZE, 193, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(labeNoKendaraanKurir)
-                            .addComponent(textfieldNoKendaraan, javax.swing.GroupLayout.PREFERRED_SIZE, 193, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(labelNamaKurir)
+                    .addComponent(textfieldNamaKurir, javax.swing.GroupLayout.PREFERRED_SIZE, 193, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(labeNoKendaraanKurir)
+                    .addComponent(textfieldNoKendaraan, javax.swing.GroupLayout.PREFERRED_SIZE, 193, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(278, Short.MAX_VALUE))
         );
         panelCRUDKurirLayout.setVerticalGroup(
             panelCRUDKurirLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -168,14 +141,11 @@ public class KurirCRUD
                 .addComponent(labeNoKendaraanKurir)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(textfieldNoKendaraan, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(50, 50, 50)
+                .addGap(52, 52, 52)
                 .addGroup(panelCRUDKurirLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(buttonKembali)
-                    .addComponent(buttonUbah)
-                    .addComponent(buttonHapus)
                     .addComponent(buttonKirim)
-                    .addComponent(buttonSimpanUbah))
-                .addGap(36, 36, 36))
+                    .addComponent(buttonHapus))
+                .addGap(34, 34, 34))
         );
 
         tableKurir.setModel(kurirModelTable);
@@ -229,62 +199,19 @@ public class KurirCRUD
         
         kurir.setNama(namaKurir);
         kurir.setNoKendaraan(noKendaraan);
+        
+        int confirmation = JOptionPane.showConfirmDialog(KurirCRUD.this,"Apakah yakin ingin menyimpan data?", 
+                       "Peringatan!", JOptionPane.YES_NO_OPTION);
+        
+        if (confirmation == JOptionPane.YES_OPTION) { //Jika Confirmation Option bernilai "Yes"
+            this.kurirDao.insert(kurir);
+            this.addData(kurir);
+               } else { //Jika tidak,
+                   JOptionPane.showMessageDialog(KurirCRUD.this, "Data tidak disimpan"); 
+               }
 
-        this.kurirDao.insert(kurir);
-        this.addData(kurir);
+        
     }//GEN-LAST:event_buttonKirimActionPerformed
-
-    private void buttonUbahActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonUbahActionPerformed
-        // TODO add your handling code here:
-        int row = tableKurir.getSelectedRow();
-        int column = tableKurir.getSelectedColumn();
-
-        if (row == -1 || column == -1) {
-            return;
-        }
-
-        String dataUbah = (String) tableKurir.getModel().getValueAt(row, column);
-
-        int id = -1;
-        String col = "";
-
-        switch (column) {
-            case 0:
-                col = "namaPelanggan";
-                break;
-            case 1:
-                col = "alamatPenjemputan";
-                break;
-            case 2:
-                col = "status";
-                break;
-            default:
-                System.out.println("Kolom tidak ditemukan");
-                break;
-        }
-        id = this.kurirDao.select(col, dataUbah).getId();
-       
-        this.textfieldNamaKurir.setText(this.kurirDao.select(col, dataUbah).getNama());
-        this.textfieldNoKendaraan.setText(this.kurirDao.select(col, dataUbah).getNoKendaraan());
-        
-        kurirUbah = new Kurir();
-        kurirUbah.setId(id);
-    }//GEN-LAST:event_buttonUbahActionPerformed
-
-    private void buttonSimpanUbahActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonSimpanUbahActionPerformed
-        // TODO add your handling code here:
-        
-        String nama = this.textfieldNamaKurir.getText();
-        String alamat = this.textfieldNoKendaraan.getText();
-
-        Kurir kurir = new Kurir();
-        kurir.setId(kurirUbah.getId());
-        kurir.setNama(nama);
-        kurir.setNoKendaraan(alamat);
-
-        this.kurirDao.update(kurir);
-        this.update(kurir);
-    }//GEN-LAST:event_buttonSimpanUbahActionPerformed
 
     private void buttonHapusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonHapusActionPerformed
         // TODO add your handling code here:
@@ -316,8 +243,18 @@ public class KurirCRUD
             }
             id = this.kurirDao.select(col, newValue);
 
+            
+            
+            int confirmation = JOptionPane.showConfirmDialog(KurirCRUD.this,"Apakah yakin ingin menghapus data?", 
+                       "Peringatan!", JOptionPane.YES_NO_OPTION);
+        
+        if (confirmation == JOptionPane.YES_OPTION) { //Jika Confirmation Option bernilai "Yes"
             this.delete(id);
             this.kurirDao.delete(id);
+            JOptionPane.showMessageDialog(KurirCRUD.this, "Data sudah dihapus", "Peringatan!", JOptionPane.WARNING_MESSAGE);
+          } else { //Jika tidak,
+            JOptionPane.showMessageDialog(KurirCRUD.this, "Data tidak dihapus"); 
+          }
         }
     }//GEN-LAST:event_buttonHapusActionPerformed
 
@@ -360,10 +297,7 @@ public class KurirCRUD
     private javax.swing.ButtonGroup buttonGroup8;
     private javax.swing.ButtonGroup buttonGroup9;
     private javax.swing.JButton buttonHapus;
-    private javax.swing.JButton buttonKembali;
     private javax.swing.JButton buttonKirim;
-    private javax.swing.JButton buttonSimpanUbah;
-    private javax.swing.JButton buttonUbah;
     private javax.swing.JPanel frameCRUDKurir;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel labeNoKendaraanKurir;
